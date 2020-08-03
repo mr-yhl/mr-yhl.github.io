@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://mryhl.com.cn/bxws/5de6.html</loc>
+    
+    <lastmod>2020-08-03</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://mryhl.com.cn/bxws/4b96.html</loc>
     
     <lastmod>2020-08-03</lastmod>
@@ -9,7 +16,7 @@
   </url>
   
   <url>
-    <loc>http://mryhl.com.cn/bxws/5de6.html</loc>
+    <loc>http://mryhl.com.cn/bxws/3da2.html</loc>
     
     <lastmod>2020-08-03</lastmod>
     
@@ -31,13 +38,6 @@
   
   <url>
     <loc>http://mryhl.com.cn/bxws/2c2a.html</loc>
-    
-    <lastmod>2020-08-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://mryhl.com.cn/bxws/3da2.html</loc>
     
     <lastmod>2020-08-03</lastmod>
     
@@ -529,14 +529,14 @@
   </url>
   
   <url>
-    <loc>http://mryhl.com.cn/tags/%E7%AE%80%E5%8E%86/</loc>
+    <loc>http://mryhl.com.cn/tags/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/</loc>
     <lastmod>2020-08-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://mryhl.com.cn/tags/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/</loc>
+    <loc>http://mryhl.com.cn/tags/%E7%AE%80%E5%8E%86/</loc>
     <lastmod>2020-08-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -641,6 +641,13 @@
   </url>
   
   <url>
+    <loc>http://mryhl.com.cn/tags/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/</loc>
+    <lastmod>2020-08-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://mryhl.com.cn/tags/%E7%B1%BB/</loc>
     <lastmod>2020-08-03</lastmod>
     <changefreq>daily</changefreq>
@@ -656,13 +663,6 @@
   
   <url>
     <loc>http://mryhl.com.cn/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</loc>
-    <lastmod>2020-08-03</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://mryhl.com.cn/tags/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/</loc>
     <lastmod>2020-08-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://p.pstatp.com/origin/ff4d0002ed220129ebeb">
 <meta property="og:image" content="https://p.pstatp.com/origin/ff290002cbb247d81abf">
 <meta property="article:published_time" content="2020-08-03T12:03:25.000Z">
-<meta property="article:modified_time" content="2020-08-03T12:08:40.092Z">
+<meta property="article:modified_time" content="2020-08-03T12:33:19.998Z">
 <meta property="article:author" content="杨海林">
 <meta property="article:tag" content="code">
 <meta property="article:tag" content="java">
@@ -493,46 +493,7 @@ Lambda表达式、Stream流</center>
 
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line">一. 线程池</span><br><span class="line">	概念：线程池就是一个容器，这个容器里面预先保存了很多线程，线程池里面的线程可以多次执行任务。</span><br><span class="line">	      这样就可以解决频繁创建以及销毁线程带来的性能问题。</span><br><span class="line">		  </span><br><span class="line">	相关API：</span><br><span class="line">		Executor：线程池的根接口。</span><br><span class="line">		ExecutorService：Executor的子接口，该接口表示线程池</span><br><span class="line">		Executors：线程池的工具类，可以获取线程池</span><br><span class="line">			newFixedThreadPool(<span class="keyword">int</span> leng)：获取定长的线程池的方法</span><br><span class="line">			</span><br><span class="line">	线程池的使用方式：</span><br><span class="line">		<span class="number">1</span>. 通过Executors调用方法获取线程池。</span><br><span class="line">		<span class="number">2</span>. 定义线程池要执行的任务【Runnable实现类】</span><br><span class="line">		<span class="number">3</span>. 调用线程池的submit方法，提交线程任务。</span><br><span class="line">		<span class="number">4</span>. 销毁线程池【一般不做】</span><br><span class="line">		</span><br><span class="line">	Callable接口的方式完成多线程</span><br><span class="line">		了解，基本不用。</span><br><span class="line">		</span><br><span class="line">二. 死锁</span><br><span class="line">	如果多个线程各自持有自己的锁并且等待对方释放锁，就会相互僵持，这就就是死锁。</span><br><span class="line">	死锁是一个错误的代码，要避免。</span><br><span class="line">	</span><br><span class="line">三. 线程状态</span><br><span class="line">	新建（NEW）：刚刚创建出来并没有调用start方法启动的线程处于新建状态。</span><br><span class="line">	运行（RUNNABLE）：线程调用start方法会处于运行的状态。</span><br><span class="line">	受阻塞（BLOCKED）：等待获取锁的线程处于受阻塞的状态。</span><br><span class="line">	无限等待（WAITING）：当线程调用wait()方法后，处于无限等待状态【没有时间的等待，别人不叫我，我就一直等】</span><br><span class="line">	计时等待（TIMED_WAITING）：当线程调用sleep(毫秒)，wait(毫秒值)会进入到计时等待【有时间的等待，到了时间别人不叫我，我也会醒】</span><br><span class="line">	退出（TERMINATED）：如果线程执行完了run方法，或者线程调用了stop方法。</span><br><span class="line">	</span><br><span class="line">四. 等待唤醒机制【能看懂即可】</span><br><span class="line">	在Object中，有两种方法可以让线程等待以及唤醒线程。</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">wait</span><span class="params">()</span>：让线程等待，直到有其他线程唤醒他。</span></span><br><span class="line"><span class="function">        <span class="keyword">void</span> <span class="title">wait</span><span class="params">(<span class="keyword">long</span> timeout)</span>：让线程等待，直到有其他线程唤醒他，或者时间到了也会自己醒。参数是等待的毫秒值。</span></span><br><span class="line"><span class="function">        <span class="keyword">void</span> <span class="title">notify</span><span class="params">()</span>： 唤醒一个等待的线程。</span></span><br><span class="line"><span class="function">        <span class="keyword">void</span> <span class="title">notifyAll</span><span class="params">()</span>： 唤醒所有等待的线程。</span></span><br><span class="line"><span class="function">		</span></span><br><span class="line"><span class="function">五. 定时器</span></span><br><span class="line"><span class="function">	Timer类， 表示定时器，可以只执行一次，也可以周期性的执行</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">    Timer的构造方法：</span></span><br><span class="line"><span class="function">        <span class="title">Timer</span><span class="params">()</span>：空参数的构造方法</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">    其他方法：</span></span><br><span class="line"><span class="function">        <span class="keyword">void</span> <span class="title">schedule</span><span class="params">(TimerTask task, <span class="keyword">long</span> delay)</span>：指定毫秒值【delay】后，执行任务【task】，只执行一次</span></span><br><span class="line"><span class="function">        <span class="keyword">void</span> <span class="title">schedule</span><span class="params">(TimerTask task, <span class="keyword">long</span> delay, <span class="keyword">long</span> period)</span>:指定毫秒值【delay】后，执行任务【task】，该方法会周期性的执行任务，每隔period会执行一次</span></span><br><span class="line"><span class="function">        <span class="keyword">void</span> <span class="title">schedule</span><span class="params">(TimerTask task, Date time)</span>：安排定时器在指定的时间【time】执行任务【task】</span></span><br><span class="line"><span class="function">        <span class="keyword">void</span> <span class="title">schedule</span><span class="params">(TimerTask task, Date firstTime, <span class="keyword">long</span> period)</span>：安排定时器在指定的时间【time】执行任务【task】。会周期性的执行，每隔period会执行一次</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">六. Lambda表达式【要会写】</span></span><br><span class="line"><span class="function">	Lambda是匿名内部类的简化写法。</span></span><br><span class="line"><span class="function">	标准格式：</span></span><br><span class="line"><span class="function">		<span class="params">(参数类型 参数名)</span> -&gt; </span>&#123;</span><br><span class="line">			方法体;</span><br><span class="line">			<span class="keyword">return</span> 返回值;</span><br><span class="line">		&#125;</span><br><span class="line">	</span><br><span class="line">	省略规则：</span><br><span class="line">		<span class="number">1</span>. 小括号中的参数类型可以省略。</span><br><span class="line">		<span class="number">2</span>. 如果小括号中只有一个参数，小括号可以省略。</span><br><span class="line">		<span class="number">3</span>. 如果大括号中只有一条语句，可以省略大括号，<span class="keyword">return</span>，以及分号。</span><br><span class="line">		</span><br><span class="line">	Lambda表达式的使用前提：</span><br><span class="line">		<span class="number">1</span>. 必须要有函数式接口【该接口中有且仅有一个需要被重写的抽象方法】</span><br><span class="line">		<span class="number">2</span>. 必须支持上下文推导【使用函数式接口当做方法参数，传递Lambda表达式】</span><br><span class="line">		</span><br><span class="line">七. Stream流</span><br><span class="line">	思想：相当于流水线</span><br><span class="line">	</span><br><span class="line">	获取流的两种方式：</span><br><span class="line">		<span class="number">1</span>. 通过单列集合调用stream方法获取。</span><br><span class="line">		<span class="number">2</span>. 通过Stream的静态方法of根据数组或者多个元素获取。</span><br><span class="line">		</span><br><span class="line">	Stream中的其他方法：</span><br><span class="line">		forEach：逐一处理</span><br><span class="line">		count：获取个数</span><br><span class="line">		limit：获取前几个元素</span><br><span class="line">		skip：跳过前几个元素</span><br><span class="line">		filter： 过滤</span><br><span class="line">		concat：合并</span><br><span class="line">		map：映射</span><br><span class="line">		</span><br><span class="line">	将流中的元素收集到集合或数组</span><br><span class="line">		将流中的元素收集到集合	</span><br><span class="line">			流.collect(Collectors.toList())：将流中的元素收集到List集合</span><br><span class="line">			流.collect(Collectors.toSet())：将流中的元素收集到Set集合</span><br><span class="line">		将流中的元素收集到数组</span><br><span class="line">			流.toArray();</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">多线程部分要能够写出线程池的代码</span><br><span class="line">函数式编程部分要能够使用Lambda表达式</span><br></pre></td></tr></table></figure>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<p>   <a href="https://github.com/mr-yhl/javajybc" target="_blank" rel="noopener">代码查看地址day12</a></p>
 
       
       
@@ -1008,11 +969,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">简历</a>
+                <a href="javascript:void(0)" class="js-tag color5">快速排序</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">快速排序</a>
+                <a href="javascript:void(0)" class="js-tag color3">简历</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1072,6 +1033,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础概念</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">类</a>
               </li>
              
@@ -1081,10 +1046,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">面向对象</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础概念</a>
               </li>
              
               <li class="article-tag-list-item">
