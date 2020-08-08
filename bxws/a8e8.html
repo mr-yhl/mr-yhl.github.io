@@ -17,7 +17,7 @@
 <meta property="og:description" content="每天一点面试题 业精于勤而慌于嬉,行成于思，毁于随。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-08-07T13:33:10.000Z">
-<meta property="article:modified_time" content="2020-08-07T13:38:10.681Z">
+<meta property="article:modified_time" content="2020-08-08T12:06:40.434Z">
 <meta property="article:author" content="杨海林">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="推荐">
@@ -219,7 +219,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">989字</span>
+        <span class="post-count">991字</span>
       </span>
     </span>
 
@@ -241,16 +241,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一-重写和重载的区别"><a href="#一-重写和重载的区别" class="headerlink" title="一. 重写和重载的区别"></a>一. 重写和重载的区别</h2><p>​    重载：发生在同一个类中，方法名必须相同，参数类型不同个数不同顺序不同，方法返回值和访问修饰符可以不同，发生在编译时。<br>​    重写：发生在父子类中，方法名.参数列表必须相同，返回值范围小于等于父类，抛出的异常范围小于等于父类，访问修饰符范围大于等于父类；<br>​    如果父类方法访问修饰符为private 则子类就不能重写该方法。</p>
+        <h2 id="一-重写和重载的区别"><a href="#一-重写和重载的区别" class="headerlink" title="一. 重写和重载的区别"></a>一. 重写和重载的区别</h2><p>​    重载：发生在同一个类中，方法名必须相同，参数类型不同,参数个数不同,顺序不同，方法返回值和访问修饰符可以不同，发生在编译时。<br>​    重写：发生在父子类中，方法名.参数列表必须相同，返回值范围小于等于父类，抛出的异常范围小于等于父类，访问修饰符范围大于等于父类；<br>​    如果父类方法访问修饰符为private 则子类就不能重写该方法。</p>
 <h2 id="二-String和StringBuilder的区别"><a href="#二-String和StringBuilder的区别" class="headerlink" title="二. String和StringBuilder的区别"></a>二. String和StringBuilder的区别</h2><p>​    简单的来说：String 类中使用final 关键字字符数组保存字符串，private final char value[] ，所以String对象是不可变的。<br>​    而StringBuilder 与StringBuffer 都继承自AbstractStringBuilder 类，<br>​    在AbstractStringBuilder中也是使用字符数组保存字符串char[]value 但是没有用final 关键字修饰，所以这两种对象都是可变的。</p>
 <h2 id="三-什么是拆装箱"><a href="#三-什么是拆装箱" class="headerlink" title="三. 什么是拆装箱"></a>三. 什么是拆装箱</h2><p>​    装箱：将基本类型用它们对应的引用类型包装起来；<br>​    拆箱：将包装类型转换为基本数据类型；</p>
 <h2 id="四-final关键字可以修饰什么，有什么特点。"><a href="#四-final关键字可以修饰什么，有什么特点。" class="headerlink" title="四. final关键字可以修饰什么，有什么特点。"></a>四. final关键字可以修饰什么，有什么特点。</h2><p>​    final关键字主要用在三个地方：变量、方法、类。</p>
-<pre><code> 1. 对于一个final变量，如果是基本数据类型的变量，则其数值一旦在初始化之后便不能更改；如果是引用类型的变量，则在对其初始化之后便不能再让其指向另一个对象。
+<pre><code>  1. 对于一个final变量，如果是基本数据类型的变量，则其数值一旦在初始化之后便不能更改；如果是引用类型的变量，则在对其初始化之后便不能再让其指向另一个对象。
 2. 当用final修饰一个类时，表明这个类不能被继承。final类中的所有成员方法都会被隐式地指定为final方法。
-3. 使用final方法的原因有两个。
-  第一个原因是把方法锁定，以防任何继承类修改它的含义；
-  第二个原因是效率。</code></pre><h2 id="五-ArrayList和LinkedList的区别"><a href="#五-ArrayList和LinkedList的区别" class="headerlink" title="五. ArrayList和LinkedList的区别"></a>五. ArrayList和LinkedList的区别</h2><p>rrayList是List接口下最常用的实现类，没有之一。<br>ArrayList是在使用数组保存数据<br>因为是使用数组保存数据，特点是：查询快，增删慢。</p>
-<p>LinkedList也是List接口下的实现类。<br>LinkedList内部是双向链表结构。<br>因为LinkedList内部是健表，所以查询慢，增删快。</p>
+3. 使用final方法的原因有两个。</code></pre><p>  第一个原因是把方法锁定，以防任何继承类修改它的含义；<br>  第二个原因是效率。</p>
+<h2 id="五-ArrayList和LinkedList的区别"><a href="#五-ArrayList和LinkedList的区别" class="headerlink" title="五. ArrayList和LinkedList的区别"></a>五. ArrayList和LinkedList的区别</h2><p>ArrayList是List接口下最常用的实现类，没有之一。<br>ArrayList是在使用数组保存数据<br>因为是使用数组保存数据，特点是：查询快，增删慢。</p>
+<p>LinkedList也是List接口下的实现类。<br>LinkedList内部是双向链表结构。<br>因为LinkedList内部是链表，所以查询慢，增删快。</p>
 <h2 id="六-请说出你对于哈希表的理解"><a href="#六-请说出你对于哈希表的理解" class="headerlink" title="六. 请说出你对于哈希表的理解"></a>六. 请说出你对于哈希表的理解</h2><p>简单的来说，哈希表是由数组+链表+红黑树（JDK1.8增加了红黑树部分）实现的.JDK1.8引入红黑树大程度优化了HashMap的性能，<br>那么对于我们来讲保证HashSet集合元素的唯一， 其实就是根据对象的hashCode和equals方法来决定的。<br>如果我们往集合中存放自定义的对象，那么保证其唯一，就必须复写hashCode和equals方法建立属于当前对象的比较方式。</p>
 <h2 id="七-请说出什么是线程池，线程池有什么好处。"><a href="#七-请说出什么是线程池，线程池有什么好处。" class="headerlink" title="七. 请说出什么是线程池，线程池有什么好处。"></a>七. 请说出什么是线程池，线程池有什么好处。</h2><p>线程池提供了一种限制和管理资源（包括执行一个任务）。<br>每个线程池还维护一些基本统计信息，例如已完成任务的数量。<br>降低资源消耗。通过重复利用已创建的线程降低线程创建和销毁造成的消耗。<br>提高响应速度。当任务到达时，任务可以不需要的等到线程创建就能立即执行。<br>提高线程的可管理性。线程是稀缺资源，如果无限制的创建，不仅会消耗系统资源，<br>还会降低系统的稳定性，使用线程池可以进行统一的分配，调优和监控。</p>
 <h2 id="八-多线程有什么好处。"><a href="#八-多线程有什么好处。" class="headerlink" title="八. 多线程有什么好处。"></a>八. 多线程有什么好处。</h2><p>更好的资源利用率<br>简单的程序设计在某些场景下。<br>更快的响应程序。</p>
@@ -630,15 +629,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">more</a>
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">IDEA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
+                <a href="javascript:void(0)" class="js-tag color1">for增强</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -646,15 +641,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">more</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">知识</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">for增强</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -666,11 +657,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gc垃圾处理</a>
+                <a href="javascript:void(0)" class="js-tag color5">IDEA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gc垃圾处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">修复hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -682,15 +685,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">修复hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">数组</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -698,11 +693,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">split</a>
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -726,15 +717,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">split</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">api</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Scanner</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -770,11 +769,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">线程安全</a>
+                <a href="javascript:void(0)" class="js-tag color3">继承</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+                <a href="javascript:void(0)" class="js-tag color4">抽象类</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">final</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">线程安全</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -794,6 +801,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础概念</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">类</a>
               </li>
              
@@ -803,22 +818,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">面向对象</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础概念</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">继承</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">抽象类</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">final</a>
               </li>
              
               <li class="article-tag-list-item">
