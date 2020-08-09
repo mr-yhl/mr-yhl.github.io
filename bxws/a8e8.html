@@ -17,7 +17,7 @@
 <meta property="og:description" content="每天一点面试题 业精于勤而慌于嬉,行成于思，毁于随。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-08-07T13:33:10.000Z">
-<meta property="article:modified_time" content="2020-08-08T12:06:40.434Z">
+<meta property="article:modified_time" content="2020-08-09T00:30:12.937Z">
 <meta property="article:author" content="杨海林">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="推荐">
@@ -219,7 +219,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">991字</span>
+        <span class="post-count">1.7k字</span>
       </span>
     </span>
 
@@ -228,7 +228,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">3分</span>
+        <span class="post-count">5分</span>
       </span>
     </span>
 </div>
@@ -242,14 +242,34 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="一-重写和重载的区别"><a href="#一-重写和重载的区别" class="headerlink" title="一. 重写和重载的区别"></a>一. 重写和重载的区别</h2><p>​    重载：发生在同一个类中，方法名必须相同，参数类型不同,参数个数不同,顺序不同，方法返回值和访问修饰符可以不同，发生在编译时。<br>​    重写：发生在父子类中，方法名.参数列表必须相同，返回值范围小于等于父类，抛出的异常范围小于等于父类，访问修饰符范围大于等于父类；<br>​    如果父类方法访问修饰符为private 则子类就不能重写该方法。</p>
-<h2 id="二-String和StringBuilder的区别"><a href="#二-String和StringBuilder的区别" class="headerlink" title="二. String和StringBuilder的区别"></a>二. String和StringBuilder的区别</h2><p>​    简单的来说：String 类中使用final 关键字字符数组保存字符串，private final char value[] ，所以String对象是不可变的。<br>​    而StringBuilder 与StringBuffer 都继承自AbstractStringBuilder 类，<br>​    在AbstractStringBuilder中也是使用字符数组保存字符串char[]value 但是没有用final 关键字修饰，所以这两种对象都是可变的。</p>
+<h2 id="二-String和StringBuilder的区别"><a href="#二-String和StringBuilder的区别" class="headerlink" title="二. String和StringBuilder的区别"></a>二. String和StringBuilder的区别</h2><ul>
+<li>可变性</li>
+</ul>
+<p>简单的来说：String 类中使用 final 关键字字符数组保存字符串， private final char value[] ，所以 String对象是不可变的。而StringBuilder 与 StringBuffer 都继承自 AbstractStringBuilder 类，在 AbstractStringBuilder中也是使用字符数组保存字符串 char[]value 但是没有用 final 关键字修饰，所以这两种对象都是可变的。StringBuilder 与 StringBuffer 的构造方法都是调用父类构造方法也就是 AbstractStringBuilder 实现的</p>
+<ul>
+<li>线程安全性</li>
+</ul>
+<p>String 中的对象是不可变的，也就可以理解为常量，线程安全。AbstractStringBuilder 是 StringBuilder 与 StringBuffer 的公共父类，定义了一些字符串的基本操作，如 expandCapacity.append.insert.indexOf 等公共 方法。StringBuffer 对方法加了同步锁或者对调用的方法加了同步锁，所以是线程安全的。StringBuilder 并没有对方法进行加同步锁，所以是非线程安全的。</p>
+<p>线程安全性<br>String 中的对象是不可变的，也就可以理解为常量，线程安全。AbstractStringBuilder 是 StringBuilder 与 StringBuffer 的公共父类，定义了一些字符串的基本操作，如 expandCapacity.append.insert.indexOf 等公共 方法。StringBuffer 对方法加了同步锁或者对调用的方法加了同步锁，所以是线程安全的。StringBuilder 并没有对方法进行加同步锁，所以是非线程安全的。</p>
+<p>对于三者使用的总结：</p>
+<ol>
+<li>操作少量的数据 = String</li>
+<li>单线程操作字符串缓冲区下操作大量数据 = StringBuilder</li>
+<li>多线程操作字符串缓冲区下操作大量数据 = StringBuffer</li>
+</ol>
 <h2 id="三-什么是拆装箱"><a href="#三-什么是拆装箱" class="headerlink" title="三. 什么是拆装箱"></a>三. 什么是拆装箱</h2><p>​    装箱：将基本类型用它们对应的引用类型包装起来；<br>​    拆箱：将包装类型转换为基本数据类型；</p>
 <h2 id="四-final关键字可以修饰什么，有什么特点。"><a href="#四-final关键字可以修饰什么，有什么特点。" class="headerlink" title="四. final关键字可以修饰什么，有什么特点。"></a>四. final关键字可以修饰什么，有什么特点。</h2><p>​    final关键字主要用在三个地方：变量、方法、类。</p>
-<pre><code>  1. 对于一个final变量，如果是基本数据类型的变量，则其数值一旦在初始化之后便不能更改；如果是引用类型的变量，则在对其初始化之后便不能再让其指向另一个对象。
-2. 当用final修饰一个类时，表明这个类不能被继承。final类中的所有成员方法都会被隐式地指定为final方法。
-3. 使用final方法的原因有两个。</code></pre><p>  第一个原因是把方法锁定，以防任何继承类修改它的含义；<br>  第二个原因是效率。</p>
-<h2 id="五-ArrayList和LinkedList的区别"><a href="#五-ArrayList和LinkedList的区别" class="headerlink" title="五. ArrayList和LinkedList的区别"></a>五. ArrayList和LinkedList的区别</h2><p>ArrayList是List接口下最常用的实现类，没有之一。<br>ArrayList是在使用数组保存数据<br>因为是使用数组保存数据，特点是：查询快，增删慢。</p>
-<p>LinkedList也是List接口下的实现类。<br>LinkedList内部是双向链表结构。<br>因为LinkedList内部是链表，所以查询慢，增删快。</p>
+<pre><code>   1. 对于一个final变量，如果是基本数据类型的变量，则其数值一旦在初始化之后便不能更改；如果是引用类型的变量，则在对其初始化之后便不能再让其指向另一个对象。
+ 2. 当用final修饰一个类时，表明这个类不能被继承。final类中的所有成员方法都会被隐式地指定为final方法。
+ 3. 使用final方法的原因有两个。
+第一个原因是把方法锁定，以防任何继承类修改它的含义；
+第二个原因是效率。</code></pre><h2 id="五-ArrayList和LinkedList的区别"><a href="#五-ArrayList和LinkedList的区别" class="headerlink" title="五. ArrayList和LinkedList的区别"></a>五. ArrayList和LinkedList的区别</h2><ol>
+<li>是否保证线程安全： ArrayList 和 LinkedList 都是不同步的，也就是不保证线程安全；</li>
+<li>底层数据结构： ArrayList 底层使用的是Object数组；LinkedList 底层使用的是双向链表数据结构（JDK1.6之 前为循环链表，JDK1.7取消了循环。注意双向链表和双向循环链表的区别：）；</li>
+<li>插入和删除是否受元素位置的影响： ① ArrayList 采用数组存储，所以插入和删除元素的时间复杂度受元素<br>位置的影响。 比如：执行 add(E e) 方法的时候， ArrayList 会默认在将指定的元素追加到此列表的末尾，这种情况时间复杂度就是O(1)。但是如果要在指定位置 i 插入和删除元素的话（ add(int index, E element) ）时间复杂度就为 O(n-i)。因为在进行上述操作的时候集合中第 i 和第 i 个元素之后的(n-i)个元素都要执行向后位/向前移一位的操作。 ② LinkedList 采用链表存储，所以插入，删除元素时间复杂度不受元素位置的影响，都是近似 O（1）而数组为近似 O（n）。</li>
+<li>是否支持快速随机访问： LinkedList 不支持高效的随机元素访问，而 ArrayList 支持。快速随机访问就是通过元素的序号快速获取元素对象(对应于 get(int index) 方法)。</li>
+<li>内存空间占用： ArrayList的空 间浪费主要体现在在list列表的结尾会预留一定的容量空间，而LinkedList的空间花费则体现在它的每一个元素都需要消耗比ArrayList更多的空间（因为要存放直接后继和直接前驱以及数据）。</li>
+</ol>
 <h2 id="六-请说出你对于哈希表的理解"><a href="#六-请说出你对于哈希表的理解" class="headerlink" title="六. 请说出你对于哈希表的理解"></a>六. 请说出你对于哈希表的理解</h2><p>简单的来说，哈希表是由数组+链表+红黑树（JDK1.8增加了红黑树部分）实现的.JDK1.8引入红黑树大程度优化了HashMap的性能，<br>那么对于我们来讲保证HashSet集合元素的唯一， 其实就是根据对象的hashCode和equals方法来决定的。<br>如果我们往集合中存放自定义的对象，那么保证其唯一，就必须复写hashCode和equals方法建立属于当前对象的比较方式。</p>
 <h2 id="七-请说出什么是线程池，线程池有什么好处。"><a href="#七-请说出什么是线程池，线程池有什么好处。" class="headerlink" title="七. 请说出什么是线程池，线程池有什么好处。"></a>七. 请说出什么是线程池，线程池有什么好处。</h2><p>线程池提供了一种限制和管理资源（包括执行一个任务）。<br>每个线程池还维护一些基本统计信息，例如已完成任务的数量。<br>降低资源消耗。通过重复利用已创建的线程降低线程创建和销毁造成的消耗。<br>提高响应速度。当任务到达时，任务可以不需要的等到线程创建就能立即执行。<br>提高线程的可管理性。线程是稀缺资源，如果无限制的创建，不仅会消耗系统资源，<br>还会降低系统的稳定性，使用线程池可以进行统一的分配，调优和监控。</p>
 <h2 id="八-多线程有什么好处。"><a href="#八-多线程有什么好处。" class="headerlink" title="八. 多线程有什么好处。"></a>八. 多线程有什么好处。</h2><p>更好的资源利用率<br>简单的程序设计在某些场景下。<br>更快的响应程序。</p>
