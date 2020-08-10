@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://mryhl.com.cn/bxws/d129.html</loc>
+    
+    <lastmod>2020-08-10</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://mryhl.com.cn/bxws/49e4.html</loc>
     
     <lastmod>2020-08-10</lastmod>
@@ -82,13 +89,6 @@
     <loc>http://mryhl.com.cn/bxws/2c2a.html</loc>
     
     <lastmod>2020-08-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://mryhl.com.cn/bxws/d129.html</loc>
-    
-    <lastmod>2020-08-02</lastmod>
     
   </url>
   
@@ -466,20 +466,6 @@
   </url>
   
   <url>
-    <loc>http://mryhl.com.cn/tags/JUnit/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://mryhl.com.cn/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://mryhl.com.cn/tags/AIO/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
@@ -488,6 +474,20 @@
   
   <url>
     <loc>http://mryhl.com.cn/tags/NIO/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://mryhl.com.cn/tags/JUnit/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://mryhl.com.cn/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -578,13 +578,6 @@
   </url>
   
   <url>
-    <loc>http://mryhl.com.cn/tags/typora/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://mryhl.com.cn/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
@@ -593,6 +586,13 @@
   
   <url>
     <loc>http://mryhl.com.cn/tags/split/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://mryhl.com.cn/tags/typora/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -613,14 +613,14 @@
   </url>
   
   <url>
-    <loc>http://mryhl.com.cn/tags/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/</loc>
+    <loc>http://mryhl.com.cn/tags/dos/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://mryhl.com.cn/tags/dos/</loc>
+    <loc>http://mryhl.com.cn/tags/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
