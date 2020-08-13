@@ -7,23 +7,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <meta name="baidu-site-verification" content="BUTwrxNnOd" />
   <link rel="dns-prefetch" href="http://mryhl.com.cn">
-  <title>面向对象 | mr-yhl的博客</title>
+  <title>Tag: 正则 | mr-yhl的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="java基础--类，对象，封装，构造方法 这个是java的基础部分，主要是面向对象的编程。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="面向对象">
-<meta property="og:url" content="http://mryhl.com.cn/bxws/9852.html">
+  <meta name="description" content="认真对待生活，认真去写每一篇博客！">
+<meta property="og:type" content="website">
+<meta property="og:title" content="mr-yhl的博客">
+<meta property="og:url" content="http://mryhl.com.cn/tags/%E6%AD%A3%E5%88%99/index.html">
 <meta property="og:site_name" content="mr-yhl的博客">
-<meta property="og:description" content="java基础--类，对象，封装，构造方法 这个是java的基础部分，主要是面向对象的编程。">
+<meta property="og:description" content="认真对待生活，认真去写每一篇博客！">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-06-15T03:30:47.000Z">
-<meta property="article:modified_time" content="2020-07-28T07:53:13.460Z">
 <meta property="article:author" content="杨海林">
-<meta property="article:tag" content="code">
-<meta property="article:tag" content="java">
-<meta property="article:tag" content="类">
-<meta property="article:tag" content="构造方法">
-<meta property="article:tag" content="面向对象">
+<meta property="article:tag" content="blog">
 <meta name="twitter:card" content="summary">
   
   
@@ -187,255 +181,37 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-面向对象" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      面向对象
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	
+<a href="/bxws/8a93.html" class="archive-article-date">
+  	<time datetime="2020-08-13T03:34:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-13</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/bxws/8a93.html">单多例模式,枚举,正则,工厂模式</a>
     </h1>
   
 
-        <!-- 
-          <span class="archive-article-date">
-            阅读量 <span id="busuanzi_value_page_pv"></span>
-          </span>
-         -->
-        
-        
-	<!-- 不蒜子统计 -->
-	<span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
-		  <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
-			</span>
-
-<a href="/bxws/9852.html" class="archive-article-date">
-  	<time datetime="2020-06-15T03:30:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-15</time>
-</a>
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1.5k字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">5分</span>
-      </span>
-    </span>
-</div>
+        <div class="article-info info-on-right">
           
-        <!-- 添加完成 -->
-        
-        <!-- 添加代码 -->  
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <center>java基础--类，对象，封装，构造方法</center>
-这个是java的基础部分，主要是面向对象的编程。
-<a id="more"></a>
-## 面向对象思想
-
-<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>  Java语言是一种面向对象的程序设计语言，而面向对象思想是一种程序设计思想，我们在面向对象思想的指引下， 使用Java语言去设计、开发计算机程序。 这里的对象泛指现实中一切事物，每种事物都具备自己的属性和行为。面 向对象思想就是在计算机程序设计过程中，参照现实中事物，将事物的属性特征、行为特征抽象出来，描述成计算 机事件的设计思想。 它区别于面向过程思想，强调的是通过调用对象的行为来实现功能，而不是自己一步一步的去操作实现。<br>面向过程与面向对象区别:</p>
-<ul>
-<li><p>面向过程：强调步骤。</p>
-</li>
-<li><p>面向对象：强调对象。</p>
-</li>
-</ul>
-<p>特点 ：<br>面向对象思想是一种更符合我们思考习惯的思想，它可以将复杂的事情简单化，并将我们从执行者变成了指挥者。  面向对象的语言中，包含了三大基本特征，即封装、继承和多态。</p>
-<h3 id="类和对象"><a href="#类和对象" class="headerlink" title="类和对象"></a>类和对象</h3><ul>
-<li>类：是一组相关属性和行为的集合。可以看成是一类事物的模板，使用事物的属性特征和行为特征来描述该 类事物。<ul>
-<li>属性：就是该事物的状态信息。</li>
-<li>行为：就是该事物能够做什么。</li>
-</ul>
-</li>
-<li>对象：是一类事物的具体体现。对象是类的一个实例（对象并不是找个女朋友），必然具备该类事物的属性和行为。<h3 id="类与对象的关系"><a href="#类与对象的关系" class="headerlink" title="类与对象的关系"></a>类与对象的关系</h3></li>
-<li>类是对一类事物的描述，是抽象的。 </li>
-<li>对象是一类事物的实例，是具体的。</li>
-<li>类是对象的模板，对象是类的实体。</li>
-</ul>
-<p><strong>成员变量</strong>：对应事物的属性 <strong>成员方法</strong>：对应事物的行为</p>
-<h3 id="类的定义格式"><a href="#类的定义格式" class="headerlink" title="类的定义格式"></a>类的定义格式</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ClassName</span> </span>&#123; </span><br><span class="line"></span><br><span class="line"><span class="comment">//成员变量 </span></span><br><span class="line"></span><br><span class="line"><span class="comment">//成员方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>定义类：就是定义类的成员，包括成员变量和成员方法。 </li>
-<li>成员变量：和以前定义变量几乎是一样的。只不过位置发生了改变。在类中，方法外。 </li>
-<li>成员方法：和以前定义方法几乎是一样的。只不过把static去掉，static的作用在面向对象后面课程中再详细讲解。<br>###　对象的使用格式<br>创建对象：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">类名 对象名 = <span class="keyword">new</span> 类名();</span><br></pre></td></tr></table></figure>
-使用对象访问类中的成员:<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">对象名.成员变量；</span><br><span class="line">对象名.成员方法()；</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h3 id="成员变量的默认值"><a href="#成员变量的默认值" class="headerlink" title="成员变量的默认值"></a>成员变量的默认值</h3><table>
-<thead>
-<tr>
-<th></th>
-<th>数据类型</th>
-<th>默认值</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>基本类型</td>
-<td>整数（byte，short，int，long）</td>
-<td>0</td>
-</tr>
-<tr>
-<td></td>
-<td>浮点数（float，double）</td>
-<td>0.0</td>
-</tr>
-<tr>
-<td></td>
-<td>字符（char）</td>
-<td>‘\u0000’</td>
-</tr>
-<tr>
-<td></td>
-<td>布尔（boolean）</td>
-<td>false</td>
-</tr>
-<tr>
-<td>引用类型</td>
-<td>数组，类，接口</td>
-<td>null</td>
-</tr>
-</tbody></table>
-<h3 id="成员变量和局部变量区别"><a href="#成员变量和局部变量区别" class="headerlink" title="成员变量和局部变量区别"></a>成员变量和局部变量区别</h3><p>变量根据定义位置的不同，我们给变量起了不同的名字。</p>
-<ul>
-<li>在类中的位置不同 <code>重点</code> <ul>
-<li>成员变量：类中，方法外 <ul>
-<li>局部变量：方法中或者方法声明上(形式参数)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>作用范围不一样 <code>重点</code> <ul>
-<li>成员变量：类中</li>
-<li>局部变量：方法中</li>
-</ul>
-</li>
-<li>初始化值的不同 <code>重点</code><ul>
-<li>成员变量：有默认值 </li>
-<li>局部变量：没有默认值。必须先定义，赋值，最后使用</li>
-</ul>
-</li>
-<li>在内存中的位置不同 <code>了解</code> <ul>
-<li>成员变量：堆内存 </li>
-<li>局部变量：栈内存</li>
-</ul>
-</li>
-<li>生命周期不同 <code>了解</code><ul>
-<li>成员变量：随着对象的创建而存在，随着对象的消失而消失</li>
-<li>局部变量：随着方法的调用而存在，随着方法的调用完毕而消失</li>
-</ul>
-</li>
-</ul>
-<h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><h3 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h3><p> 面向对象编程语言是对客观世界的模拟，客观世界里成员变量都是隐藏在对象内部的，外界无法直接操作和修改。 封装可以被认为是一个保护屏障，防止该类的代码和数据被其他类随意访问。要访问该类的数据，必须通过指定的 方式。适当的封装可以让代码更容易理解与维护，也加强了代码的安全性。</p>
-<h3 id="原则"><a href="#原则" class="headerlink" title="原则"></a>原则</h3><p>将属性隐藏起来，若需要访问某个属性，提供公共方法对其访问。</p>
-<h3 id="封装的步骤"><a href="#封装的步骤" class="headerlink" title="封装的步骤"></a>封装的步骤</h3><ol>
-<li><p>使用 <strong>private</strong> 关键字来修饰成员变量。</p>
-</li>
-<li><p>对需要访问的成员变量，提供对应的一对 <strong>getXxx</strong> 方法 、 <strong>setXxx</strong> 方法。</p>
-</li>
-</ol>
-<h3 id="封装的操作——private关键字"><a href="#封装的操作——private关键字" class="headerlink" title="封装的操作——private关键字"></a>封装的操作——private关键字</h3><h4 id="private的含义"><a href="#private的含义" class="headerlink" title="private的含义"></a>private的含义</h4><ol>
-<li><p>private是一个权限修饰符，代表最小权限。 </p>
-</li>
-<li><p>可以修饰成员变量和成员方法。 </p>
-</li>
-<li><p>被private修饰后的成员变量和成员方法，只在本类中才能访问。</p>
-<h4 id="private的使用格式"><a href="#private的使用格式" class="headerlink" title="private的使用格式"></a>private的使用格式</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> 数据类型 变量名 ；</span><br></pre></td></tr></table></figure></li>
-<li><p>使用 <strong>private</strong> 修饰成员变量，代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line"><span class="keyword">private</span> String name; </span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>. 提供 <strong>getXxx</strong> 方法 /<strong>setXxx</strong> 方法，可以访问成员变量，代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123; <span class="keyword">private</span> String name; <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String n)</span> </span>&#123; name = n;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> a)</span> </span>&#123; age = a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> age;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="封装优化1——this关键字"><a href="#封装优化1——this关键字" class="headerlink" title="封装优化1——this关键字"></a>封装优化1——this关键字</h3><p>this代表所在类的当前对象的引用（地址值），即对象自己的引用。<br>####　this使用格式</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.成员变量名；</span><br></pre></td></tr></table></figure>
-<h3 id="封装优化2——构造方法"><a href="#封装优化2——构造方法" class="headerlink" title="封装优化2——构造方法"></a>封装优化2——构造方法</h3><p>当一个对象被创建时候，构造方法用来初始化该对象，给对象的成员变量赋初始值。<br>####　构造方法的定义格式 </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">修饰符 构造方法名(参数列表)&#123; </span><br><span class="line"><span class="comment">// 方法体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="标准代码——JavaBean"><a href="#标准代码——JavaBean" class="headerlink" title="标准代码——JavaBean"></a>标准代码——JavaBean</h3></li>
-</ol>
-<p><strong>JavaBean</strong> 是 Java语言编写类的一种标准规范。符合 <strong>JavaBean</strong> 的类，要求类必须是具体的和公共的，并且具有无 参数的构造方法，提供用来操作成员变量的 <strong>set</strong> 和 <strong>get</strong> 方法。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ClassName</span></span>&#123; </span><br><span class="line"><span class="comment">//成员变量 </span></span><br><span class="line"><span class="comment">//构造方法 </span></span><br><span class="line"><span class="comment">//无参构造方法【必须】 </span></span><br><span class="line"><span class="comment">//有参构造方法【建议】 </span></span><br><span class="line"><span class="comment">//成员方法 </span></span><br><span class="line"><span class="comment">//getXxx() </span></span><br><span class="line"><span class="comment">//setXxx()</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-      
-        <div style="text-align:center;color: #00BFFF;font-size:14px;">
-           -------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------
-           </div>
-        
-    
-        <!-- zengjian -->
-              
-      
-        <div class="declare">
-          <strong>本文作者：</strong>
-          
-            杨海林
-          
-          <br>
-          <strong>本文链接：</strong>
-          http://mryhl.com.cn/bxws/9852.html
-          <br>
-          <strong>版权声明：</strong>
-          本作品采用
-          <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
-          进行许可。转载请注明出处！
-          
-            <br>
-            <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://i.loli.net/2020/06/08/dxt72GWFf8VCH64.png"/></a>
-          
-        </div>
-      
-        <!-- zengj -->
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢，这个对我的鼓励！<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="https://i.loli.net/2020/06/07/pLYFiCGPS2vzxnH.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="https://i.loli.net/2020/06/08/M5vEwSgkpn8LUJ9.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-            
-                 </div>
-                 </a>
-               </div>
-             
-            
-           </div>
-    <div class="article-info article-info-index">
-      
-      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -449,164 +225,29 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">类</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">枚举</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">构造方法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">面向对象</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">正则</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://mryhl.com.cn/bxws/9852.html" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/bxws/769.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          常用的api
-        
-      </div>
-    </a>
   
   
-    <a href="/bxws/1294.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">java数组基础</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类和对象"><span class="toc-number">2.</span> <span class="toc-text">类和对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类与对象的关系"><span class="toc-number">3.</span> <span class="toc-text">类与对象的关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类的定义格式"><span class="toc-number">4.</span> <span class="toc-text">类的定义格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#成员变量的默认值"><span class="toc-number">5.</span> <span class="toc-text">成员变量的默认值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#成员变量和局部变量区别"><span class="toc-number">6.</span> <span class="toc-text">成员变量和局部变量区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#封装"><span class="toc-number"></span> <span class="toc-text">封装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#概述-1"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原则"><span class="toc-number">2.</span> <span class="toc-text">原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#封装的步骤"><span class="toc-number">3.</span> <span class="toc-text">封装的步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#封装的操作——private关键字"><span class="toc-number">4.</span> <span class="toc-text">封装的操作——private关键字</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#private的含义"><span class="toc-number">4.1.</span> <span class="toc-text">private的含义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#private的使用格式"><span class="toc-number">4.2.</span> <span class="toc-text">private的使用格式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#封装优化1——this关键字"><span class="toc-number">5.</span> <span class="toc-text">封装优化1——this关键字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#封装优化2——构造方法"><span class="toc-number">6.</span> <span class="toc-text">封装优化2——构造方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标准代码——JavaBean"><span class="toc-number">7.</span> <span class="toc-text">标准代码——JavaBean</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-  
-  
-    <section id="comments" style="margin:10px;padding:10px;background:#fff;">
-      <div id="vcomment" class="comment"></div> 
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<script>
-   var notify = 'false' == true ? true : false;
-   var verify = 'true' == true ? true : false;
-    window.onload = function() {
-        new Valine({
-            el: '.comment',
-            notify: notify,
-            verify: verify,
-            app_id: "KrMOscebNGbk7iPDbUyQUWU4-gzGzoHsz",
-            app_key: "BWDt2RjKOG4tcfk1vB64SHTb",
-            placeholder: "Just go go",
-            avatar:"mm"
-        });
-    }
-</script>
-    </section>
-  
-  <!--  -->
+    
 
 
           </div>
@@ -661,9 +302,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
