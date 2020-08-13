@@ -7,20 +7,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <meta name="baidu-site-verification" content="BUTwrxNnOd" />
   <link rel="dns-prefetch" href="http://mryhl.com.cn">
-  <title>hexo修复助手 | mr-yhl的博客</title>
+  <title>常用的正则表达式 | mr-yhl的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在Hexo博客中，出现Cannot GET&#x2F;xxx错误便意味着xxx文件未被找到。Cannot GET&#x2F;xxx错误本质是hexo server返回的一个404错误。 因此，排查方式如下： 1.判断public目录下xxx文件是否存在。 （我的错误是 Cannot GET &#x2F;，因此在public目录下寻找index.html是否存在。） 2.如果说index.html不存在，那么执行hexo c，h">
+  <meta name="description" content="校验数字的表达式 校验字符的表达式 特殊需求表达式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo修复助手">
-<meta property="og:url" content="http://mryhl.com.cn/bxws/e3dd.html">
+<meta property="og:title" content="常用的正则表达式">
+<meta property="og:url" content="http://mryhl.com.cn/bxws/ac29.html">
 <meta property="og:site_name" content="mr-yhl的博客">
-<meta property="og:description" content="在Hexo博客中，出现Cannot GET&#x2F;xxx错误便意味着xxx文件未被找到。Cannot GET&#x2F;xxx错误本质是hexo server返回的一个404错误。 因此，排查方式如下： 1.判断public目录下xxx文件是否存在。 （我的错误是 Cannot GET &#x2F;，因此在public目录下寻找index.html是否存在。） 2.如果说index.html不存在，那么执行hexo c，h">
+<meta property="og:description" content="校验数字的表达式 校验字符的表达式 特殊需求表达式">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-06-09T11:43:11.000Z">
-<meta property="article:modified_time" content="2020-07-28T07:53:13.349Z">
+<meta property="article:published_time" content="2020-08-13T03:47:06.000Z">
+<meta property="article:modified_time" content="2020-08-13T03:48:47.965Z">
 <meta property="article:author" content="杨海林">
-<meta property="article:tag" content="more">
-<meta property="article:tag" content="修复hexo">
+<meta property="article:tag" content="推荐">
+<meta property="article:tag" content="正则">
 <meta name="twitter:card" content="summary">
   
   
@@ -184,14 +184,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hexo修复助手" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-常用的正则表达式" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      hexo修复助手
+      常用的正则表达式
     </h1>
   
 
@@ -207,8 +207,8 @@
 		  <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
 			</span>
 
-<a href="/bxws/e3dd.html" class="archive-article-date">
-  	<time datetime="2020-06-09T11:43:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-09</time>
+<a href="/bxws/ac29.html" class="archive-article-date">
+  	<time datetime="2020-08-13T03:47:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-13</time>
 </a>
         <!-- 需要添加的位置 -->
         <!-- 开始添加字数统计-->
@@ -218,7 +218,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">217字</span>
+        <span class="post-count">1.3k字</span>
       </span>
     </span>
 
@@ -227,7 +227,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
+        <span class="post-count">6分</span>
       </span>
     </span>
 </div>
@@ -240,14 +240,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在Hexo博客中，出现Cannot GET/xxx错误便意味着xxx文件未被找到。Cannot GET/xxx错误本质是hexo server返回的一个404错误。</p>
-<p>因此，排查方式如下：</p>
-<p>1.判断public目录下xxx文件是否存在。<br> （我的错误是 Cannot GET /，因此在public目录下寻找index.html是否存在。）</p>
-<p>2.如果说index.html不存在，那么执行hexo c，hexo g重新生成一次，回到步骤1。</p>
-<p>3.步骤2执行完后index.html仍不存在，执行npm audit fix，查看是否少了什么组件，通过npm install hexo-xxx-xxx 安装即可。<br> （我的hexo缺少了hexo-generator-index组件，因此执行npm install hexo-generator-index即可）</p>
-<p>4.步骤3完成之后，执行hexo c，hexo g重新生成静态文件。</p>
-<p>5.仍然有问题，请再参考此文：<a href="https://www.cnblogs.com/Sroot/p/6305938.html" target="_blank" rel="noopener">https://www.cnblogs.com/Sroot/p/6305938.html</a></p>
-<p>注：文章来自网络</p>
+        <ul>
+<li>校验数字的表达式</li>
+<li>校验字符的表达式</li>
+<li>特殊需求表达式</li>
+</ul>
+<a id="more"></a>
+
+
+
+<h3 id="1-校验数字的表达式"><a href="#1-校验数字的表达式" class="headerlink" title="1. 校验数字的表达式"></a>1. 校验数字的表达式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">1 数字：^[0-9]*$</span><br><span class="line">2 n位的数字：^\d&#123;n&#125;$</span><br><span class="line">3 至少n位的数字：^\d&#123;n,&#125;$</span><br><span class="line">4 m-n位的数字：^\d&#123;m,n&#125;$</span><br><span class="line">5 零和非零开头的数字：^(0|[1-9][0-9]*)$</span><br><span class="line">6 非零开头的最多带两位小数的数字：^([1-9][0-9]*)+(.[0-9]&#123;1,2&#125;)?$</span><br><span class="line">7 带1-2位小数的正数或负数：^(\-)?\d+(\.\d&#123;1,2&#125;)?$</span><br><span class="line">8 正数、负数、和小数：^(\-|\+)?\d+(\.\d+)?$</span><br><span class="line">9 有两位小数的正实数：^[0-9]+(.[0-9]&#123;2&#125;)?$</span><br><span class="line">10 有1~3位小数的正实数：^[0-9]+(.[0-9]&#123;1,3&#125;)?$</span><br><span class="line">11 非零的正整数：^[1-9]\d*$ 或 ^([1-9][0-9]*)&#123;1,3&#125;$ 或 ^\+?[1-9][0-9]*$</span><br><span class="line">12 非零的负整数：^\-[1-9][]0-9&quot;*$ 或 ^-[1-9]\d*$</span><br><span class="line">13 非负整数：^\d+$ 或 ^[1-9]\d*|0$</span><br><span class="line">14 非正整数：^-[1-9]\d*|0$ 或 ^((-\d+)|(0+))$</span><br><span class="line">15 非负浮点数：^\d+(\.\d+)?$ 或 ^[1-9]\d*\.\d*|0\.\d*[1-9]\d*|0?\.0+|0$</span><br><span class="line">16 非正浮点数：^((-\d+(\.\d+)?)|(0+(\.0+)?))$ 或 ^(-([1-9]\d*\.\d*|0\.\d*[1-9]\d*))|0?\.0+|0$</span><br><span class="line">17 正浮点数：^[1-9]\d*\.\d*|0\.\d*[1-9]\d*$ 或 ^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$</span><br><span class="line">18 负浮点数：^-([1-9]\d*\.\d*|0\.\d*[1-9]\d*)$ 或 ^(-(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*)))$</span><br><span class="line">19 浮点数：^(-?\d+)(\.\d+)?$ 或 ^-?([1-9]\d*\.\d*|0\.\d*[1-9]\d*|0?\.0+|0)$</span><br><span class="line">12345678910111213141516171819</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-校验字符的表达式"><a href="#2-校验字符的表达式" class="headerlink" title="2. 校验字符的表达式"></a>2. 校验字符的表达式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">1 汉字：^[\u4e00-\u9fa5]&#123;0,&#125;$</span><br><span class="line">2 英文和数字：^[A-Za-z0-9]+$ 或 ^[A-Za-z0-9]&#123;4,40&#125;$</span><br><span class="line">3 长度为3-20的所有字符：^.&#123;3,20&#125;$</span><br><span class="line">4 由26个英文字母组成的字符串：^[A-Za-z]+$</span><br><span class="line">5 由26个大写英文字母组成的字符串：^[A-Z]+$</span><br><span class="line">6 由26个小写英文字母组成的字符串：^[a-z]+$</span><br><span class="line">7 由数字和26个英文字母组成的字符串：^[A-Za-z0-9]+$</span><br><span class="line">8 由数字、26个英文字母或者下划线组成的字符串：^\w+$ 或 ^\w&#123;3,20&#125;$</span><br><span class="line">9 中文、英文、数字包括下划线：^[\u4E00-\u9FA5A-Za-z0-9_]+$</span><br><span class="line">10 中文、英文、数字但不包括下划线等符号：^[\u4E00-\u9FA5A-Za-z0-9]+$ 或 ^[\u4E00-\u9FA5A-Za-z0-9]&#123;2,20&#125;$</span><br><span class="line">11 可以输入含有^%&amp;&#39;,;&#x3D;?$\&quot;等字符：[^%&amp;&#39;,;&#x3D;?$\x22]+</span><br><span class="line">12 禁止输入含有~的字符：[^~\x22]+</span><br><span class="line">123456789101112</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-特殊需求表达式"><a href="#3-特殊需求表达式" class="headerlink" title="3. 特殊需求表达式"></a>3. 特殊需求表达式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">1 Email地址：^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$</span><br><span class="line">2 域名：[a-zA-Z0-9][-a-zA-Z0-9]&#123;0,62&#125;(&#x2F;.[a-zA-Z0-9][-a-zA-Z0-9]&#123;0,62&#125;)+&#x2F;.?</span><br><span class="line">3 InternetURL：[a-zA-z]+:&#x2F;&#x2F;[^\s]* 或 ^http:&#x2F;&#x2F;([\w-]+\.)+[\w-]+(&#x2F;[\w-.&#x2F;?%&amp;&#x3D;]*)?$</span><br><span class="line">4 手机号码：^(13[0-9]|14[0-9]|15[0-9]|166|17[0-9]|18[0-9]|19[8|9])\d&#123;8&#125;$</span><br><span class="line">5 电话号码(&quot;XXX-XXXXXXX&quot;、&quot;XXXX-XXXXXXXX&quot;、&quot;XXX-XXXXXXX&quot;、&quot;XXX-XXXXXXXX&quot;、&quot;XXXXXXX&quot;和&quot;XXXXXXXX)：^(\(\d&#123;3,4&#125;-)|\d&#123;3.4&#125;-)?\d&#123;7,8&#125;$ </span><br><span class="line">6 国内电话号码(0511-4405222、021-87888822)：\d&#123;3&#125;-\d&#123;8&#125;|\d&#123;4&#125;-\d&#123;7&#125; </span><br><span class="line">7 18位身份证号码(数字、字母x结尾)：^((\d&#123;18&#125;)|([0-9x]&#123;18&#125;)|([0-9X]&#123;18&#125;))$</span><br><span class="line">8 帐号是否合法(字母开头，允许5-16字节，允许字母数字下划线)：^[a-zA-Z][a-zA-Z0-9_]&#123;4,15&#125;$</span><br><span class="line">9 密码(以字母开头，长度在6~18之间，只能包含字母、数字和下划线)：^[a-zA-Z]\w&#123;5,17&#125;$</span><br><span class="line">10 强密码(必须包含大小写字母和数字的组合，不能使用特殊字符，长度在8-10之间)：^(?&#x3D;.*\d)(?&#x3D;.*[a-z])(?&#x3D;.*[A-Z]).&#123;8,10&#125;$  </span><br><span class="line">11 日期格式：^\d&#123;4&#125;-\d&#123;1,2&#125;-\d&#123;1,2&#125;</span><br><span class="line">12 一年的12个月(01～09和1～12)：^(0?[1-9]|1[0-2])$</span><br><span class="line">13 一个月的31天(01～09和1～31)：^((0?[1-9])|((1|2)[0-9])|30|31)$ </span><br><span class="line">14 xml文件：^([a-zA-Z]+-?)+[a-zA-Z0-9]+\\.[x|X][m|M][l|L]$</span><br><span class="line">15 中文字符的正则表达式：[\u4e00-\u9fa5]</span><br><span class="line">16 双字节字符：[^\x00-\xff]    (包括汉字在内，可以用来计算字符串的长度(一个双字节字符长度计2，ASCII字符计1))</span><br><span class="line">17 空白行的正则表达式：\n\s*\r    (可以用来删除空白行)</span><br><span class="line">18 HTML标记的正则表达式：&lt;(\S*?)[^&gt;]*&gt;.*?&lt;&#x2F;\1&gt;|&lt;.*? &#x2F;&gt;    (网上流传的版本太糟糕，上面这个也仅仅能部分，对于复杂的嵌套标记依旧无能为力)</span><br><span class="line">19 首尾空白字符的正则表达式：^\s*|\s*$或(^\s*)|(\s*$)    (可以用来删除行首行尾的空白字符(包括空格、制表符、换页符等等)，非常有用的表达式)</span><br><span class="line">20 腾讯QQ号：[1-9][0-9]&#123;4,&#125;    (腾讯QQ号从10000开始)</span><br><span class="line">21 中国邮政编码：[1-9]\d&#123;5&#125;(?!\d)    (中国邮政编码为6位数字)</span><br><span class="line">22 IP地址：\d+\.\d+\.\d+\.\d+    (提取IP地址时有用)</span><br><span class="line">23 IP地址：((?:(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d)\\.)&#123;3&#125;(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d))</span><br></pre></td></tr></table></figure>
+
 
       
       
@@ -266,7 +273,7 @@
           
           <br>
           <strong>本文链接：</strong>
-          http://mryhl.com.cn/bxws/e3dd.html
+          http://mryhl.com.cn/bxws/ac29.html
           <br>
           <strong>版权声明：</strong>
           本作品采用
@@ -322,11 +329,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">more</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">推荐</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">修复hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">正则</a>
         		</li>
       		
 		</ul>
@@ -382,7 +389,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://mryhl.com.cn/bxws/e3dd.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://mryhl.com.cn/bxws/ac29.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -396,18 +403,9 @@
   
 <nav id="article-nav">
   
-    <a href="/bxws/f938.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          gc 垃圾处理
-        
-      </div>
-    </a>
   
-  
-    <a href="/bxws/df59.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">markdown文字编辑</div>
+    <a href="/bxws/8a93.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">单多例模式,枚举,正则,工厂模式</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -434,7 +432,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-校验数字的表达式"><span class="toc-number">1.</span> <span class="toc-text">1. 校验数字的表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-校验字符的表达式"><span class="toc-number">2.</span> <span class="toc-text">2. 校验字符的表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-特殊需求表达式"><span class="toc-number">3.</span> <span class="toc-text">3. 特殊需求表达式</span></a></li></ol>
                     </div>
                 </span>
             </div>
