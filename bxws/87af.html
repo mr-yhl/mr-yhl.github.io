@@ -7,20 +7,21 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <meta name="baidu-site-verification" content="BUTwrxNnOd" />
   <link rel="dns-prefetch" href="http://mryhl.com.cn">
-  <title>整数反转 | mr-yhl的博客</title>
+  <title>前端的单词 | mr-yhl的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="leetcode题解——整数反转  题目要求123给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。 注意: 假设我们的环境只能存储得下 32 位的有符号整数，则其数值范围为 [−231, 231 − 1]。请根据这个假设，如果反转后整数溢出那么就返回 0。">
+  <meta name="description" content="​    前端常用单词集.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="整数反转">
-<meta property="og:url" content="http://mryhl.com.cn/bxws/9923.html">
+<meta property="og:title" content="前端的单词">
+<meta property="og:url" content="http://mryhl.com.cn/bxws/87af.html">
 <meta property="og:site_name" content="mr-yhl的博客">
-<meta property="og:description" content="leetcode题解——整数反转  题目要求123给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。 注意: 假设我们的环境只能存储得下 32 位的有符号整数，则其数值范围为 [−231, 231 − 1]。请根据这个假设，如果反转后整数溢出那么就返回 0。">
+<meta property="og:description" content="​    前端常用单词集.">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-07-18T12:01:46.000Z">
-<meta property="article:modified_time" content="2020-07-28T07:53:13.431Z">
+<meta property="article:published_time" content="2020-08-15T11:31:23.000Z">
+<meta property="article:modified_time" content="2020-08-15T11:32:59.437Z">
 <meta property="article:author" content="杨海林">
-<meta property="article:tag" content="code">
-<meta property="article:tag" content="leetcode">
+<meta property="article:tag" content="推荐">
+<meta property="article:tag" content="web">
+<meta property="article:tag" content="单词">
 <meta name="twitter:card" content="summary">
   
   
@@ -184,14 +185,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-整数反转" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-前端的单词" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      整数反转
+      前端的单词
     </h1>
   
 
@@ -207,8 +208,8 @@
 		  <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
 			</span>
 
-<a href="/bxws/9923.html" class="archive-article-date">
-  	<time datetime="2020-07-18T12:01:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-18</time>
+<a href="/bxws/87af.html" class="archive-article-date">
+  	<time datetime="2020-08-15T11:31:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-15</time>
 </a>
         <!-- 需要添加的位置 -->
         <!-- 开始添加字数统计-->
@@ -218,7 +219,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">319字</span>
+        <span class="post-count">516字</span>
       </span>
     </span>
 
@@ -227,7 +228,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
+        <span class="post-count">2分</span>
       </span>
     </span>
 </div>
@@ -240,22 +241,494 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <center>leetcode题解——整数反转</center>
-
-<h3 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。 </span><br><span class="line">注意: </span><br><span class="line">假设我们的环境只能存储得下 32 位的有符号整数，则其数值范围为 [−231, 231 − 1]。请根据这个假设，如果反转后整数溢出那么就返回 0。</span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
-
-<p><strong>示例</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: <span class="number">123</span></span><br><span class="line">输出: <span class="number">321</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>题解</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//java:整数反转</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">P7ReverseInteger</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Solution solution = <span class="keyword">new</span> P7ReverseInteger().<span class="keyword">new</span> Solution();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//leetcode submit region begin(Prohibit modification and deletion)</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">            <span class="comment">/*int ret=0;</span></span><br><span class="line"><span class="comment">            while (x != 0) &#123;</span></span><br><span class="line"><span class="comment">                int pop = x % 10;</span></span><br><span class="line"><span class="comment">                if (ret &gt; Integer.MAX_VALUE / 10 || (ret == Integer.MAX_VALUE / 10 &amp;&amp; pop &gt; 7))</span></span><br><span class="line"><span class="comment">                    return 0;</span></span><br><span class="line"><span class="comment">                if (ret &lt; Integer.MIN_VALUE / 10 || (ret == Integer.MIN_VALUE / 10 &amp;&amp; pop &lt; -8))</span></span><br><span class="line"><span class="comment">                    return 0;</span></span><br><span class="line"><span class="comment">                ret = ret * 10 + pop;</span></span><br><span class="line"><span class="comment">                x /= 10;</span></span><br><span class="line"><span class="comment">            &#125;</span></span><br><span class="line"><span class="comment">            return ret;*/</span></span><br><span class="line">            <span class="comment">/*</span></span><br><span class="line"><span class="comment">            java int 类整数的最大值是 2 的 31 次方 - 1 = 2147483648 - 1 = 2147483647</span></span><br><span class="line"><span class="comment">            可以用 Integer.MAX_VALUE 表示它，即 int value = Integer.MAX_VALUE;</span></span><br><span class="line"><span class="comment">            Integer.MAX_VALUE + 1 = Integer.MIN_VALUE = -2147483648</span></span><br><span class="line"><span class="comment">            */</span></span><br><span class="line">            <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span> (x != <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">int</span> t = x % <span class="number">10</span>;</span><br><span class="line">                <span class="keyword">int</span> newRes = res * <span class="number">10</span> + t;</span><br><span class="line">                <span class="comment">//如果数字溢出，直接返回0</span></span><br><span class="line">                <span class="keyword">if</span> ((newRes - t) / <span class="number">10</span> != res)</span><br><span class="line">                    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">                res = newRes;</span><br><span class="line">                x = x / <span class="number">10</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//leetcode submit region end(Prohibit modification and deletion)</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>运行结果</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">info</span><br><span class="line">运行成功:</span><br><span class="line">测试用例:<span class="number">123</span></span><br><span class="line">测试结果:<span class="number">321</span></span><br><span class="line">期望结果:<span class="number">321</span></span><br><span class="line">stdout:</span><br></pre></td></tr></table></figure>
-
-
+        <h4 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h4><table>
+<thead>
+<tr>
+<th align="left">英文</th>
+<th align="left">中文</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Hyper Text Markup Language</td>
+<td align="left">超文本标记语言</td>
+</tr>
+<tr>
+<td align="left">doctype</td>
+<td align="left">文档类型</td>
+</tr>
+<tr>
+<td align="left">head</td>
+<td align="left">头部</td>
+</tr>
+<tr>
+<td align="left">body</td>
+<td align="left">主体</td>
+</tr>
+<tr>
+<td align="left">foot</td>
+<td align="left">尾部</td>
+</tr>
+<tr>
+<td align="left">title</td>
+<td align="left">标题</td>
+</tr>
+<tr>
+<td align="left">font</td>
+<td align="left">字体</td>
+</tr>
+<tr>
+<td align="left">left</td>
+<td align="left">左边</td>
+</tr>
+<tr>
+<td align="left">rigth</td>
+<td align="left">右边</td>
+</tr>
+<tr>
+<td align="left">conter</td>
+<td align="left">中间</td>
+</tr>
+<tr>
+<td align="left">color</td>
+<td align="left">颜色</td>
+</tr>
+<tr>
+<td align="left">size</td>
+<td align="left">大小</td>
+</tr>
+<tr>
+<td align="left">face</td>
+<td align="left">脸</td>
+</tr>
+<tr>
+<td align="left">strong</td>
+<td align="left">强壮</td>
+</tr>
+<tr>
+<td align="left">disc</td>
+<td align="left">实心圆</td>
+</tr>
+<tr>
+<td align="left">circle</td>
+<td align="left">空心圆</td>
+</tr>
+<tr>
+<td align="left">square</td>
+<td align="left">方块</td>
+</tr>
+<tr>
+<td align="left">height</td>
+<td align="left">高度</td>
+</tr>
+<tr>
+<td align="left">width</td>
+<td align="left">宽度</td>
+</tr>
+<tr>
+<td align="left">table</td>
+<td align="left">表格</td>
+</tr>
+<tr>
+<td align="left">border</td>
+<td align="left">边框</td>
+</tr>
+<tr>
+<td align="left">algin</td>
+<td align="left">对齐方式</td>
+</tr>
+<tr>
+<td align="left">cellpadding</td>
+<td align="left">单元格边距</td>
+</tr>
+<tr>
+<td align="left">cellspacing</td>
+<td align="left">单元格间距</td>
+</tr>
+<tr>
+<td align="left">caption</td>
+<td align="left">标题</td>
+</tr>
+<tr>
+<td align="left">rowspan</td>
+<td align="left">跨行</td>
+</tr>
+<tr>
+<td align="left">colspan</td>
+<td align="left">跨列</td>
+</tr>
+<tr>
+<td align="left">banner</td>
+<td align="left">广告</td>
+</tr>
+<tr>
+<td align="left">hotel</td>
+<td align="left">旅馆</td>
+</tr>
+<tr>
+<td align="left">tel</td>
+<td align="left">电话</td>
+</tr>
+<tr>
+<td align="left">action</td>
+<td align="left">动作</td>
+</tr>
+<tr>
+<td align="left">method</td>
+<td align="left">方法</td>
+</tr>
+<tr>
+<td align="left">button</td>
+<td align="left">按钮</td>
+</tr>
+<tr>
+<td align="left">checkbox</td>
+<td align="left">复选框</td>
+</tr>
+<tr>
+<td align="left">month</td>
+<td align="left">月份</td>
+</tr>
+<tr>
+<td align="left">week</td>
+<td align="left">周</td>
+</tr>
+<tr>
+<td align="left">email</td>
+<td align="left">邮箱</td>
+</tr>
+<tr>
+<td align="left">file</td>
+<td align="left">文件</td>
+</tr>
+<tr>
+<td align="left">hidden</td>
+<td align="left">隐藏</td>
+</tr>
+<tr>
+<td align="left">number</td>
+<td align="left">数字</td>
+</tr>
+<tr>
+<td align="left">radio</td>
+<td align="left">单选框</td>
+</tr>
+<tr>
+<td align="left">range</td>
+<td align="left">区间</td>
+</tr>
+<tr>
+<td align="left">reset</td>
+<td align="left">重置</td>
+</tr>
+<tr>
+<td align="left">submit</td>
+<td align="left">提交</td>
+</tr>
+<tr>
+<td align="left">hobby</td>
+<td align="left">爱好</td>
+</tr>
+<tr>
+<td align="left">smoke</td>
+<td align="left">抽烟</td>
+</tr>
+<tr>
+<td align="left">drink</td>
+<td align="left">喝酒</td>
+</tr>
+<tr>
+<td align="left">perm</td>
+<td align="left">烫头</td>
+</tr>
+</tbody></table>
+<h4 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h4><table>
+<thead>
+<tr>
+<th align="left">英文</th>
+<th align="left">中文</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Cascading Style Sheet</td>
+<td align="left">层叠样式表</td>
+</tr>
+<tr>
+<td align="left">relation</td>
+<td align="left">关系</td>
+</tr>
+<tr>
+<td align="left">link</td>
+<td align="left">连接</td>
+</tr>
+<tr>
+<td align="left">active</td>
+<td align="left">活跃的</td>
+</tr>
+<tr>
+<td align="left">visited</td>
+<td align="left">访问</td>
+</tr>
+<tr>
+<td align="left">hover</td>
+<td align="left">悬停</td>
+</tr>
+<tr>
+<td align="left">decoration</td>
+<td align="left">装饰</td>
+</tr>
+<tr>
+<td align="left">repeat</td>
+<td align="left">重复</td>
+</tr>
+<tr>
+<td align="left">position</td>
+<td align="left">位置</td>
+</tr>
+<tr>
+<td align="left">weight</td>
+<td align="left">重量</td>
+</tr>
+<tr>
+<td align="left">both</td>
+<td align="left">双方</td>
+</tr>
+<tr>
+<td align="left">inline</td>
+<td align="left">内联</td>
+</tr>
+<tr>
+<td align="left">block</td>
+<td align="left">块</td>
+</tr>
+<tr>
+<td align="left">none</td>
+<td align="left">没有</td>
+</tr>
+<tr>
+<td align="left">padding</td>
+<td align="left">内边距</td>
+</tr>
+<tr>
+<td align="left">margin</td>
+<td align="left">外边距</td>
+</tr>
+<tr>
+<td align="left">radius</td>
+<td align="left">半径</td>
+</tr>
+<tr>
+<td align="left">auto</td>
+<td align="left">自动</td>
+</tr>
+</tbody></table>
+<h4 id="JS"><a href="#JS" class="headerlink" title="JS"></a>JS</h4><table>
+<thead>
+<tr>
+<th align="left">英文</th>
+<th align="left">中文</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">ECMA Script</td>
+<td align="left">javaScript核心的基础语法</td>
+</tr>
+<tr>
+<td align="left">Browser Object Model</td>
+<td align="left">浏览器对象模型</td>
+</tr>
+<tr>
+<td align="left">Document Object Model</td>
+<td align="left">文档对象模型</td>
+</tr>
+<tr>
+<td align="left">number</td>
+<td align="left">数值</td>
+</tr>
+<tr>
+<td align="left">undefined</td>
+<td align="left">未定义</td>
+</tr>
+<tr>
+<td align="left">document</td>
+<td align="left">文档</td>
+</tr>
+<tr>
+<td align="left">write</td>
+<td align="left">输出</td>
+</tr>
+<tr>
+<td align="left">log</td>
+<td align="left">日志</td>
+</tr>
+<tr>
+<td align="left">arguments</td>
+<td align="left">参数</td>
+</tr>
+<tr>
+<td align="left">element</td>
+<td align="left">元素</td>
+</tr>
+<tr>
+<td align="left">interval</td>
+<td align="left">间隙</td>
+</tr>
+<tr>
+<td align="left">alert</td>
+<td align="left">警告框</td>
+</tr>
+<tr>
+<td align="left">onblur</td>
+<td align="left">元素失去焦点</td>
+</tr>
+<tr>
+<td align="left">onfocus</td>
+<td align="left">元素获得焦点</td>
+</tr>
+<tr>
+<td align="left">onchange</td>
+<td align="left">用户改变域的内容</td>
+</tr>
+<tr>
+<td align="left">onclick</td>
+<td align="left">鼠标点击某个对象</td>
+</tr>
+<tr>
+<td align="left">ondblclick</td>
+<td align="left">鼠标双击某个对象</td>
+</tr>
+<tr>
+<td align="left">onkeydown</td>
+<td align="left">某个键盘的键被按下</td>
+</tr>
+<tr>
+<td align="left">onkeyup</td>
+<td align="left">某个键盘的键被松开</td>
+</tr>
+<tr>
+<td align="left">onload</td>
+<td align="left">某个页面或图像被完成加载</td>
+</tr>
+<tr>
+<td align="left">onmousedown</td>
+<td align="left">某个鼠标按键被按下</td>
+</tr>
+<tr>
+<td align="left">onmouseout</td>
+<td align="left">鼠标从某元素移开</td>
+</tr>
+<tr>
+<td align="left">onmouseover</td>
+<td align="left">鼠标被移到某元素之上</td>
+</tr>
+<tr>
+<td align="left">onmouseup</td>
+<td align="left">某个鼠标按键被松开</td>
+</tr>
+<tr>
+<td align="left">onsubmit</td>
+<td align="left">提交按钮被点击</td>
+</tr>
+<tr>
+<td align="left">concat</td>
+<td align="left">连接二个数组</td>
+</tr>
+<tr>
+<td align="left">reverse</td>
+<td align="left">反转</td>
+</tr>
+<tr>
+<td align="left">join</td>
+<td align="left">字符串连接</td>
+</tr>
+<tr>
+<td align="left">sort</td>
+<td align="left">排序</td>
+</tr>
+<tr>
+<td align="left">full</td>
+<td align="left">完全、全部</td>
+</tr>
+<tr>
+<td align="left">hour</td>
+<td align="left">小时</td>
+</tr>
+<tr>
+<td align="left">minute</td>
+<td align="left">分钟</td>
+</tr>
+<tr>
+<td align="left">second</td>
+<td align="left">秒</td>
+</tr>
+<tr>
+<td align="left">millisecond</td>
+<td align="left">毫秒</td>
+</tr>
+<tr>
+<td align="left">parse</td>
+<td align="left">解析</td>
+</tr>
+<tr>
+<td align="left">NaN（not a number）</td>
+<td align="left">不是一个数</td>
+</tr>
+<tr>
+<td align="left">window</td>
+<td align="left">窗口</td>
+</tr>
+<tr>
+<td align="left">location</td>
+<td align="left">地址栏</td>
+</tr>
+<tr>
+<td align="left">history</td>
+<td align="left">历史纪录</td>
+</tr>
+<tr>
+<td align="left">prompt</td>
+<td align="left">输入框</td>
+</tr>
+<tr>
+<td align="left">confirm</td>
+<td align="left">确认框</td>
+</tr>
+<tr>
+<td align="left">timeout</td>
+<td align="left">超时</td>
+</tr>
+<tr>
+<td align="left">pause</td>
+<td align="left">暂停</td>
+</tr>
+<tr>
+<td align="left">clock</td>
+<td align="left">时钟</td>
+</tr>
+<tr>
+<td align="left">reload</td>
+<td align="left">重新加载</td>
+</tr>
+<tr>
+<td align="left">forward</td>
+<td align="left">前进</td>
+</tr>
+<tr>
+<td align="left">back</td>
+<td align="left">后退</td>
+</tr>
+<tr>
+<td align="left">node</td>
+<td align="left">节点</td>
+</tr>
+<tr>
+<td align="left">light</td>
+<td align="left">浅色</td>
+</tr>
+<tr>
+<td align="left">pink</td>
+<td align="left">粉色</td>
+</tr>
+</tbody></table>
       
       
         <div style="text-align:center;color: #00BFFF;font-size:14px;">
@@ -273,7 +746,7 @@
           
           <br>
           <strong>本文链接：</strong>
-          http://mryhl.com.cn/bxws/9923.html
+          http://mryhl.com.cn/bxws/87af.html
           <br>
           <strong>版权声明：</strong>
           本作品采用
@@ -329,11 +802,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">code</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">推荐</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">单词</a>
         		</li>
       		
 		</ul>
@@ -389,7 +866,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://mryhl.com.cn/bxws/9923.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://mryhl.com.cn/bxws/87af.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -403,18 +880,9 @@
   
 <nav id="article-nav">
   
-    <a href="/bxws/2cc0.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          10天java基础学习笔记十
-        
-      </div>
-    </a>
   
-  
-    <a href="/bxws/e586.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">10天java基础学习笔记九</div>
+    <a href="/bxws/326b.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">html&amp;css入门</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -441,7 +909,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求"><span class="toc-number">1.</span> <span class="toc-text">题目要求</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#HTML"><span class="toc-number">1.</span> <span class="toc-text">HTML</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS"><span class="toc-number">2.</span> <span class="toc-text">CSS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JS"><span class="toc-number">3.</span> <span class="toc-text">JS</span></a></li></ol>
                     </div>
                 </span>
             </div>
