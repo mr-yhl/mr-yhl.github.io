@@ -9,15 +9,15 @@
   <link rel="dns-prefetch" href="http://mryhl.com.cn">
   <title>mysql函数 | mr-yhl的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、数学函数12345678910111213141516171819202122232425262728293031ABS(x)   返回x的绝对值BIN(x)   返回x的二进制（OCT返回八进制，HEX返回十六进制）CEILING(x)   返回大于x的最小整数值EXP(x)   返回值e（自然对数的底）的x次方FLOOR(x)   返回小于x的最大整数值GREATEST(x1,x2,...">
+  <meta name="description" content="数据库的常用函数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql函数">
 <meta property="og:url" content="http://mryhl.com.cn/bxws/2105.html">
 <meta property="og:site_name" content="mr-yhl的博客">
-<meta property="og:description" content="一、数学函数12345678910111213141516171819202122232425262728293031ABS(x)   返回x的绝对值BIN(x)   返回x的二进制（OCT返回八进制，HEX返回十六进制）CEILING(x)   返回大于x的最小整数值EXP(x)   返回值e（自然对数的底）的x次方FLOOR(x)   返回小于x的最大整数值GREATEST(x1,x2,...">
+<meta property="og:description" content="数据库的常用函数">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-03T11:51:56.000Z">
-<meta property="article:modified_time" content="2020-09-03T11:53:12.345Z">
+<meta property="article:modified_time" content="2020-09-05T13:06:40.772Z">
 <meta property="article:author" content="杨海林">
 <meta property="article:tag" content="code">
 <meta property="article:tag" content="mysql">
@@ -241,7 +241,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、数学函数"><a href="#一、数学函数" class="headerlink" title="一、数学函数"></a>一、数学函数</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">ABS(x)   返回x的绝对值</span><br><span class="line"></span><br><span class="line">BIN(x)   返回x的二进制（OCT返回八进制，HEX返回十六进制）</span><br><span class="line"></span><br><span class="line">CEILING(x)   返回大于x的最小整数值</span><br><span class="line"></span><br><span class="line">EXP(x)   返回值e（自然对数的底）的x次方</span><br><span class="line"></span><br><span class="line">FLOOR(x)   返回小于x的最大整数值</span><br><span class="line"></span><br><span class="line">GREATEST(x1,x2,...,xn)返回集合中最大的值</span><br><span class="line"></span><br><span class="line">LEAST(x1,x2,...,xn)      返回集合中最小的值</span><br><span class="line"></span><br><span class="line">LN(x)                    返回x的自然对数</span><br><span class="line"></span><br><span class="line">LOG(x,y)返回x的以y为底的对数</span><br><span class="line"></span><br><span class="line">MOD(x,y)                 返回x/y的模（余数）</span><br><span class="line"></span><br><span class="line">PI()返回pi的值（圆周率）</span><br><span class="line"></span><br><span class="line">RAND()返回０到１内的随机值,可以通过提供一个参数(种子)使RAND()随机数生成器生成一个指定的值。</span><br><span class="line"></span><br><span class="line">ROUND(x,y)返回参数x的四舍五入的有y位小数的值</span><br><span class="line"></span><br><span class="line">SIGN(x) 返回代表数字x的符号的值</span><br><span class="line"></span><br><span class="line">SQRT(x) 返回一个数的平方根</span><br><span class="line"></span><br><span class="line"><span class="keyword">TRUNCATE</span>(x,y)            返回数字x截短为y位小数的结果</span><br></pre></td></tr></table></figure>
+        <p>数据库的常用函数</p>
+<a id="more"></a>
+
+<h2 id="一、数学函数"><a href="#一、数学函数" class="headerlink" title="一、数学函数"></a>一、数学函数</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">ABS(x)   返回x的绝对值</span><br><span class="line"></span><br><span class="line">BIN(x)   返回x的二进制（OCT返回八进制，HEX返回十六进制）</span><br><span class="line"></span><br><span class="line">CEILING(x)   返回大于x的最小整数值</span><br><span class="line"></span><br><span class="line">EXP(x)   返回值e（自然对数的底）的x次方</span><br><span class="line"></span><br><span class="line">FLOOR(x)   返回小于x的最大整数值</span><br><span class="line"></span><br><span class="line">GREATEST(x1,x2,...,xn)返回集合中最大的值</span><br><span class="line"></span><br><span class="line">LEAST(x1,x2,...,xn)      返回集合中最小的值</span><br><span class="line"></span><br><span class="line">LN(x)                    返回x的自然对数</span><br><span class="line"></span><br><span class="line">LOG(x,y)返回x的以y为底的对数</span><br><span class="line"></span><br><span class="line">MOD(x,y)                 返回x/y的模（余数）</span><br><span class="line"></span><br><span class="line">PI()返回pi的值（圆周率）</span><br><span class="line"></span><br><span class="line">RAND()返回０到１内的随机值,可以通过提供一个参数(种子)使RAND()随机数生成器生成一个指定的值。</span><br><span class="line"></span><br><span class="line">ROUND(x,y)返回参数x的四舍五入的有y位小数的值</span><br><span class="line"></span><br><span class="line">SIGN(x) 返回代表数字x的符号的值</span><br><span class="line"></span><br><span class="line">SQRT(x) 返回一个数的平方根</span><br><span class="line"></span><br><span class="line"><span class="keyword">TRUNCATE</span>(x,y)            返回数字x截短为y位小数的结果</span><br></pre></td></tr></table></figure>
 
 
 
@@ -794,6 +797,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">for增强</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">more</a>
               </li>
              
@@ -803,14 +814,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">for增强</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -830,11 +833,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">索引</a>
+                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -843,6 +842,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">索引</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -874,15 +881,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
+                <a href="javascript:void(0)" class="js-tag color3">session</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gc垃圾处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">修复hexo</a>
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -902,11 +905,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">session</a>
+                <a href="javascript:void(0)" class="js-tag color2">gc垃圾处理</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+                <a href="javascript:void(0)" class="js-tag color2">修复hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -914,7 +917,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbc</a>
+                <a href="javascript:void(0)" class="js-tag color5">ArrayList</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -922,7 +925,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ArrayList</a>
+                <a href="javascript:void(0)" class="js-tag color5">jdbc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">jsp</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -942,11 +949,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">多表查询</a>
+                <a href="javascript:void(0)" class="js-tag color3">servlet</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">servlet</a>
+                <a href="javascript:void(0)" class="js-tag color5">多表查询</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1018,14 +1025,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数字炸弹</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">排序</a>
               </li>
              
@@ -1039,6 +1038,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">异常</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数字炸弹</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1083,10 +1090,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">基础概念</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jsp</a>
               </li>
              
               <li class="article-tag-list-item">
