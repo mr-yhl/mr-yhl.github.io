@@ -17,7 +17,7 @@
 <meta property="og:description" content="Java基础概念问答合集  整理一下平时练习到的java基础概念的问答题,也可做为面试的参考.">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-08-02T13:01:15.000Z">
-<meta property="article:modified_time" content="2020-08-10T12:37:23.086Z">
+<meta property="article:modified_time" content="2020-09-07T13:28:37.741Z">
 <meta property="article:author" content="杨海林">
 <meta property="article:tag" content="code">
 <meta property="article:tag" content="java">
@@ -219,7 +219,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">2k字</span>
+        <span class="post-count">2.3k字</span>
       </span>
     </span>
 
@@ -228,7 +228,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">6分</span>
+        <span class="post-count">9分</span>
       </span>
     </span>
 </div>
@@ -448,6 +448,12 @@
 <p>请问在什么情况下，使用“注解的属性”时，可以省略“属性名”？</p>
 <p><code>解答</code></p>
 <p>如果注解中只有一个没有默认值的属性，并且这个属性叫做value，那么在给该属性赋值时，可以省略属性名，否则必须写全.</p>
+<hr>
+<p><strong>问题</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">org.apache.ibatis.exceptions.PersistenceException: </span><br><span class="line">### Error committing transaction.  Cause: org.apache.ibatis.cache.CacheException: Error serializing object.  Cause: java.io.NotSerializableException: cn.com.mryhl.domain.Role</span><br><span class="line">### Cause: org.apache.ibatis.cache.CacheException: Error serializing object.  Cause: java.io.NotSerializableException: cn.com.mryhl.domain.Role</span><br><span class="line"></span><br><span class="line">	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:30)</span><br><span class="line">	at org.apache.ibatis.session.defaults.DefaultSqlSession.commit(DefaultSqlSession.java:226)</span><br><span class="line">	at org.apache.ibatis.session.defaults.DefaultSqlSession.commit(DefaultSqlSession.java:217)</span><br><span class="line">	at cn.com.mryhl.util.MyBatisUtils.release(MyBatisUtils.java:33)</span><br><span class="line">	at cn.com.mryhl.test.BaseMapperTest.after(BaseMapperTest.java:22)</span><br><span class="line">	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)</span><br><span class="line">	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)</span><br><span class="line">	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)</span><br><span class="line">	at java.lang.reflect.Method.invoke(Method.java:498)</span><br><span class="line">	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)</span><br><span class="line">	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)</span><br><span class="line">	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)</span><br><span class="line">	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:33)</span><br><span class="line">	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)</span><br><span class="line">	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)</span><br><span class="line">	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)</span><br><span class="line">	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)</span><br><span class="line">	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)</span><br><span class="line">	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)</span><br><span class="line">	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)</span><br><span class="line">	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)</span><br><span class="line">	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)</span><br><span class="line">	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)</span><br><span class="line">	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68)</span><br><span class="line">	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:33)</span><br><span class="line">	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:230)</span><br><span class="line">	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:58)</span><br><span class="line">Caused by: org.apache.ibatis.cache.CacheException: Error serializing object.  Cause: java.io.NotSerializableException: cn.com.mryhl.domain.Role</span><br></pre></td></tr></table></figure>
+
+<p><strong>解答</strong></p>
+<p>序列化该实体文件</p>
       
       
         <div style="text-align:center;color: #00BFFF;font-size:14px;">
