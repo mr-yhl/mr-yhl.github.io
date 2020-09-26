@@ -82,7 +82,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 81
+			总文章数 82
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -280,16 +280,16 @@
    6.  直接使用java.exe命令来运行某个主类。</code></pre><p>以上六种情况的任何一种，都可以导致JVM将一个类加载到方法区。</p>
 <p>类是由类加载器加载的。</p>
 <h3 id="2-类加载机制"><a href="#2-类加载机制" class="headerlink" title="2.类加载机制"></a>2.类加载机制</h3><ol>
-<li>启动类加载器(Bootstrap ClassLoader)：用于加载系统类库<JAVA_HOME>\bin目录下的<br>class，例如：rt.jar。内容包括:String  object…</li>
-<li>扩展类加载器(Extension ClassLoader)：用于加载扩展类库<JAVA_HOME>\lib\ext目录下的<br>class。</li>
+<li>启动类加载器(Bootstrap ClassLoader)：用于加载系统类库<JAVA_HOME>\bin目录下的<br>class，例如：rt.jar。内容包括:String  object…</JAVA_HOME></li>
+<li>扩展类加载器(Extension ClassLoader)：用于加载扩展类库<JAVA_HOME>\lib\ext目录下的<br>class。</JAVA_HOME></li>
 <li>应用程序类加载器(Application ClassLoader)：用于加载我们自定义类的加载器。</li>
 </ol>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">如果想要获取加载读类的类加载器，可以使用下面代码</span></span><br><span class="line"><span class="comment">    Person.class.getClassLoader()</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">启动类加载器是扩展类加载器的 父加载器</span></span><br><span class="line"><span class="comment">扩展类加载器是应用类加载器的 父加载器</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo01ClassLoaderTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(Person<span class="class">.<span class="keyword">class</span>.<span class="title">getClassLoader</span>().<span class="title">getParent</span>())</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="3双亲委派模型"><a href="#3双亲委派模型" class="headerlink" title="3双亲委派模型"></a>3双亲委派模型</h3><p><img src="https://img01.sogoucdn.com/app/a/100520146/976316EE8228684C2EB602F0FC0205E9" alt=""></p>
+<h3 id="3双亲委派模型"><a href="#3双亲委派模型" class="headerlink" title="3双亲委派模型"></a>3双亲委派模型</h3><p><img src="https://img01.sogoucdn.com/app/a/100520146/976316EE8228684C2EB602F0FC0205E9" alt></p>
 <h2 id="第二章-反射"><a href="#第二章-反射" class="headerlink" title="第二章 反射"></a>第二章 反射</h2><h3 id="1概念"><a href="#1概念" class="headerlink" title="1概念"></a>1概念</h3><p>反射：Java中的反射是一种操作机制，我们利用反射可以在程序运行时期获取到一个类的构造方法，成员方法，成员变量，并进行使用。</p>
 <p>原理: 反射操作的就是Class类型的对象，当我们使用一个类时，这个类会由类加载器加载到方法区，同时会给这个类创建Class类型的对象。这个Class类型的对象是用来描述该类的，会保存该类的信息，所以我们可以通过这个Class对象获取到类的成员变量，成员方法，构造方法等进行使用。</p>
-<p><img src="https://img03.sogoucdn.com/app/a/100520146/5DFA4A54A231AFAC8148BB7F422A6A28" alt=""></p>
+<p><img src="https://img03.sogoucdn.com/app/a/100520146/5DFA4A54A231AFAC8148BB7F422A6A28" alt></p>
 <h3 id="2-Class对象的获取方式"><a href="#2-Class对象的获取方式" class="headerlink" title="2.Class对象的获取方式"></a>2.Class对象的获取方式</h3><ol>
 <li><p>通过对象调用getClass方法获取</p>
 <pre><code>Class getClass()：获取Class对象</code></pre><ol start="2">
@@ -776,14 +776,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">for增强</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Map</a>
               </li>
              
@@ -793,6 +785,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Set</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">for增强</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -816,10 +816,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">推荐</a>
               </li>
              
@@ -828,15 +824,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JUnit</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -852,15 +848,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">AIO</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NIO</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -872,11 +864,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color4">AIO</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NIO</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -889,6 +889,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">框架</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -920,14 +924,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">filter</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">listener</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">gc垃圾处理</a>
               </li>
              
@@ -948,11 +944,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbc</a>
+                <a href="javascript:void(0)" class="js-tag color4">jsp</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jsp</a>
+                <a href="javascript:void(0)" class="js-tag color5">jdbc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1052,6 +1048,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数字炸弹</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">排序</a>
               </li>
              
@@ -1065,14 +1069,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">异常</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数字炸弹</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1129,6 +1125,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">面向对象</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">filter</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">listener</a>
               </li>
              
               <li class="article-tag-list-item">

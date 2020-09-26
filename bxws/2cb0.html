@@ -80,7 +80,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 81
+			总文章数 82
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -332,7 +332,7 @@
 </ul>
 <h3 id="2-术语-难点"><a href="#2-术语-难点" class="headerlink" title="2. 术语(难点)"></a>2. 术语(难点)</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">目标对象</span><br><span class="line"><span class="code">	被代理的对象</span></span><br><span class="line"></span><br><span class="line">连接点</span><br><span class="line"><span class="code">	被代理的对象中的所有方法</span></span><br><span class="line"></span><br><span class="line">切入点</span><br><span class="line"><span class="code">	被代理的对象中的一部分方法(要进行功能增强的部分)</span></span><br><span class="line"></span><br><span class="line">增强(通知)</span><br><span class="line"><span class="code">	一个具体的功能(打日志 开启事务  提交事务    增强类  增强方法)</span></span><br><span class="line"></span><br><span class="line">织入</span><br><span class="line"><span class="code">	将切入点代码和增强方法合在一起的动作</span></span><br><span class="line"></span><br><span class="line">代理对象</span><br><span class="line"><span class="code">	经过织入之后产生对象</span></span><br><span class="line"></span><br><span class="line">切面</span><br><span class="line"><span class="code">	切点 +  增强</span></span><br><span class="line"><span class="code">	切面是一种描述, 描述了这样一件事: 一个  [什么样的增强功能]   添加在了    [哪些切点的]    [什么位置]上</span></span><br><span class="line"><span class="code">	切面就是描述的切点方法和增强方法的执行顺序</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://p.pstatp.com/origin/1380b000111f4e43d4663" alt=""> </p>
+<p><img src="https://p.pstatp.com/origin/1380b000111f4e43d4663" alt> </p>
 <h2 id="第三章-SpringAOP的入门案例-重点"><a href="#第三章-SpringAOP的入门案例-重点" class="headerlink" title="第三章 SpringAOP的入门案例(重点)"></a>第三章 SpringAOP的入门案例(重点)</h2><blockquote>
 <p>需求: 在AccountServiceImpl类中的方法上打印日志</p>
 </blockquote>
@@ -581,11 +581,11 @@
 <td>事务是否只读</td>
 </tr>
 <tr>
-<td>ISOLATION_DEFAULT : int = - 1<br/>ISOLATION_READ_COMMITTED:int=2<br/>ISOLATION_READ_UNCOMMITTED:int=1<br/>ISOLATION_REPEATABLE_READ:int=4<br/>ISOLATION_SERIALIZABLE:int=8</td>
+<td>ISOLATION_DEFAULT : int = - 1<br>ISOLATION_READ_COMMITTED:int=2<br>ISOLATION_READ_UNCOMMITTED:int=1<br>ISOLATION_REPEATABLE_READ:int=4<br>ISOLATION_SERIALIZABLE:int=8</td>
 <td>事务隔离级别</td>
 </tr>
 <tr>
-<td>PROPAGATION MANDATORY : int = 2<br/>PROPAGATION NESTED : int = 6<br/>PROPAGATION NEVER : int = 5<br/>PROPAGATION NOT SUPPORTED: int=4<br/>PROPAGATION REQUIRED:int=0<br/>PROPAGATION_REQUIRES_NEW:int=3<br/>PROPAGATION SUPPORTS : int = 1</td>
+<td>PROPAGATION MANDATORY : int = 2<br>PROPAGATION NESTED : int = 6<br>PROPAGATION NEVER : int = 5<br>PROPAGATION NOT SUPPORTED: int=4<br>PROPAGATION REQUIRED:int=0<br>PROPAGATION_REQUIRES_NEW:int=3<br>PROPAGATION SUPPORTS : int = 1</td>
 <td>事务传播行为</td>
 </tr>
 <tr>
@@ -821,6 +821,15 @@
   
 <nav id="article-nav">
   
+    <a href="/bxws/12ac.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          SpringMVC
+        
+      </div>
+    </a>
+  
   
     <a href="/bxws/c50.html" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Spring基础02</div>
@@ -1040,14 +1049,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">for增强</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Map</a>
               </li>
              
@@ -1057,6 +1058,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Set</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">for增强</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1080,10 +1089,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">推荐</a>
               </li>
              
@@ -1092,15 +1097,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JUnit</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1116,15 +1121,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">AIO</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NIO</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1136,11 +1137,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color4">AIO</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NIO</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1153,6 +1162,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">框架</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1184,14 +1197,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">filter</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">listener</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">gc垃圾处理</a>
               </li>
              
@@ -1212,11 +1217,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbc</a>
+                <a href="javascript:void(0)" class="js-tag color4">jsp</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jsp</a>
+                <a href="javascript:void(0)" class="js-tag color5">jdbc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1316,6 +1321,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数字炸弹</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">排序</a>
               </li>
              
@@ -1329,14 +1342,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">异常</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数字炸弹</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1393,6 +1398,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">面向对象</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">filter</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">listener</a>
               </li>
              
               <li class="article-tag-list-item">

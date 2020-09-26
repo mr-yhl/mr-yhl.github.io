@@ -79,7 +79,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 81
+			总文章数 82
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -317,7 +317,7 @@
 <h2 id="第四章-Selector"><a href="#第四章-Selector" class="headerlink" title="第四章 Selector"></a>第四章 Selector</h2><p>Selector 选择器可以实现多路复用的效果。我们可以使用一个Selector监听三个服务器的状态，哪个服务器有请求来了，<br>那么就让这个服务器去处理请求</p>
 <h3 id="1-如何获取Selector"><a href="#1-如何获取Selector" class="headerlink" title="1.如何获取Selector"></a>1.如何获取Selector</h3><p>使用Selector中的open方法获取<br>static Selector open():获取选择器。</p>
 <h3 id="2-如何将通道注册到选择器："><a href="#2-如何将通道注册到选择器：" class="headerlink" title="2.如何将通道注册到选择器："></a>2.如何将通道注册到选择器：</h3><p>通道.configureBLocking(false):如果要选择器监听服务器通道，必须要将服务器设置为非阻塞。<br>SelectionKey register(Selector selector,int ops):参数selector表示将通道注册到哪个选择器,参数SelectionKey.OP_ACCEPT表示监听服务器就绪事件。</p>
-<h3 id="3-Selector选择器中的方法："><a href="#3-Selector选择器中的方法：" class="headerlink" title="3.Selector选择器中的方法："></a>3.Selector选择器中的方法：</h3><p>Set<SelectionKey> keys():获取已经注册到选择器的通道（编号）,放入到Set集合中返回。<br>Set<SelectionKey> selectedKeys():获取已经连接的通道（编号）,放入到Set集合中返回<br>int select():调用select后，程序会等者，一直到有客户端来连接。</p>
+<h3 id="3-Selector选择器中的方法："><a href="#3-Selector选择器中的方法：" class="headerlink" title="3.Selector选择器中的方法："></a>3.Selector选择器中的方法：</h3><p>Set<SelectionKey> keys():获取已经注册到选择器的通道（编号）,放入到Set集合中返回。<br>Set<SelectionKey> selectedKeys():获取已经连接的通道（编号）,放入到Set集合中返回<br>int select():调用select后，程序会等者，一直到有客户端来连接。</SelectionKey></SelectionKey></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.net.InetSocketAddress;</span><br><span class="line"><span class="keyword">import</span> java.nio.ByteBuffer;</span><br><span class="line"><span class="keyword">import</span> java.nio.channels.SelectionKey;</span><br><span class="line"><span class="keyword">import</span> java.nio.channels.Selector;</span><br><span class="line"><span class="keyword">import</span> java.nio.channels.ServerSocketChannel;</span><br><span class="line"><span class="keyword">import</span> java.nio.channels.SocketChannel;</span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用Selector选择器监听三个服务器通道状态</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo01Selector</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="comment">// 创建三个服务器,设置为非阻塞状态</span></span><br><span class="line">        ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();</span><br><span class="line">        serverSocketChannel.bind(<span class="keyword">new</span> InetSocketAddress(<span class="number">7777</span>));</span><br><span class="line">        serverSocketChannel.configureBlocking(<span class="keyword">false</span>);</span><br><span class="line">        ServerSocketChannel serverSocketChannel1 = ServerSocketChannel.open();</span><br><span class="line">        serverSocketChannel1.bind(<span class="keyword">new</span> InetSocketAddress(<span class="number">8888</span>));</span><br><span class="line">        serverSocketChannel1.configureBlocking(<span class="keyword">false</span>);</span><br><span class="line">        ServerSocketChannel serverSocketChannel2 = ServerSocketChannel.open();</span><br><span class="line">        serverSocketChannel2.bind(<span class="keyword">new</span> InetSocketAddress(<span class="number">9999</span>));</span><br><span class="line">        serverSocketChannel2.configureBlocking(<span class="keyword">false</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 获取选择器</span></span><br><span class="line">        Selector selector = Selector.open();</span><br><span class="line">        <span class="comment">// 注册到选择器</span></span><br><span class="line">        serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);</span><br><span class="line">        serverSocketChannel1.register(selector, SelectionKey.OP_ACCEPT);</span><br><span class="line">        serverSocketChannel2.register(selector, SelectionKey.OP_ACCEPT);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 死循环,让程序执行【一直监听服务器状态】</span></span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>)&#123;</span><br><span class="line">            <span class="comment">// 调用select方法,等着客户端来连接</span></span><br><span class="line">            selector.select();</span><br><span class="line">            <span class="comment">// 如果程序向下执行.表示有客户端连接了,获取连接通道</span></span><br><span class="line">            Set&lt;SelectionKey&gt; selectionKeys = selector.selectedKeys();</span><br><span class="line">            <span class="comment">// 使用迭代器遍历</span></span><br><span class="line">            Iterator&lt;SelectionKey&gt; iterator = selectionKeys.iterator();</span><br><span class="line">            <span class="keyword">while</span> (iterator.hasNext()) &#123;</span><br><span class="line">                SelectionKey selectionKey = iterator.next();</span><br><span class="line">                <span class="comment">// 通过SelectionKey获取通道</span></span><br><span class="line">                ServerSocketChannel serverSocketChannel3 = (ServerSocketChannel) selectionKey.channel();</span><br><span class="line">                <span class="comment">// 监听并获取客户端请求</span></span><br><span class="line">                SocketChannel socketChannel = serverSocketChannel3.accept();</span><br><span class="line">                <span class="comment">// 获取缓冲区,保存接收到的数据</span></span><br><span class="line">                ByteBuffer buffer = ByteBuffer.allocate(<span class="number">1024</span>);</span><br><span class="line">                socketChannel.read(buffer);</span><br><span class="line">                <span class="comment">// 缩小限制</span></span><br><span class="line">                buffer.flip();</span><br><span class="line">                System.out.println(<span class="keyword">new</span> String(buffer.array(),<span class="number">0</span>,buffer.limit()));</span><br><span class="line">                socketChannel.close();</span><br><span class="line">                <span class="comment">// 删除遍历到的元素</span></span><br><span class="line">                iterator.remove();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.net.InetSocketAddress;</span><br><span class="line"><span class="keyword">import</span> java.nio.ByteBuffer;</span><br><span class="line"><span class="keyword">import</span> java.nio.channels.SocketChannel;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo02Client</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">new</span> Thread(()-&gt;&#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                SocketChannel socketChannel = SocketChannel.open();</span><br><span class="line">                <span class="comment">// 连接服务器</span></span><br><span class="line">                socketChannel.connect(<span class="keyword">new</span> InetSocketAddress(<span class="string">"localhost"</span>,<span class="number">7777</span>));</span><br><span class="line">                <span class="comment">// 准备缓冲区</span></span><br><span class="line">                ByteBuffer byteBuffer = ByteBuffer.wrap(<span class="string">"我来了7777"</span>.getBytes());</span><br><span class="line"></span><br><span class="line">                socketChannel.write(byteBuffer);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).start();</span><br><span class="line">        <span class="keyword">new</span> Thread(()-&gt;&#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                SocketChannel socketChannel = SocketChannel.open();</span><br><span class="line">                <span class="comment">// 连接服务器</span></span><br><span class="line">                socketChannel.connect(<span class="keyword">new</span> InetSocketAddress(<span class="string">"localhost"</span>,<span class="number">8888</span>));</span><br><span class="line">                <span class="comment">// 准备缓冲区</span></span><br><span class="line">                ByteBuffer byteBuffer = ByteBuffer.wrap(<span class="string">"我来了8888"</span>.getBytes());</span><br><span class="line"></span><br><span class="line">                socketChannel.write(byteBuffer);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).start();</span><br><span class="line">        <span class="keyword">new</span> Thread(()-&gt;&#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                SocketChannel socketChannel = SocketChannel.open();</span><br><span class="line">                <span class="comment">// 连接服务器</span></span><br><span class="line">                socketChannel.connect(<span class="keyword">new</span> InetSocketAddress(<span class="string">"localhost"</span>,<span class="number">9999</span>));</span><br><span class="line">                <span class="comment">// 准备缓冲区</span></span><br><span class="line">                ByteBuffer byteBuffer = ByteBuffer.wrap(<span class="string">"我来了9999"</span>.getBytes());</span><br><span class="line"></span><br><span class="line">                socketChannel.write(byteBuffer);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -717,14 +717,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">for增强</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Map</a>
               </li>
              
@@ -734,6 +726,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Set</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">for增强</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -757,10 +757,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">推荐</a>
               </li>
              
@@ -769,15 +765,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JUnit</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -793,15 +789,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">AIO</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NIO</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -813,11 +805,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color4">AIO</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NIO</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -830,6 +830,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">框架</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -861,14 +865,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">filter</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">listener</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">gc垃圾处理</a>
               </li>
              
@@ -889,11 +885,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbc</a>
+                <a href="javascript:void(0)" class="js-tag color4">jsp</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jsp</a>
+                <a href="javascript:void(0)" class="js-tag color5">jdbc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -993,6 +989,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数字炸弹</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">排序</a>
               </li>
              
@@ -1006,14 +1010,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">异常</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数字炸弹</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1070,6 +1066,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">面向对象</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">filter</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">listener</a>
               </li>
              
               <li class="article-tag-list-item">

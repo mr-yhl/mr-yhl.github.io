@@ -85,7 +85,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 81
+			总文章数 82
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -287,7 +287,7 @@ Lambda表达式、Stream流</center>
 
 <h2 id="第一章-线程池方法"><a href="#第一章-线程池方法" class="headerlink" title="第一章 线程池方法"></a>第一章 线程池方法</h2><h3 id="1-思想"><a href="#1-思想" class="headerlink" title="1.思想"></a>1.思想</h3><p>我们之前使用多线程每次使用线程时都会创建一个新的线程，然后使用该线程去执行任务，这个线程执行完任务后就会销毁（退出）。这样频繁创建以及销毁线程对性能的影响是非常大的。<br>如果要解决这个问题，我们可以预先创建很多线程然后将这些线程放到一个容器中，如果以后要使用线程，直接从这个容器中获取线程，然后使用。如果用完了这个线程，那么就再把这个线程给放回去。以后再使用线程，直接从这个容器中拿即可。这样就避免了频察创建以及销级线程带来的性能问题。</p>
 <p>这个容器java已经为我们提供,就是线程池。线程池就是一个容器，里面已经创建好许多线程，如果我们要使用，直接通过线程池去使用即可。</p>
-<p><img src="https://p.pstatp.com/origin/137ac00009a43f16a282c" alt=""></p>
+<p><img src="https://p.pstatp.com/origin/137ac00009a43f16a282c" alt></p>
 <h3 id="2-概念"><a href="#2-概念" class="headerlink" title="2.概念"></a>2.概念</h3><p>其实就是一个容纳多个线程的容器，其中的线程可以反复使用，省去了频繁创建线程对象的操作， 无需反复创建线程而消耗过多资源。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">线程池就是一个容器，里面有很多线程，里面的每一个线程都可以去多次执行任务。</span><br><span class="line"></span><br><span class="line">线程池相关API</span><br><span class="line">    Executor:接口，该接收是线程池的根接口。这个接口中提供了提交线程任务的方法。</span><br><span class="line">    ExecutorService：是Executor的子接口，也表示线程池。里面除了提供了执行线程任务的方法，还提供了管理线程池的方法</span><br><span class="line">    Executors：线程的工具类。里面提供获取线程池的方法。</span><br><span class="line"></span><br><span class="line">注意：线程池不是我们自己创建的。而是通过Execcutors进行获取的。</span><br><span class="line"></span><br><span class="line">Executors获取线程池的方法：</span><br><span class="line">    <span class="function"><span class="keyword">static</span> ExecutorService <span class="title">newFixedThreadpool</span><span class="params">(<span class="keyword">int</span> nThreads)</span>:创建一个定长的线程池，参数表示线程池的长度。</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"> ExecutorService表示线程池，里面有一些方法。</span></span><br><span class="line"><span class="function">    <span class="title">submit</span><span class="params">(Runnable task)</span>:提交线程任务并执行.</span></span><br><span class="line"><span class="function">    <span class="title">shutdown</span><span class="params">()</span>:销毁线程池.</span></span><br></pre></td></tr></table></figure>
 
@@ -356,7 +356,7 @@ Lambda表达式、Stream流</center>
 <td>如果线程执行完了run方法，或者线程调用了stop方法</td>
 </tr>
 </tbody></table>
-<p><img src="https://p.pstatp.com/origin/ff4d0002ed220129ebeb" alt=""></p>
+<p><img src="https://p.pstatp.com/origin/ff4d0002ed220129ebeb" alt></p>
 <h3 id="2-等待唤醒机制"><a href="#2-等待唤醒机制" class="headerlink" title="2.等待唤醒机制"></a>2.等待唤醒机制</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">在object中，有两种方法可以让线程等待以及喷醒线程。</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">wait</span><span class="params">()</span>:让线程等待，直到有其他线程唤醒他。</span></span><br><span class="line"><span class="function">    <span class="keyword">void</span> <span class="title">wait</span><span class="params">(<span class="keyword">long</span> timeout)</span>:让线程等待，直到有其他线程唤醒他，或者时间到了也会自己醒。</span></span><br><span class="line"><span class="function">    <span class="keyword">void</span> <span class="title">notify</span><span class="params">()</span>:唤醒一个等待的线程</span></span><br><span class="line"><span class="function">    <span class="keyword">void</span> <span class="title">notifyALL</span><span class="params">()</span>:唤醒所有等待的线程。</span></span><br><span class="line"><span class="function">    wait方法用于等待，notify方法用于唤醒，他们一起使用，一般叫做等待唤醒机制，一般用于线程间的通信。</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">    wait notify 是object中的方法</span></span><br><span class="line"><span class="function">    wait notify（同步代码块或同步方法）,通过锁对象去调用。</span></span><br><span class="line"><span class="function">    </span></span><br><span class="line"><span class="function">    通过哪个锁调用的notify,那么唤醒的就是通过哪个锁调用的wait等待的进程</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="吃包子案例"><a href="#吃包子案例" class="headerlink" title="吃包子案例"></a>吃包子案例</h4><p>定义一个集合，包子铺线程完成生产包子，包子添加到集合中；吃货线程完成购买包子，包子从集合中移除。</p>
@@ -407,7 +407,7 @@ Lambda表达式、Stream流</center>
 
 <h2 id="第六章-Stream"><a href="#第六章-Stream" class="headerlink" title="第六章 Stream"></a>第六章 Stream</h2><h3 id="1-传统方式操作集合的弊端"><a href="#1-传统方式操作集合的弊端" class="headerlink" title="1.传统方式操作集合的弊端"></a>1.传统方式操作集合的弊端</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="comment">/*操作要求：</span></span><br><span class="line"><span class="comment">        1. 首先筛选所有姓张的人；</span></span><br><span class="line"><span class="comment">        2. 然后筛选名字有三个字的人；</span></span><br><span class="line"><span class="comment">        3. 最后进行对结果进行打印输出。*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo01PrintList</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        list.add(<span class="string">"张无忌"</span>);</span><br><span class="line">        list.add(<span class="string">"周芷若"</span>);</span><br><span class="line">        list.add(<span class="string">"赵敏"</span>);</span><br><span class="line">        list.add(<span class="string">"张强"</span>);</span><br><span class="line">        list.add(<span class="string">"张三丰"</span>);</span><br><span class="line">        <span class="comment">//1. 首先筛选所有姓张的人；</span></span><br><span class="line">        <span class="comment">//定义集合，保存本次筛选后的结果</span></span><br><span class="line">        List&lt;String&gt; zhangList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="comment">//遍历集合，拿到每一个元素，判断是否以张开头</span></span><br><span class="line">        <span class="keyword">for</span> (String str : list) &#123;</span><br><span class="line">            <span class="keyword">if</span>(str.startsWith(<span class="string">"张"</span>)) &#123;</span><br><span class="line">                zhangList.add(str);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 2. 然后筛选名字有三个字的人；</span></span><br><span class="line">        <span class="comment">//定义集合，保存本次筛选后的结果</span></span><br><span class="line">        List&lt;String&gt; threeList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="comment">//遍历上次筛选后的结果，拿到里面的每一个元素，判断是否是三个字</span></span><br><span class="line">        <span class="keyword">for</span> (String str : zhangList) &#123;</span><br><span class="line">            <span class="keyword">if</span>(str.length() == <span class="number">3</span>) &#123;</span><br><span class="line">                threeList.add(str);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//3. 最后进行对结果进行打印输出。</span></span><br><span class="line">        <span class="keyword">for</span> (String str : threeList) &#123;</span><br><span class="line">            System.out.println(str);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"==================="</span>);</span><br><span class="line">        <span class="comment">// Stream体验</span></span><br><span class="line">        <span class="comment">//list.stream().filter(s-&gt;s.startsWith("张")).filter(s-&gt;s.length()==3).forEach(s-&gt; System.out.println(s));</span></span><br><span class="line">        list.stream().filter(s-&gt;s.startsWith(<span class="string">"张"</span>)).filter(s-&gt;s.length()==<span class="number">3</span>).forEach(System.out::println);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://p.pstatp.com/origin/ff290002cbb247d81abf" alt=""></p>
+<p><img src="https://p.pstatp.com/origin/ff290002cbb247d81abf" alt></p>
 <h3 id="2-单列集合获取流"><a href="#2-单列集合获取流" class="headerlink" title="2.单列集合获取流"></a>2.单列集合获取流</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">Stream&lt;T&gt;是一个接口，该接口表示流。</span><br><span class="line"></span><br><span class="line">    获取流的两种方式</span><br><span class="line">        <span class="number">1</span>. 通过Collection集合（单列集合）调用stream()方法获取。【根据单列集合获取】</span><br><span class="line">        <span class="number">2</span>. 通过Stream中的静态方法根据数组获取流。【根据数组获取】</span><br><span class="line"></span><br><span class="line">    Collection中获取流的方法：</span><br><span class="line">        <span class="function">Stream&lt;E&gt; <span class="title">stream</span><span class="params">()</span>：获取集合对应的流。</span></span><br><span class="line"><span class="function">        <span class="keyword">import</span> java.util.ArrayList</span>;</span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.stream.Stream;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo02CollectionGetStream</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 创建集合</span></span><br><span class="line">        List&lt;String&gt; list  = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        list.add(<span class="string">"hello"</span>);</span><br><span class="line">        list.add(<span class="string">"world"</span>);</span><br><span class="line">        list.add(<span class="string">"java"</span>);</span><br><span class="line">        <span class="comment">// 通过集合获取流</span></span><br><span class="line">        Stream&lt;String&gt; stream = list.stream();</span><br><span class="line">        <span class="comment">// 输出</span></span><br><span class="line">        <span class="comment">// 将流转成数组,用数组的工具类将数组转成字符串,并使用println输出</span></span><br><span class="line">        System.out.println(Arrays.toString(stream.toArray()));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="3-根据数组获取流"><a href="#3-根据数组获取流" class="headerlink" title="3.根据数组获取流"></a>3.根据数组获取流</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">在Stream中有一个静态方法，可以根据数组获取流。</span><br><span class="line"></span><br><span class="line">    Stream中根据数组获取流的方法：</span><br><span class="line">        <span class="keyword">static</span> &lt;T&gt; <span class="function">Stream&lt;T&gt; <span class="title">of</span><span class="params">(T... values)</span>：根据数组或多个元素获取Stream流。</span></span><br><span class="line"><span class="function">        使用引用类型数据类型.</span></span><br><span class="line"><span class="function">        </span></span><br><span class="line"><span class="function"><span class="keyword">import</span> java.util.Arrays</span>;</span><br><span class="line"><span class="keyword">import</span> java.util.stream.Stream;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo02ArrayGetStream</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 创建数组</span></span><br><span class="line">        <span class="comment">// String[] strArr = &#123;"aa","bb","cc"&#125;;</span></span><br><span class="line">        <span class="comment">// 根据数组获取流</span></span><br><span class="line">        <span class="comment">// Stream&lt;String&gt; stream = Stream.of(strArr);</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//of方法不仅可以根据数组获取流，也可以根据多个元素获取流</span></span><br><span class="line">        Stream&lt;String&gt; stream = Stream.of(<span class="string">"aa"</span>,<span class="string">"bb"</span>,<span class="string">"cc"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 输出</span></span><br><span class="line">        System.out.println(Arrays.toString(stream.toArray()));</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -888,14 +888,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">for增强</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Map</a>
               </li>
              
@@ -905,6 +897,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Set</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">for增强</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -928,10 +928,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">推荐</a>
               </li>
              
@@ -940,15 +936,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JUnit</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -964,15 +960,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">AIO</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NIO</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -984,11 +976,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color4">AIO</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NIO</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1001,6 +1001,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">框架</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1032,14 +1036,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">filter</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">listener</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">gc垃圾处理</a>
               </li>
              
@@ -1060,11 +1056,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbc</a>
+                <a href="javascript:void(0)" class="js-tag color4">jsp</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jsp</a>
+                <a href="javascript:void(0)" class="js-tag color5">jdbc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1164,6 +1160,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数字炸弹</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">排序</a>
               </li>
              
@@ -1177,14 +1181,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">异常</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数字炸弹</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1241,6 +1237,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">面向对象</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">filter</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">listener</a>
               </li>
              
               <li class="article-tag-list-item">

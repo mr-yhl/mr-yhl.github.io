@@ -83,7 +83,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 81
+			总文章数 82
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -305,7 +305,7 @@
 <li>第二次握手，服务器端向客户端回送一个响应，通知客户端收到了连接请求。我活着 啊！！</li>
 <li>第三次握手，客户端再次向服务器端发送确认信息，确认连接。整个交互过程如下图所示。我知道了！！</li>
 </ul>
-<p><img src="https://img02.sogoucdn.com/app/a/100520146/C15D1E735F24C30D054737A066D5C2A3" alt=""></p>
+<p><img src="https://img02.sogoucdn.com/app/a/100520146/C15D1E735F24C30D054737A066D5C2A3" alt></p>
 <h3 id="5-网络编程三要素"><a href="#5-网络编程三要素" class="headerlink" title="5.网络编程三要素"></a>5.网络编程三要素</h3><p>协议：计算机网络通信必须遵守的规则，已经介绍过了，不再赘述。</p>
 <p>IP地址：指互联网协议地址（Internet Protocol Address），俗称IP。IP地址用来给一个网络中 的计算机设备做唯一的编号。</p>
 <p>IP地址分类</p>
@@ -328,12 +328,12 @@
 <p>客户端给服务器发送的消息叫做请求服务器给客户端发送的消息叫做响应。一次请求，一次响应这个就是一次TCP</p>
 <p>必须客户端主动连接服务器，服务器不能主动连接客户端</p>
 <p>TCP协议通信时,用的就是IO流在传输数据.</p>
-<p><img src="https://img02.sogoucdn.com/app/a/100520146/4B86612B6148CCD079D7CD44542B6F5F" alt=""></p>
+<p><img src="https://img02.sogoucdn.com/app/a/100520146/4B86612B6148CCD079D7CD44542B6F5F" alt></p>
 <h3 id="TCP通信案例"><a href="#TCP通信案例" class="headerlink" title="TCP通信案例"></a>TCP通信案例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">TCP的客户端</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">在Java中，有一个类叫做Socket,这个类表示TCP通信的客户端</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">Socket构造方法：</span></span><br><span class="line"><span class="comment">    Socket(String host,int port):参数host是目标服务器的ip地址，参数port目标服务器程序的端口号。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">Socket其他方法：</span></span><br><span class="line"><span class="comment">    OutputStream getOutputStream():获取字节输出流，该流用来发送数据。</span></span><br><span class="line"><span class="comment">    InputStream getInputStream():获取字节输入流，用来接收数据。</span></span><br><span class="line"><span class="comment">    void close():释放资</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">TCP客户端的实现步骤：</span></span><br><span class="line"><span class="comment">    1.创建Socket对象，表示客户端，并要指定要连接的服务器ip地址以及端口号</span></span><br><span class="line"><span class="comment">    2.通过Socket调用getOutputStream获取字节输出流，该流用来向服务器发送数据。</span></span><br><span class="line"><span class="comment">    3.通过流调用write方法，写（发）数据</span></span><br><span class="line"><span class="comment">    4.通过Socket调用getInputStream获取字节输入流，该流用来读取服务器发送过来的数据。</span></span><br><span class="line"><span class="comment">    5.通过流调用read方法，读取（接收）数据</span></span><br><span class="line"><span class="comment">    6.释放资源</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.OutputStream;</span><br><span class="line"><span class="keyword">import</span> java.net.Socket;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo01Client</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="comment">// 1.创建Socket对象，表示客户端，并要指定要连接的服务器ip地址以及端口号</span></span><br><span class="line">        <span class="comment">// 建Socket对象时会主动连接服务器，如果连接失败，会报错【三次握手】</span></span><br><span class="line">        Socket socket = <span class="keyword">new</span> Socket(<span class="string">"127.0.0.1"</span>, <span class="number">8888</span>);</span><br><span class="line">        <span class="comment">// 2.通过Socket调用getOutputStream获取字节输出流，该流用来向服务器发送数据。</span></span><br><span class="line">        OutputStream out = socket.getOutputStream();</span><br><span class="line">        <span class="comment">// 3.通过流调用write方法，写（发）数据</span></span><br><span class="line">        out.write(<span class="string">"你好"</span>.getBytes());</span><br><span class="line">        <span class="comment">// 4.通过Socket调用getInputStream获取字节输入流，该流用来读取服务器发送过来的数据</span></span><br><span class="line">        InputStream in = socket.getInputStream();</span><br><span class="line">        <span class="keyword">byte</span>[] bytes = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">        <span class="keyword">int</span> len;</span><br><span class="line">        <span class="comment">// 5.通过流调用read方法，读取（接收）数据</span></span><br><span class="line">        len = in.read(bytes);</span><br><span class="line">        System.out.println(<span class="keyword">new</span> String(bytes,<span class="number">0</span>,len));</span><br><span class="line">        <span class="comment">// 6.释放资源</span></span><br><span class="line">        socket.close();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    TCP的服务器</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    在Java中有一个类，这个类叫做ServerSocket,表示服务器</span></span><br><span class="line"><span class="comment">    ServerSocket的构造方法</span></span><br><span class="line"><span class="comment">        ServerSocket(int port):表示服务器程序（自己）的端口</span></span><br><span class="line"><span class="comment">    ServerSocket的其他方法：</span></span><br><span class="line"><span class="comment">        Socket accept():监听（等待）并获取客户端的请求（Socket)</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    TCP服务器端实现步骤：</span></span><br><span class="line"><span class="comment">        1.创建ServerSocket,表示TCP的服务器。</span></span><br><span class="line"><span class="comment">        2.通过服务器调用accept方法监听并获取客户端请求（客户端Socket)</span></span><br><span class="line"><span class="comment">        3.通过Socket调用getInputStream方法获取输入流，用来接收客户端发送过来的数据。</span></span><br><span class="line"><span class="comment">        4.通过流调用read方法，接收数据。</span></span><br><span class="line"><span class="comment">        5.通过Socket调用getOutputStream方法获取输出流，用来给客户端发送数据</span></span><br><span class="line"><span class="comment">        6.通过流调用write方法，写数据</span></span><br><span class="line"><span class="comment">        7.释放资流</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.OutputStream;</span><br><span class="line"><span class="keyword">import</span> java.net.ServerSocket;</span><br><span class="line"><span class="keyword">import</span> java.net.Socket;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo02Server</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="comment">// 1.创建ServerSocket,表示TCP的服务器。</span></span><br><span class="line">        ServerSocket serverSocket = <span class="keyword">new</span> ServerSocket(<span class="number">8888</span>);</span><br><span class="line">        <span class="comment">// 2.通过服务器调用accept方法监听并获取客户端请求（客户端Socket)</span></span><br><span class="line">        Socket socket = serverSocket.accept();</span><br><span class="line">        <span class="comment">// 3.通过Socket调用getInputStream方法获取输入流，用来接收客户端发送过来的数据。</span></span><br><span class="line">        InputStream in = socket.getInputStream();</span><br><span class="line">        <span class="comment">// 4.通过流调用read方法，接收数据。</span></span><br><span class="line">        <span class="keyword">byte</span>[] bytes = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">        <span class="keyword">int</span> len = in.read(bytes);</span><br><span class="line">        System.out.println(<span class="keyword">new</span> String(bytes,<span class="number">0</span>,len));</span><br><span class="line">        <span class="comment">// 5.通过Socket调用getOutputStream方法获取输出流，用来给客户端发送数据</span></span><br><span class="line">        OutputStream out = socket.getOutputStream();</span><br><span class="line">        <span class="comment">// 6.通过流调用write方法，写数据</span></span><br><span class="line">        out.write(<span class="string">"收到"</span>.getBytes());</span><br><span class="line">        <span class="comment">// 7.释放资流</span></span><br><span class="line">        socket.close();</span><br><span class="line">        serverSocket.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="第四章-案例练习"><a href="#第四章-案例练习" class="headerlink" title="第四章 案例练习"></a>第四章 案例练习</h2><h3 id="1-文件上传案例"><a href="#1-文件上传案例" class="headerlink" title="1.文件上传案例"></a>1.文件上传案例</h3><p><img src="https://img03.sogoucdn.com/app/a/100520146/F8BBF3133A1336B91676B24D5B9608F2" alt=""></p>
+<h2 id="第四章-案例练习"><a href="#第四章-案例练习" class="headerlink" title="第四章 案例练习"></a>第四章 案例练习</h2><h3 id="1-文件上传案例"><a href="#1-文件上传案例" class="headerlink" title="1.文件上传案例"></a>1.文件上传案例</h3><p><img src="https://img03.sogoucdn.com/app/a/100520146/F8BBF3133A1336B91676B24D5B9608F2" alt></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">TCP上传的客户端</span></span><br><span class="line"><span class="comment">对于客户端来说，就是读取自己电脑文件中的字节，然后将这些字节发送给服务器。最后接收服务器回复过来的消息。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">上传的客户端实现步骤：</span></span><br><span class="line"><span class="comment">    1.创建客户端Socket对象，指定要连接的服务器</span></span><br><span class="line"><span class="comment">    2.创建一个字节输入流，用来读取自己文件中的字节。</span></span><br><span class="line"><span class="comment">    3.通过Socket获取一个字节输出流，用来给服务器发数据。</span></span><br><span class="line"><span class="comment">    4.开始读写。采用字节数组的方式读写数据，每读取一次，就将读取到的数据发送给服务器。</span></span><br><span class="line"><span class="comment">    5.关闭字节输入流。</span></span><br><span class="line"><span class="comment">    6.通过Socket获取一个字节输入流，用来接收数据。</span></span><br><span class="line"><span class="comment">    7.通过流调用read方法，接收服务器回复过来的数据。</span></span><br><span class="line"><span class="comment">    8.释放资源。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">import</span> java.io.FileInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.OutputStream;</span><br><span class="line"><span class="keyword">import</span> java.net.Socket;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo01Client</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="comment">// 1.创建客户端Socket对象，指定要连接的服务器</span></span><br><span class="line">        <span class="comment">// Socket socket = new Socket("192.168.12.185", 8888);</span></span><br><span class="line">        Socket socket = <span class="keyword">new</span> Socket(<span class="string">"127.0.0.1"</span>, <span class="number">8888</span>);</span><br><span class="line">        <span class="comment">// 2.创建一个字节输入流，用来读取自己文件中的字节。</span></span><br><span class="line">        FileInputStream is = <span class="keyword">new</span> FileInputStream(<span class="string">"e:\\client\\a.jpg"</span>);</span><br><span class="line">        <span class="comment">// 3.通过Socket获取一个字节输出流，用来给服务器发数据。</span></span><br><span class="line">        OutputStream out = socket.getOutputStream();</span><br><span class="line">        <span class="comment">// 4.开始读写。采用字节数组的方式读写数据，每读取一次，就将读取到的数据发送给服务器。</span></span><br><span class="line">        <span class="keyword">byte</span>[] bytes = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">        <span class="keyword">int</span> len;</span><br><span class="line">        <span class="keyword">while</span> ((len = is.read(bytes))!=-<span class="number">1</span>)</span><br><span class="line">            out.write(bytes,<span class="number">0</span>,len);</span><br><span class="line">        <span class="comment">// 给服务器发一个通知,告诉服务器,文件发送完毕</span></span><br><span class="line">        socket.shutdownOutput();</span><br><span class="line">        <span class="comment">// 5.关闭字节输入流。</span></span><br><span class="line">        is.close();</span><br><span class="line">        <span class="comment">// 6.通过Socket获取一个字节输入流，用来接收数据。</span></span><br><span class="line">        InputStream in = socket.getInputStream();</span><br><span class="line">        <span class="comment">// 7.通过流调用read方法，接收服务器回复过来的数据。</span></span><br><span class="line">        len=in.read(bytes);</span><br><span class="line">        System.out.println(<span class="keyword">new</span> String(bytes, <span class="number">0</span>, len));</span><br><span class="line">        <span class="comment">// 8.释放资源。</span></span><br><span class="line">        socket.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">TCP上传的服务器</span></span><br><span class="line"><span class="comment">对于服务器来说，要做的事情就是读取客户端发来的字节，然后将这些字节写到自己的电脑，然后给客户端一个回复【上传成功】</span></span><br><span class="line"><span class="comment">步骤：</span></span><br><span class="line"><span class="comment">    1.创建ServerSocket表示服务器</span></span><br><span class="line"><span class="comment">    2.通过ServerSocket调用accept方法监听客户端请求</span></span><br><span class="line"><span class="comment">    3.创建FiLeOutputStream,用来向自己电脑写数据</span></span><br><span class="line"><span class="comment">    4.通过Socket调用getInputStream,得到输入流，用来读取客户端的数据</span></span><br><span class="line"><span class="comment">    5.循环读写，每读取到数据，就将读取到的数据写到自己的电脑</span></span><br><span class="line"><span class="comment">    6.关闭字节输出流。</span></span><br><span class="line"><span class="comment">    7.通过Socket调用getOutputStream,得到输出流，用来向客户端写数据。</span></span><br><span class="line"><span class="comment">    8.调用write方法，发送消息</span></span><br><span class="line"><span class="comment">    9.释放资源</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">import</span> java.io.FileOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.OutputStream;</span><br><span class="line"><span class="keyword">import</span> java.net.ServerSocket;</span><br><span class="line"><span class="keyword">import</span> java.net.Socket;</span><br><span class="line"><span class="keyword">import</span> java.util.UUID;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo02Server</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="comment">// 1.创建ServerSocket表示服务器</span></span><br><span class="line">        ServerSocket serverSocket = <span class="keyword">new</span> ServerSocket(<span class="number">8888</span>);</span><br><span class="line">        <span class="comment">// 2.通过ServerSocket调用accept方法监听客户端请求</span></span><br><span class="line">        Socket socket = serverSocket.accept();</span><br><span class="line">        <span class="comment">// 3.创建FiLeOutputStream,用来向自己电脑写数据</span></span><br><span class="line">        <span class="comment">// FileOutputStream os = new FileOutputStream("e:\\server\\a.jpg");</span></span><br><span class="line">        <span class="comment">// FileOutputStream os = new FileOutputStream("e:\\server\\"+System.currentTimeMillis()+".jpg");</span></span><br><span class="line">        <span class="comment">// 在java中有个类叫做UUID,里面有个方法叫做randomUUID,可以随机的不重复的序列号</span></span><br><span class="line">        FileOutputStream os = <span class="keyword">new</span> FileOutputStream(<span class="string">"e:\\server\\"</span>+ UUID.randomUUID()+<span class="string">".jpg"</span>);</span><br><span class="line">        <span class="comment">// 4.通过Socket调用getInputStream,得到输入流，用来读取客户端的数据</span></span><br><span class="line">        InputStream in = socket.getInputStream();</span><br><span class="line">        <span class="comment">// 5.循环读写，每读取到数据，就将读取到的数据写到自己的电脑</span></span><br><span class="line">        <span class="keyword">byte</span>[] bytes = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">        <span class="keyword">int</span> len;</span><br><span class="line">        <span class="keyword">while</span> ((len = in.read(bytes))!=-<span class="number">1</span>)</span><br><span class="line">            os.write(bytes,<span class="number">0</span>,len);</span><br><span class="line">        <span class="comment">// 6.关闭字节输出流。</span></span><br><span class="line">        os.close();</span><br><span class="line">        <span class="comment">// 7.通过Socket调用getOutputStream,得到输出流，用来向客户端写数据。</span></span><br><span class="line">        OutputStream out = socket.getOutputStream();</span><br><span class="line">        <span class="comment">// 8.调用write方法，发送消息</span></span><br><span class="line">        out.write(<span class="string">"上传成功"</span>.getBytes());</span><br><span class="line">        <span class="comment">// 9.释放资源</span></span><br><span class="line">        socket.close();</span><br><span class="line">        serverSocket.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -728,14 +728,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">for增强</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Map</a>
               </li>
              
@@ -745,6 +737,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Set</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">for增强</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -768,10 +768,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">推荐</a>
               </li>
              
@@ -780,15 +776,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JUnit</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -804,15 +800,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">AIO</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NIO</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -824,11 +816,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color4">AIO</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NIO</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -841,6 +841,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">框架</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -872,14 +876,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">filter</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">listener</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">gc垃圾处理</a>
               </li>
              
@@ -900,11 +896,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbc</a>
+                <a href="javascript:void(0)" class="js-tag color4">jsp</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jsp</a>
+                <a href="javascript:void(0)" class="js-tag color5">jdbc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1004,6 +1000,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数字炸弹</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">排序</a>
               </li>
              
@@ -1017,14 +1021,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">异常</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数字炸弹</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1081,6 +1077,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">面向对象</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">filter</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">listener</a>
               </li>
              
               <li class="article-tag-list-item">
