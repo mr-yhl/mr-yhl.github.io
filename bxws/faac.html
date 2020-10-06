@@ -16,20 +16,20 @@
 <meta property="og:site_name" content="mr-yhl的博客">
 <meta property="og:description" content="今日内容 分模块开发 私服 软件服务模式] 软件开发流程">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://mryhl.com.cn/bxws/image-001.png">
-<meta property="og:image" content="http://mryhl.com.cn/bxws/image-002.png">
-<meta property="og:image" content="http://mryhl.com.cn/bxws/image-003.png">
-<meta property="og:image" content="http://mryhl.com.cn/bxws/image-004.png">
-<meta property="og:image" content="http://mryhl.com.cn/bxws/image-005.png">
-<meta property="og:image" content="http://mryhl.com.cn/bxws/image-006.png">
-<meta property="og:image" content="http://mryhl.com.cn/bxws/image-007.png">
-<meta property="og:image" content="http://mryhl.com.cn/bxws/image-008.png">
-<meta property="og:image" content="http://mryhl.com.cn/bxws/image-009.png">
-<meta property="og:image" content="http://mryhl.com.cn/bxws/image-010.png">
-<meta property="og:image" content="http://mryhl.com.cn/bxws/image-011.png">
-<meta property="og:image" content="http://mryhl.com.cn/bxws/image-012.png">
-<meta property="og:image" content="http://mryhl.com.cn/bxws/image-013.png">
-<meta property="og:image" content="http://mryhl.com.cn/bxws/image-014.png">
+<meta property="og:image" content="http://mryhl.com.cn/bxws/faac/image-001.png">
+<meta property="og:image" content="http://mryhl.com.cn/bxws/faac/image-002.png">
+<meta property="og:image" content="http://mryhl.com.cn/bxws/faac/image-003.png">
+<meta property="og:image" content="http://mryhl.com.cn/bxws/faac/image-004.png">
+<meta property="og:image" content="http://mryhl.com.cn/bxws/faac/image-005.png">
+<meta property="og:image" content="http://mryhl.com.cn/bxws/faac/image-006.png">
+<meta property="og:image" content="http://mryhl.com.cn/bxws/faac/image-007.png">
+<meta property="og:image" content="http://mryhl.com.cn/bxws/faac/image-008.png">
+<meta property="og:image" content="http://mryhl.com.cn/bxws/faac/image-009.png">
+<meta property="og:image" content="http://mryhl.com.cn/bxws/faac/image-010.png">
+<meta property="og:image" content="http://mryhl.com.cn/bxws/faac/image-011.png">
+<meta property="og:image" content="http://mryhl.com.cn/bxws/faac/image-012.png">
+<meta property="og:image" content="http://mryhl.com.cn/bxws/faac/image-013.png">
+<meta property="og:image" content="http://mryhl.com.cn/bxws/faac/image-014.png">
 <meta property="article:published_time" content="2020-10-06T13:42:02.000Z">
 <meta property="article:modified_time" content="2020-10-06T13:58:36.269Z">
 <meta property="article:author" content="杨海林">
@@ -37,7 +37,7 @@
 <meta property="article:tag" content="分模块开发">
 <meta property="article:tag" content="私服">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://mryhl.com.cn/bxws/image-001.png">
+<meta name="twitter:image" content="http://mryhl.com.cn/bxws/faac/image-001.png">
   
   
     <link rel="icon" href="/img/logoz.ico">
@@ -272,7 +272,7 @@
 <p><strong>拆分</strong> 将原来的一个项目拆分成一个个小的模块, 每个模块都有自己的坐标,  当其它项目需要本模块的功能时, 只需要按照坐标引入本模块就可以了</p>
 <p><strong>聚合</strong> 通过坐标的形式，将各个模块组装在一起,完成一个项目的功能</p>
 </blockquote>
-<p><img src="http://mryhl.com.cn/bxws/image-001.png" alt="拆分聚合"> </p>
+<p><img src="http://mryhl.com.cn/bxws/faac/image-001.png" alt="拆分聚合"> </p>
 <h3 id="2-父子工程搭建"><a href="#2-父子工程搭建" class="headerlink" title="2.父子工程搭建"></a>2.父子工程搭建</h3><h4 id="2-1-创建父工程"><a href="#2-1-创建父工程" class="headerlink" title="2.1 创建父工程"></a>2.1 创建父工程</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/POM/4.0.0"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.itheima<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>ssm_parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--自动生成,代表当前是一个父工程--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--自动生成,代表当前父工程下的子工程--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modules</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">module</span>&gt;</span>ssm_dao<span class="tag">&lt;/<span class="name">module</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">module</span>&gt;</span>ssm_service<span class="tag">&lt;/<span class="name">module</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">module</span>&gt;</span>ssm_web<span class="tag">&lt;/<span class="name">module</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">modules</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 
@@ -365,24 +365,24 @@
 <h4 id="4-5-开发响应页面"><a href="#4-5-开发响应页面" class="headerlink" title="4.5 开发响应页面"></a>4.5 开发响应页面</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page contentType=<span class="string">"text/html;charset=UTF-8"</span> language=<span class="string">"java"</span> %&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">    $&#123;accounts&#125;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 
 <h2 id="第五章-私服-了解"><a href="#第五章-私服-了解" class="headerlink" title="第五章 私服(了解)"></a>第五章 私服(了解)</h2><h3 id="1-私服简介"><a href="#1-私服简介" class="headerlink" title="1.私服简介"></a>1.私服简介</h3><p>​     公司在自己的局域网内搭建自己的远程仓库服务器，称为私服，私服服务器即是公司内部的maven远程仓库，每个员工的电脑上安装maven软件并且连接私服服务器，员工将自己开发的项目打成jar并发布到私服服务器，其它项目组从私服服务器下载所依赖的构件（jar）。</p>
-<p><img src="http://mryhl.com.cn/bxws/image-002.png" alt="img"> </p>
-<p><img src="http://mryhl.com.cn/bxws/image-003.png" alt="image-20200930110019174"> </p>
+<p><img src="http://mryhl.com.cn/bxws/faac/image-002.png" alt="img"> </p>
+<p><img src="http://mryhl.com.cn/bxws/faac/image-003.png" alt="image-20200930110019174"> </p>
 <h3 id="2-搭建私服环境"><a href="#2-搭建私服环境" class="headerlink" title="2. 搭建私服环境"></a>2. 搭建私服环境</h3><h4 id="2-1-下载nexus"><a href="#2-1-下载nexus" class="headerlink" title="2.1 下载nexus"></a>2.1 下载nexus</h4><p>Nexus是Maven仓库管理器，通过nexus可以搭建maven仓库, 软件已经提供在资料中<code>nexus-2.12.0-01-bundle.zip</code></p>
-<p><img src="http://mryhl.com.cn/bxws/image-004.png" alt="image-20200628144428365"> </p>
+<p><img src="http://mryhl.com.cn/bxws/faac/image-004.png" alt="image-20200628144428365"> </p>
 <h4 id="2-2-安装nexus"><a href="#2-2-安装nexus" class="headerlink" title="2.2 安装nexus"></a>2.2 安装nexus</h4><p>第1步:  解压nexus-2.12.0-01-bundle.zip到一个没有中文没有空格的目录  </p>
-<p><img src="http://mryhl.com.cn/bxws/image-005.png" alt="image-20200628145356064"> </p>
+<p><img src="http://mryhl.com.cn/bxws/faac/image-005.png" alt="image-20200628145356064"> </p>
 <p>第2步: 以<code>管理员身份</code>运行cmd命令, 然后进入软件的bin目录，通过命令安装并启动nexus软件</p>
-<p><img src="http://mryhl.com.cn/bxws/image-006.png" alt="image-20200628145948727"> </p>
+<p><img src="http://mryhl.com.cn/bxws/faac/image-006.png" alt="image-20200628145948727"> </p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">补充下停止和下载的命令</span><br><span class="line">  停止 nexus.bat  stop</span><br><span class="line">  卸载 nexus.bat  uninstall</span><br></pre></td></tr></table></figure>
 
 <p>第3步: 访问nexus</p>
 <p>nexus默认监听端口为8081, 通过 <code>http://localhost:8081/nexus</code> 即可访问</p>
-<p><img src="http://mryhl.com.cn/bxws/image-007.png" alt="image-20200628150353480"></p>
+<p><img src="http://mryhl.com.cn/bxws/faac/image-007.png" alt="image-20200628150353480"></p>
 <p>第4步: 登录nexus</p>
 <p>nexus默认的用户名是<strong>admin</strong>, 默认的密码是<strong>admin123</strong></p>
-<p><img src="http://mryhl.com.cn/bxws/image-008.png" alt="image-20200628151112905"> </p>
+<p><img src="http://mryhl.com.cn/bxws/faac/image-008.png" alt="image-20200628151112905"> </p>
 <p>登录成功后,会看到下面的内容:</p>
-<p><img src="http://mryhl.com.cn/bxws/image-009.png" alt="image-20200628151303488"> </p>
+<p><img src="http://mryhl.com.cn/bxws/faac/image-009.png" alt="image-20200628151303488"> </p>
 <h3 id="3-仓库类型"><a href="#3-仓库类型" class="headerlink" title="3.仓库类型"></a>3.仓库类型</h3><p>仓库有下面四类:</p>
 <ul>
 <li>proxy  代理仓库, 用于代理远程仓库(中央)</li>
@@ -397,11 +397,11 @@
 <p>第2步： 在需要操作的模块(比如ssm_dao)的pom.xml文件中, 添加下面配置</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">	配置私服仓库的地址，如果版本为release则上传到私服的release仓库，如果版本为snapshot则上传到私服的snapshot仓库</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">distributionManagement</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">repository</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>releases<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://localhost:8081/nexus/content/repositories/releases/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">repository</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">snapshotRepository</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>snapshots<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://localhost:8081/nexus/content/repositories/snapshots/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">snapshotRepository</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">distributionManagement</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="http://mryhl.com.cn/bxws/image-010.png" alt="image-20200930112013859"> </p>
+<p><img src="http://mryhl.com.cn/bxws/faac/image-010.png" alt="image-20200930112013859"> </p>
 <p>第3步： 选择需要操作的模块(比如ssm_dao), 执行deploy命令</p>
-<p><img src="http://mryhl.com.cn/bxws/image-011.png" alt="image-20200628154459155"> </p>
+<p><img src="http://mryhl.com.cn/bxws/faac/image-011.png" alt="image-20200628154459155"> </p>
 <p>第4步: 执行完毕后, 可以在私服的对应目录下观察到上传的文件</p>
-<p><img src="http://mryhl.com.cn/bxws/image-012.png" alt="image-20200628154910224"> </p>
+<p><img src="http://mryhl.com.cn/bxws/faac/image-012.png" alt="image-20200628154910224"> </p>
 <h3 id="5-从私服下载jar包"><a href="#5-从私服下载jar包" class="headerlink" title="5. 从私服下载jar包"></a>5. 从私服下载jar包</h3><p>配置nexus之后，本地仓库没有jar包，就去私服下载，私服如果没有, 再由私服去中央下载。</p>
 <p>第1步:  在maven的settings.xml文件中, 添加下面配置</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--配置下载仓库--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">id</span>&gt;</span>dev<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">repositories</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">repository</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://localhost:8081/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">releases</span>&gt;</span>  </span><br><span class="line">       <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;/<span class="name">releases</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">snapshots</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">snapshots</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">repository</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">repositories</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">pluginRepositories</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">pluginRepository</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>public<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>Public Repositories<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://localhost:8081/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">pluginRepository</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">pluginRepositories</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line"></span><br><span class="line"> <span class="comment">&lt;!--使用profile定义仓库需要激活才可生效--&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">activeProfiles</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">activeProfile</span>&gt;</span>dev<span class="tag">&lt;/<span class="name">activeProfile</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">activeProfiles</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -412,14 +412,14 @@
 <p>3)  在ssm_service模块上执行compile命令</p>
 <p>​     注意: service 要编译成功必须依赖仓库中的ssm_dao,而现在本地仓库中没有, 他就会从私服下载</p>
 <p>4)  通过控制台观察效果</p>
-<p><img src="http://mryhl.com.cn/bxws/image-013.png" alt="image-20200628162939278"></p>
+<p><img src="http://mryhl.com.cn/bxws/faac/image-013.png" alt="image-20200628162939278"></p>
 <h2 id="第六章-软件的服务模式"><a href="#第六章-软件的服务模式" class="headerlink" title="第六章 软件的服务模式"></a>第六章 软件的服务模式</h2><p>目前, 软件服务主要有三种模式:</p>
 <ul>
 <li><strong>IaaS（基础设施即服务）</strong> 提供给客户最基础的东西, 然后客户自己完成所有工作</li>
 <li><strong>PaaS（平台即服务）</strong>提供给客户半成品的东西, 然后客户自己完成剩下的工作</li>
 <li><strong>SaaS（软件即服务）</strong>提供给客户成品,  客户只需要使用</li>
 </ul>
-<p><img src="http://mryhl.com.cn/bxws/image-014.png" alt="image-20200930115455073"> </p>
+<p><img src="http://mryhl.com.cn/bxws/faac/image-014.png" alt="image-20200930115455073"> </p>
 <p>SaaS（Software-as-a-service）的意思是软件即服务。简单说就是在线系统模式，即软件服务商提供的软件在线服务。</p>
 <p>SaaS软件就适用对象而言，可以划分为针对个人的与针对企业的</p>
 <p>​    面向个人的SaaS产品：在线文档，账务管理，文件管理，日程计划、照片管理、联系人管理，等等云类型的服务</p>
@@ -797,6 +797,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Map</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Collections</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Set</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">File</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">more</a>
               </li>
              
@@ -825,27 +845,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Map</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Collections</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Set</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">File</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -854,10 +858,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -877,14 +877,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">索引</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">AIO</a>
               </li>
              
@@ -893,15 +885,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">索引</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">框架</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
+                <a href="javascript:void(0)" class="js-tag color2">流</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -913,7 +909,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">流</a>
+                <a href="javascript:void(0)" class="js-tag color3">框架</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -945,6 +945,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gc垃圾处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">filter</a>
               </li>
              
@@ -953,11 +957,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gc垃圾处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ArrayList</a>
+                <a href="javascript:void(0)" class="js-tag color2">修复hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -965,15 +965,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">修复hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">ArrayList</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">数组</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -989,6 +985,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">jdbc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
@@ -997,23 +997,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">多表查询</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">servlet</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">数据库基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">多表查询</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">typora</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">单词</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1037,6 +1029,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">typora</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
@@ -1049,19 +1045,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">api</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Scanner</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">split</a>
+                <a href="javascript:void(0)" class="js-tag color3">单词</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1073,7 +1057,39 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">split</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">api</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Scanner</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">快速排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">dos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">简历</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数字炸弹</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1093,22 +1109,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">简历</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">快速排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数字炸弹</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ssm</a>
               </li>
              
@@ -1122,22 +1122,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">线程安全</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">继承</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">抽象类</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">final</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础概念</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1157,6 +1141,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">继承</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">抽象类</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">final</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">类</a>
               </li>
              
@@ -1166,6 +1162,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">面向对象</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础概念</a>
               </li>
              
               <li class="article-tag-list-item">
