@@ -74,7 +74,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 91
+			总文章数 92
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -271,6 +271,311 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/bxws/undefined.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Mybatis反向工程和项目模块" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/bxws/713f.html">Mybatis反向工程和项目模块</a>
+    </h1>
+  
+
+        <!--  -->
+        
+        
+<a href="/bxws/713f.html" class="archive-article-date">
+  	<time datetime="2020-10-15T12:07:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-15</time>
+</a>
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">4k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">19分</span>
+      </span>
+    </span>
+</div>
+          
+        <!-- 添加完成 -->
+        
+        <!-- 添加代码 -->  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="今日内容"><a href="#今日内容" class="headerlink" title="今日内容"></a>今日内容</h2><ul>
+<li>Mybatis的逆向工程</li>
+<li>销售合同</li>
+<li>合同管理</li>
+<li>货物管理</li>
+<li>七牛云存储</li>
+</ul>
+<h2 id="第一章-Mybatis逆向工程"><a href="#第一章-Mybatis逆向工程" class="headerlink" title="第一章 Mybatis逆向工程"></a>第一章 Mybatis逆向工程</h2><h3 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1. 介绍"></a>1. 介绍</h3><p>Mybatis是目前非常流行的持久层框架，其逆向工程更是大大缩减了我们的开发时间。</p>
+<p>所谓mybatis逆向工程，就是Mybatis会根据我们设计好的数据表，自动生成<strong>domain（实体）</strong>、<strong>mapper（接口）</strong>以及<strong>mapper.xml（映射）</strong></p>
+<p>而且会在文件中给我们生成单表增删改查的方法和sql</p>
+<p>官网地址：<a href="https://mybatis.org/generator/" target="_blank" rel="noopener">https://mybatis.org/generator/</a></p>
+<p><img src="http://mryhl.com.cn/bxws/713f/image-20200704085155163.png" alt> </p>
+<h3 id="2-插件使用"><a href="#2-插件使用" class="headerlink" title="2. 插件使用"></a>2. 插件使用</h3><h4 id="2-1-创建一个maven工程-引入依赖"><a href="#2-1-创建一个maven工程-引入依赖" class="headerlink" title="2.1 创建一个maven工程,引入依赖"></a>2.1 创建一个maven工程,引入依赖</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis.generator<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-generator-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.3.7<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.5.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.17<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.1.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.12<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis.generator<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-generator-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.3.7<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">verbose</span>&gt;</span>true<span class="tag">&lt;/<span class="name">verbose</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">overwrite</span>&gt;</span>true<span class="tag">&lt;/<span class="name">overwrite</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-compiler-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">source</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">source</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">target</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">target</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">encoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">encoding</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-加入配置文件"><a href="#2-2-加入配置文件" class="headerlink" title="2.2 加入配置文件"></a>2.2 加入配置文件</h4><blockquote>
+<p>generatorConfig.xml</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">generatorConfiguration</span> <span class="meta-keyword">PUBLIC</span></span></span><br><span class="line"><span class="meta">        <span class="meta-string">"-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"</span></span></span><br><span class="line"><span class="meta">        <span class="meta-string">"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd"</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">generatorConfiguration</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- classPathEntry:数据库的 JDBC驱动的jar 包地址 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">classPathEntry</span> <span class="attr">location</span>=<span class="string">"lib/mysql-connector-java-5.1.47.jar"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--生成java代码--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">context</span> <span class="attr">id</span>=<span class="string">"context"</span> <span class="attr">targetRuntime</span>=<span class="string">"MyBatis3"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- 配置生成pojo的序列化的插件--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span> <span class="attr">type</span>=<span class="string">"org.mybatis.generator.plugins.SerializablePlugin"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- 配置生成toString的序列化的插件  --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span> <span class="attr">type</span>=<span class="string">"org.mybatis.generator.plugins.ToStringPlugin"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">commentGenerator</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 是否去除自动生成的（english）注释 true：是 ： false:否 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"suppressAllComments"</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">commentGenerator</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!--数据库连接的信息：驱动类、连接地址、用户名、密码 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">jdbcConnection</span> <span class="attr">driverClass</span>=<span class="string">"com.mysql.jdbc.Driver"</span></span></span><br><span class="line"><span class="tag">                        <span class="attr">connectionURL</span>=<span class="string">"jdbc:mysql://localhost:3306/saas-export"</span></span></span><br><span class="line"><span class="tag">                        <span class="attr">userId</span>=<span class="string">"root"</span></span></span><br><span class="line"><span class="tag">                        <span class="attr">password</span>=<span class="string">"root"</span>/&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">                默认为false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer</span></span><br><span class="line"><span class="comment">                为true时，把JDBC DECIMAL 和 NUMERIC 类型解析为java.math.BigDecimal</span></span><br><span class="line"><span class="comment">        --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">javaTypeResolver</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"forceBigDecimals"</span> <span class="attr">value</span>=<span class="string">"false"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">javaTypeResolver</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- 指定生成的实体类的存放位置 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">javaModelGenerator</span> <span class="attr">targetPackage</span>=<span class="string">"com.itheima.domain.cargo"</span> <span class="attr">targetProject</span>=<span class="string">"./src/main/java"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"enableSubPackages"</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"trimStrings"</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">javaModelGenerator</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- 指定生成的Dao映射文件的存放位置 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">sqlMapGenerator</span> <span class="attr">targetPackage</span>=<span class="string">"com.itheima.dao.cargo"</span> <span class="attr">targetProject</span>=<span class="string">"./src/main/resources"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"enableSubPackages"</span> <span class="attr">value</span>=<span class="string">"false"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">sqlMapGenerator</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!--指定生成的Dao接口的存放位置--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">javaClientGenerator</span> <span class="attr">targetPackage</span>=<span class="string">"com.itheima.dao.cargo"</span> <span class="attr">targetProject</span>=<span class="string">"./src/main/java"</span> <span class="attr">type</span>=<span class="string">"XMLMAPPER"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"enableSubPackages"</span> <span class="attr">value</span>=<span class="string">"false"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">javaClientGenerator</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- 指定数据库表 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">table</span> <span class="attr">tableName</span>=<span class="string">"co_factory"</span> <span class="attr">domainObjectName</span>=<span class="string">"Factory"</span> <span class="attr">mapperName</span>=<span class="string">"FactoryDao"</span></span></span><br><span class="line"><span class="tag">               <span class="attr">enableCountByExample</span>=<span class="string">"false"</span> <span class="attr">enableDeleteByExample</span>=<span class="string">"false"</span></span></span><br><span class="line"><span class="tag">               <span class="attr">enableSelectByExample</span>=<span class="string">"true"</span> <span class="attr">enableUpdateByExample</span>=<span class="string">"false"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">context</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">generatorConfiguration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-3-运行插件-生成文件"><a href="#2-3-运行插件-生成文件" class="headerlink" title="2.3 运行插件,生成文件"></a>2.3 运行插件,生成文件</h4><p><img src="http://mryhl.com.cn/bxws/713f/image-20201015161101346.png" alt> </p>
+<h3 id="3-生成的文件的使用"><a href="#3-生成的文件的使用" class="headerlink" title="3. 生成的文件的使用"></a>3. 生成的文件的使用</h3><h4 id="3-1-单表crud"><a href="#3-1-单表crud" class="headerlink" title="3.1 单表crud"></a>3.1 单表crud</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itheima.dao.cargo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.itheima.domain.cargo.Factory;</span><br><span class="line"><span class="keyword">import</span> com.itheima.domain.cargo.FactoryExample;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">FactoryDao</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//保存</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">insert</span><span class="params">(Factory record)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//保存(动态SQL)</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">insertSelective</span><span class="params">(Factory record)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//修改</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">updateByPrimaryKey</span><span class="params">(Factory record)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//修改(动态SQL)</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">updateByPrimaryKeySelective</span><span class="params">(Factory record)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//根据主键删除</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">deleteByPrimaryKey</span><span class="params">(String id)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//根据主键查询</span></span><br><span class="line">    <span class="function">Factory <span class="title">selectByPrimaryKey</span><span class="params">(String id)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//条件查询</span></span><br><span class="line">    <span class="function">List&lt;Factory&gt; <span class="title">selectByExample</span><span class="params">(FactoryExample example)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-条件查询"><a href="#3-2-条件查询" class="headerlink" title="3.2 条件查询"></a>3.2 条件查询</h4><p><strong>factory表数据</strong></p>
+<p><img src="http://mryhl.com.cn/bxws/713f/image-20200704092836919.png" alt></p>
+<p><strong>加入mybatis的环境</strong></p>
+<p><img src="http://mryhl.com.cn/bxws/713f/image-20201015161122924.png" alt> </p>
+<p><strong>测试</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itheima.test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.itheima.dao.cargo.FactoryDao;</span><br><span class="line"><span class="keyword">import</span> com.itheima.domain.cargo.Factory;</span><br><span class="line"><span class="keyword">import</span> com.itheima.domain.cargo.FactoryExample;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.io.Resources;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.session.SqlSession;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.session.SqlSessionFactory;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.session.SqlSessionFactoryBuilder;</span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>:</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: mryhl</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span>: Created in 2020/10/15 11:47</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span>: 1.1</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MybatisTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@description</span> 查询所有</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@author</span> mryhl</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@date</span> 2020/10/15 11:51</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testFindAll</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line"></span><br><span class="line">		InputStream inputStream = Resources.getResourceAsStream(<span class="string">"mybatis-config.xml"</span>);</span><br><span class="line">		SqlSessionFactory sessionFactory = <span class="keyword">new</span> SqlSessionFactoryBuilder().build(inputStream);</span><br><span class="line">		SqlSession sqlSession = sessionFactory.openSession();</span><br><span class="line">		FactoryDao mapper = sqlSession.getMapper(FactoryDao<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">		FactoryExample factoryExample = <span class="keyword">new</span> FactoryExample();</span><br><span class="line">		List&lt;Factory&gt; factories = mapper.selectByExample(factoryExample);</span><br><span class="line">		<span class="keyword">for</span> (Factory factory : factories) &#123;</span><br><span class="line">			System.out.println(factory);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		sqlSession.close();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@description</span> 按条件查询</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@author</span> mryhl</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@date</span> 2020/10/15 11:51</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSort</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line"></span><br><span class="line">		InputStream inputStream = Resources.getResourceAsStream(<span class="string">"mybatis-config.xml"</span>);</span><br><span class="line">		SqlSessionFactory sessionFactory = <span class="keyword">new</span> SqlSessionFactoryBuilder().build(inputStream);</span><br><span class="line">		SqlSession sqlSession = sessionFactory.openSession();</span><br><span class="line">		FactoryDao mapper = sqlSession.getMapper(FactoryDao<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">		<span class="comment">// 创建FactoryExample对象</span></span><br><span class="line">		FactoryExample factoryExample = <span class="keyword">new</span> FactoryExample();</span><br><span class="line">		FactoryExample.Criteria criteria = factoryExample.createCriteria();</span><br><span class="line">		<span class="comment">// 查询条件</span></span><br><span class="line">		criteria.andCtypeEqualTo(<span class="string">"货物"</span>).andAddressEqualTo(<span class="string">"长沙"</span>);</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 调用查询条件</span></span><br><span class="line">		List&lt;Factory&gt; factories = mapper.selectByExample(factoryExample);</span><br><span class="line">		<span class="comment">// 遍历查询结果</span></span><br><span class="line">		<span class="keyword">for</span> (Factory factory : factories) &#123;</span><br><span class="line">			System.out.println(factory);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		sqlSession.close();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@description</span> 排序去重</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@author</span> mryhl</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@date</span> 2020/10/15 11:51</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testFindByExample</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line"></span><br><span class="line">		InputStream inputStream = Resources.getResourceAsStream(<span class="string">"mybatis-config.xml"</span>);</span><br><span class="line">		SqlSessionFactory sessionFactory = <span class="keyword">new</span> SqlSessionFactoryBuilder().build(inputStream);</span><br><span class="line">		SqlSession sqlSession = sessionFactory.openSession();</span><br><span class="line">		FactoryDao mapper = sqlSession.getMapper(FactoryDao<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">		<span class="comment">// 创建FactoryExample对象</span></span><br><span class="line">		FactoryExample factoryExample = <span class="keyword">new</span> FactoryExample();</span><br><span class="line">		FactoryExample.Criteria criteria = factoryExample.createCriteria();</span><br><span class="line">		<span class="comment">// 查询条件</span></span><br><span class="line">		criteria.andCtypeEqualTo(<span class="string">"货物"</span>).andAddressEqualTo(<span class="string">"长沙"</span>);</span><br><span class="line">		<span class="comment">// 排序的方法</span></span><br><span class="line">		factoryExample.setOrderByClause(<span class="string">"id desc"</span>);</span><br><span class="line">		<span class="comment">// 去重的方法</span></span><br><span class="line">		factoryExample.setDistinct(<span class="keyword">true</span>);</span><br><span class="line">		<span class="comment">// 调用查询条件</span></span><br><span class="line">		List&lt;Factory&gt; factories = mapper.selectByExample(factoryExample);</span><br><span class="line">		<span class="comment">// 遍历查询结果</span></span><br><span class="line">		<span class="keyword">for</span> (Factory factory : factories) &#123;</span><br><span class="line">			System.out.println(factory);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		sqlSession.close();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>支持的条件操作:</p>
+<p><img src="http://mryhl.com.cn/bxws/713f/image-20201015161509972.png" alt></p>
+<h2 id="第二章-购销合同功能"><a href="#第二章-购销合同功能" class="headerlink" title="第二章 购销合同功能"></a>第二章 购销合同功能</h2><h3 id="1-需求分析"><a href="#1-需求分析" class="headerlink" title="1. 需求分析"></a>1. 需求分析</h3><h4 id="1-1-需求说明"><a href="#1-1-需求说明" class="headerlink" title="1.1 需求说明"></a>1.1 需求说明</h4><p>购销合同：买卖双方签订的合同，维系国内的出口公司和海外客户之间联系</p>
+<p>购销合同由三部分组成：合同主体信息、合同中所有货物信息、合同中所有附件信息</p>
+<p><img src="http://mryhl.com.cn/bxws/713f/image-20200714215904632.png" alt> </p>
+<h4 id="1-2-数据模型分析"><a href="#1-2-数据模型分析" class="headerlink" title="1.2 数据模型分析"></a>1.2 数据模型分析</h4><p><strong>实体关系</strong></p>
+<p>数据库表：</p>
+<ul>
+<li>购销合同表 ： <strong>co_contract</strong></li>
+<li>购销合同货物表： <strong>co_contract_product</strong></li>
+<li>购销合同附件表：<strong>co_ext_cproduct</strong></li>
+</ul>
+<p><img src="http://mryhl.com.cn/bxws/713f/image-20200704104631425.png" alt></p>
+<p><strong>实体关系影响</strong></p>
+<p>合同、货物、附件三个实体之间是有关系的， 当前中一个变动会影响到其它两个， 主要影响到的属性为数量和金额</p>
+<table>
+<thead>
+<tr>
+<th>合同变化</th>
+<th>新增</th>
+<th>删除</th>
+<th>修改</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>货物</strong></td>
+<td>无</td>
+<td>删除合同下所有货物</td>
+<td>无</td>
+</tr>
+<tr>
+<td><strong>附件</strong></td>
+<td>无</td>
+<td>删除合同下所有附件</td>
+<td>无</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>货物变化</strong></td>
+<td><strong>新增</strong></td>
+<td><strong>删除</strong></td>
+<td><strong>修改</strong></td>
+</tr>
+<tr>
+<td><strong>合同</strong></td>
+<td>变更总金额和货物的数量</td>
+<td>变更总金额和货物的数量和附件的数量</td>
+<td>变更总金额</td>
+</tr>
+<tr>
+<td><strong>附件</strong></td>
+<td>无</td>
+<td>删除货物下的所有附件</td>
+<td>无</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>附件变化</strong></td>
+<td><strong>新增</strong></td>
+<td><strong>删除</strong></td>
+<td><strong>修改</strong></td>
+</tr>
+<tr>
+<td><strong>合同</strong></td>
+<td>变更总金额和附件的数量</td>
+<td>变更总金额和附件的数量</td>
+<td>变更总金额</td>
+</tr>
+<tr>
+<td><strong>货物</strong></td>
+<td>无</td>
+<td>无</td>
+<td>无</td>
+</tr>
+</tbody></table>
+<h3 id="2-环境搭建"><a href="#2-环境搭建" class="headerlink" title="2. 环境搭建"></a>2. 环境搭建</h3><h4 id="2-1-添加模块-配置依赖"><a href="#2-1-添加模块-配置依赖" class="headerlink" title="2.1 添加模块, 配置依赖"></a>2.1 添加模块, 配置依赖</h4><p><img src="http://mryhl.com.cn/bxws/713f/image-20200704111323727.png" alt> </p>
+<h4 id="2-2-复制配置文件"><a href="#2-2-复制配置文件" class="headerlink" title="2.2 复制配置文件"></a>2.2 复制配置文件</h4><p><img src="http://mryhl.com.cn/bxws/713f/image-20201015160922522.png" alt> </p>
+<h4 id="2-3-复制启动类"><a href="#2-3-复制启动类" class="headerlink" title="2.3 复制启动类"></a>2.3 复制启动类</h4><p><img src="http://mryhl.com.cn/bxws/713f/image-20201015160832895.png" alt> </p>
+<h4 id="2-4-添加准备好的类和文件"><a href="#2-4-添加准备好的类和文件" class="headerlink" title="2.4 添加准备好的类和文件"></a>2.4 添加准备好的类和文件</h4><p><img src="http://mryhl.com.cn/bxws/713f/image-20201015161924508.png" alt> </p>
+<h4 id="2-5-Service实现类代码的补全"><a href="#2-5-Service实现类代码的补全" class="headerlink" title="2.5 Service实现类代码的补全"></a>2.5 Service实现类代码的补全</h4><p>以FactoryServiceImpl实现类演示其使用方式, 其它的实现类中均以写好对应的实现</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itheima.service.cargo.impl;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.alibaba.dubbo.config.annotation.Service;</span><br><span class="line"><span class="keyword">import</span> com.github.pagehelper.PageHelper;</span><br><span class="line"><span class="keyword">import</span> com.github.pagehelper.PageInfo;</span><br><span class="line"><span class="keyword">import</span> com.itheima.dao.cargo.FactoryDao;</span><br><span class="line"><span class="keyword">import</span> com.itheima.domain.cargo.Factory;</span><br><span class="line"><span class="keyword">import</span> com.itheima.domain.cargo.FactoryExample;</span><br><span class="line"><span class="keyword">import</span> com.itheima.service.cargo.FactoryService;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FactoryServiceImpl</span> <span class="keyword">implements</span> <span class="title">FactoryService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//一定注意Dao的所有引入都是用@Autowired</span></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> FactoryDao factoryDao;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">save</span><span class="params">(Factory factory)</span> </span>&#123;</span><br><span class="line">        factoryDao.insertSelective(factory);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(Factory factory)</span> </span>&#123;</span><br><span class="line">        factoryDao.updateByPrimaryKeySelective(factory);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delete</span><span class="params">(String id)</span> </span>&#123;</span><br><span class="line">        factoryDao.deleteByPrimaryKey(id);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Factory <span class="title">findById</span><span class="params">(String id)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> factoryDao.selectByPrimaryKey(id);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Factory&gt; <span class="title">findAll</span><span class="params">(FactoryExample example)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> factoryDao.selectByExample(example);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> PageInfo <span class="title">findByPage</span><span class="params">(<span class="keyword">int</span> pageNum, <span class="keyword">int</span> pageSize, FactoryExample example)</span> </span>&#123;</span><br><span class="line">        PageHelper.startPage(pageNum, pageSize);</span><br><span class="line">        List&lt;Factory&gt; factories = factoryDao.selectByExample(example);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> PageInfo(factories, <span class="number">10</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="第三章-合同管理"><a href="#第三章-合同管理" class="headerlink" title="第三章 合同管理"></a>第三章 合同管理</h2><h3 id="1-需求说明"><a href="#1-需求说明" class="headerlink" title="1. 需求说明"></a>1. 需求说明</h3><p>完成对合同的增删改查操作。注意, 在创建合同的时候添加<strong>创建人id\创建部门id\创建时间</strong>, 后面会用到。</p>
+<p><img src="http://mryhl.com.cn/bxws/713f/image-20200714225832526.png" alt></p>
+<h3 id="2-合同基本功能实现"><a href="#2-合同基本功能实现" class="headerlink" title="2. 合同基本功能实现"></a>2. 合同基本功能实现</h3><p>在<code>export_manager_web</code>模块的<code>com.itheima.web.controller.cargo</code>下创建<code>ContractController</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itheima.web.controller.cargo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.hutool.core.lang.UUID;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.dubbo.config.annotation.Reference;</span><br><span class="line"><span class="keyword">import</span> com.github.pagehelper.PageInfo;</span><br><span class="line"><span class="keyword">import</span> com.itheima.domain.cargo.Contract;</span><br><span class="line"><span class="keyword">import</span> com.itheima.domain.cargo.ContractExample;</span><br><span class="line"><span class="keyword">import</span> com.itheima.service.cargo.ContractService;</span><br><span class="line"><span class="keyword">import</span> com.itheima.web.controller.BaseController;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.lang3.StringUtils;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestParam;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/cargo/contract"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ContractController</span> <span class="keyword">extends</span> <span class="title">BaseController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="meta">@Reference</span></span><br><span class="line">	<span class="keyword">private</span> ContractService contractService;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 生成列表</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@RequestMapping</span>(value = <span class="string">"/list"</span>, name = <span class="string">"合同列表查询"</span>)</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">list</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">			@RequestParam(defaultValue = <span class="string">"1"</span>, name = <span class="string">"page"</span>)</span> Integer pageNum,</span></span><br><span class="line"><span class="function">			@<span class="title">RequestParam</span><span class="params">(defaultValue = <span class="string">"10"</span>)</span> Integer pageSize) </span>&#123;</span><br><span class="line">		ContractExample contractExample = <span class="keyword">new</span> ContractExample();</span><br><span class="line">		<span class="comment">//1 封装条件</span></span><br><span class="line">		ContractExample.Criteria criteria = contractExample.createCriteria();</span><br><span class="line">		criteria.andCompanyIdEqualTo(getCompanyId());</span><br><span class="line"></span><br><span class="line">		<span class="comment">//2 排序</span></span><br><span class="line">		contractExample.setOrderByClause(<span class="string">"create_time desc"</span>);</span><br><span class="line"></span><br><span class="line">		PageInfo pageInfo = contractService.findByPage(pageNum, pageSize,contractExample);</span><br><span class="line">		request.setAttribute(<span class="string">"page"</span>, pageInfo);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> <span class="string">"/cargo/contract/contract-list"</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 跳转新增页面</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@RequestMapping</span>(value = <span class="string">"/toAdd"</span>, name = <span class="string">"跳转合同新增页面"</span>)</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">toAdd</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> <span class="string">"/cargo/contract/contract-add"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 新增,修改功能</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@RequestMapping</span>(value = <span class="string">"/edit"</span>, name = <span class="string">"合同新增,修改"</span>)</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">edit</span><span class="params">(Contract contract)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (StringUtils.isEmpty(contract.getId())) &#123;</span><br><span class="line">			<span class="comment">//1. 设置主键</span></span><br><span class="line">			contract.setId(UUID.randomUUID().toString());</span><br><span class="line">			<span class="comment">//2. 设置企业信息</span></span><br><span class="line">			contract.setCompanyId(getCompanyId());</span><br><span class="line">			contract.setCompanyName(getCompanyName());</span><br><span class="line"></span><br><span class="line">			<span class="comment">//3.创建人id\创建部门id\创建时间</span></span><br><span class="line">			contract.setCreateBy(getUser().getId());</span><br><span class="line">			contract.setCreateDept(getUser().getDeptId());</span><br><span class="line">			contract.setCreateTime(<span class="keyword">new</span> Date());</span><br><span class="line"></span><br><span class="line">			<span class="comment">//4. 设置当前合同的状态</span></span><br><span class="line">			contract.setState(<span class="number">0</span>);<span class="comment">//草稿</span></span><br><span class="line">			contractService.save(contract);</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			contractService.update(contract);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//重定向到list方法</span></span><br><span class="line">		<span class="keyword">return</span> <span class="string">"redirect:/cargo/contract/list.do"</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 跳转到修改</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@RequestMapping</span>(value = <span class="string">"/toUpdate"</span>, name = <span class="string">"跳转合同编辑页面"</span>)</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">toUpdate</span><span class="params">(String id)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//1. 根据id查询当前合同信息</span></span><br><span class="line">		Contract contract = contractService.findById(id);</span><br><span class="line">		request.setAttribute(<span class="string">"contract"</span>, contract);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		<span class="comment">//3. 转发到修改页面</span></span><br><span class="line">		<span class="keyword">return</span> <span class="string">"/cargo/contract/contract-update"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 删除功能</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@RequestMapping</span>(value = <span class="string">"/delete"</span>, name = <span class="string">"合同删除"</span>)</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">delete</span><span class="params">(String id)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//调用service删除</span></span><br><span class="line">		contractService.delete(id);</span><br><span class="line"></span><br><span class="line">		<span class="comment">//重定向到list方法</span></span><br><span class="line">		<span class="keyword">return</span> <span class="string">"redirect:/cargo/contract/list.do"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-删除合同的调整"><a href="#3-删除合同的调整" class="headerlink" title="3. 删除合同的调整"></a>3. 删除合同的调整</h3><blockquote>
+<p>因为合同  货物  附件之间是有关系的, 所以在删除合同的时候,还要删除合同下面的货物和附件信息 </p>
+</blockquote>
+<p>修改ContractServiceImpl代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delete</span><span class="params">(String id)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//=========================================查询===========================================//</span></span><br><span class="line">    <span class="comment">//1. 查询当前合同下的所有附件</span></span><br><span class="line">    ExtCproductExample extCproductExample = <span class="keyword">new</span> ExtCproductExample();</span><br><span class="line">    extCproductExample.createCriteria().andContractIdEqualTo(id);</span><br><span class="line">    List&lt;ExtCproduct&gt; extCproductList = extCproductDao.selectByExample(extCproductExample);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//2. 查询当前合同下的所有货物</span></span><br><span class="line">    ContractProductExample contractProductExample = <span class="keyword">new</span> ContractProductExample();</span><br><span class="line">    contractProductExample.createCriteria().andContractIdEqualTo(id);</span><br><span class="line">    List&lt;ContractProduct&gt; contractProductList = contractProductDao.selectByExample(contractProductExample);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//========================================附件删除========================================//</span></span><br><span class="line">    <span class="keyword">for</span> (ExtCproduct extCproduct : extCproductList) &#123;</span><br><span class="line">        extCproductDao.deleteByPrimaryKey(extCproduct.getId());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//========================================货物删除========================================//</span></span><br><span class="line">    <span class="keyword">for</span> (ContractProduct contractProduct : contractProductList) &#123;</span><br><span class="line">        contractProductDao.deleteByPrimaryKey(contractProduct.getId());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//========================================合同删除========================================//</span></span><br><span class="line">    contractDao.deleteByPrimaryKey(id);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="4-提交-取消合同"><a href="#4-提交-取消合同" class="headerlink" title="4. 提交/取消合同"></a>4. 提交/取消合同</h3><p>提交和撤销合同的本质是改变合同的状态：</p>
+<ul>
+<li>提交： 0—&gt; 1   草稿—&gt;已上报</li>
+<li>撤销： 1–&gt;0     已上报—&gt;草稿</li>
+</ul>
+<h4 id="4-1-ContractController"><a href="#4-1-ContractController" class="headerlink" title="4.1 ContractController"></a>4.1 ContractController</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 提交合同</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@RequestMapping</span>(value = <span class="string">"/submit"</span>, name = <span class="string">"提交合同"</span>)</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">submit</span><span class="params">(String id)</span> </span>&#123;</span><br><span class="line">		Contract contract = <span class="keyword">new</span> Contract();</span><br><span class="line">		contract.setId(id);</span><br><span class="line">		contract.setState(<span class="number">1</span>);</span><br><span class="line">		contractService.update(contract);</span><br><span class="line"></span><br><span class="line">		<span class="comment">//重定向到list方法</span></span><br><span class="line">		<span class="keyword">return</span> <span class="string">"redirect:/cargo/contract/list.do"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 撤销提交</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@RequestMapping</span>(value = <span class="string">"/cancel"</span>, name = <span class="string">"撤销提交"</span>)</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">cancel</span><span class="params">(String id)</span> </span>&#123;</span><br><span class="line">		Contract contract = <span class="keyword">new</span> Contract();</span><br><span class="line">		contract.setId(id);</span><br><span class="line">		contract.setState(<span class="number">0</span>);</span><br><span class="line">		contractService.update(contract);</span><br><span class="line"></span><br><span class="line">		<span class="comment">//重定向到list方法</span></span><br><span class="line">		<span class="keyword">return</span> <span class="string">"redirect:/cargo/contract/list.do"</span>;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="第四章-货物管理"><a href="#第四章-货物管理" class="headerlink" title="第四章 货物管理"></a>第四章 货物管理</h2><h3 id="1-货物列表"><a href="#1-货物列表" class="headerlink" title="1. 货物列表"></a>1. 货物列表</h3><p><img src="http://mryhl.com.cn/bxws/713f/image-20200710000739332.png" alt></p>
+<p>在<code>export_manager_web</code>模块的<code>com.itheima.web.controller.cargo</code>下创建<code>ContractProductController</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itheima.web.controller.cargo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.alibaba.dubbo.config.annotation.Reference;</span><br><span class="line"><span class="keyword">import</span> com.github.pagehelper.PageInfo;</span><br><span class="line"><span class="keyword">import</span> com.itheima.domain.cargo.ContractProductExample;</span><br><span class="line"><span class="keyword">import</span> com.itheima.domain.cargo.Factory;</span><br><span class="line"><span class="keyword">import</span> com.itheima.domain.cargo.FactoryExample;</span><br><span class="line"><span class="keyword">import</span> com.itheima.service.cargo.ContractProductService;</span><br><span class="line"><span class="keyword">import</span> com.itheima.service.cargo.FactoryService;</span><br><span class="line"><span class="keyword">import</span> com.itheima.web.controller.BaseController;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestParam;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/cargo/contractProduct"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ContractProductController</span> <span class="keyword">extends</span> <span class="title">BaseController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Reference</span></span><br><span class="line">    <span class="keyword">private</span> ContractProductService contractProductService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Reference</span></span><br><span class="line">    <span class="keyword">private</span> FactoryService factoryService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping</span>(value = <span class="string">"/list"</span>, name = <span class="string">"货物列表查询"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">list</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">            @RequestParam(defaultValue = <span class="string">"1"</span>, name = <span class="string">"page"</span>)</span> Integer pageNum,</span></span><br><span class="line"><span class="function">            @<span class="title">RequestParam</span><span class="params">(defaultValue = <span class="string">"10"</span>)</span> Integer pageSize,</span></span><br><span class="line"><span class="function">            String contractId) </span>&#123;</span><br><span class="line"></span><br><span class="line">        ContractProductExample contractProductExample = <span class="keyword">new</span> ContractProductExample();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//1 查询当前合同下的所有货物</span></span><br><span class="line">        ContractProductExample.Criteria criteria = contractProductExample.createCriteria();</span><br><span class="line">        criteria.andCompanyIdEqualTo(getCompanyId());<span class="comment">//企业id</span></span><br><span class="line">        criteria.andContractIdEqualTo(contractId);<span class="comment">//合同id</span></span><br><span class="line"></span><br><span class="line">        PageInfo pageInfo = contractProductService.findByPage(pageNum, pageSize, contractProductExample);</span><br><span class="line">        request.setAttribute(<span class="string">"page"</span>, pageInfo);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//2 查询所有生产货物的厂家列表</span></span><br><span class="line">        FactoryExample factoryExample = <span class="keyword">new</span> FactoryExample();</span><br><span class="line">        factoryExample.createCriteria().andCtypeEqualTo(<span class="string">"货物"</span>);</span><br><span class="line">        List&lt;Factory&gt; factoryList = factoryService.findAll(factoryExample);</span><br><span class="line">        request.setAttribute(<span class="string">"factoryList"</span>, factoryList);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//3. 回传合同id</span></span><br><span class="line">        request.setAttribute(<span class="string">"contractId"</span>, contractId);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="string">"/cargo/product/product-list"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-新增货物"><a href="#2-新增货物" class="headerlink" title="2. 新增货物"></a>2. 新增货物</h3><h4 id="2-1-ContractProductController"><a href="#2-1-ContractProductController" class="headerlink" title="2.1  ContractProductController"></a>2.1  ContractProductController</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 新增,修改功能</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/edit"</span>, name = <span class="string">"货物新增,修改"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">edit</span><span class="params">(ContractProduct contractProduct)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (StringUtils.isEmpty(contractProduct.getId())) &#123;</span><br><span class="line">		<span class="comment">//1. 设置主键</span></span><br><span class="line">		contractProduct.setId(UUID.randomUUID().toString());</span><br><span class="line">		<span class="comment">//2. 设置企业信息</span></span><br><span class="line">		contractProduct.setCompanyId(getCompanyId());</span><br><span class="line">		contractProduct.setCompanyName(getCompanyName());</span><br><span class="line"></span><br><span class="line">		contractProductService.save(contractProduct);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		contractProductService.update(contractProduct);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//重定向到list方法</span></span><br><span class="line">	<span class="keyword">return</span> <span class="string">"redirect:/cargo/contractProduct/list.do?contractId="</span> + contractProduct.getContractId();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-ContractProductServiceImpl"><a href="#2-2-ContractProductServiceImpl" class="headerlink" title="2.2 ContractProductServiceImpl"></a>2.2 ContractProductServiceImpl</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">save</span><span class="params">(ContractProduct contractProduct)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 根据id查询合同信息</span></span><br><span class="line">        Contract contract = contractDao.selectByPrimaryKey(contractProduct.getContractId());</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 设置商品的金额</span></span><br><span class="line">        <span class="keyword">double</span> amount = contractProduct.getPrice() * contractProduct.getCnumber();</span><br><span class="line">        contractProduct.setAmount(amount);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        contractProductDao.insertSelective(contractProduct);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 保存合同的信息</span></span><br><span class="line">        <span class="comment">// 商品种类数</span></span><br><span class="line">        contract.setProNum(contract.getProNum() + <span class="number">1</span>);</span><br><span class="line">        <span class="comment">// 合同总金额</span></span><br><span class="line">        contract.setTotalAmount(contract.getTotalAmount() + amount);</span><br><span class="line"></span><br><span class="line">        contractDao.updateByPrimaryKeySelective(contract);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-修改货物"><a href="#3-修改货物" class="headerlink" title="3. 修改货物"></a>3. 修改货物</h3><p><img src="http://mryhl.com.cn/bxws/713f/image-20200710001224863.png" alt></p>
+<h4 id="3-1-跳转修改页面"><a href="#3-1-跳转修改页面" class="headerlink" title="3.1 跳转修改页面"></a>3.1 跳转修改页面</h4><p>修改ContractProductController添加代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/toUpdate"</span>, name = <span class="string">"跳转货物编辑页面"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">toUpdate</span><span class="params">(String id)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//1. 根据id查询当前货物信息</span></span><br><span class="line">    ContractProduct contractProduct = contractProductService.findById(id);</span><br><span class="line">    request.setAttribute(<span class="string">"contractProduct"</span>, contractProduct);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//2. 查询所有生产货物的厂家列表</span></span><br><span class="line">    FactoryExample factoryExample = <span class="keyword">new</span> FactoryExample();</span><br><span class="line">    factoryExample.createCriteria().andCtypeEqualTo(<span class="string">"货物"</span>);</span><br><span class="line">    List&lt;Factory&gt; factoryList = factoryService.findAll(factoryExample);</span><br><span class="line">    request.setAttribute(<span class="string">"factoryList"</span>, factoryList);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//3. 转发到修改页面</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"/cargo/product/product-update"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-修改货物"><a href="#3-2-修改货物" class="headerlink" title="3.2 修改货物"></a>3.2 修改货物</h4><p>修改ContractProductServiceImpl添加代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(ContractProduct contractProduct)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 根据id查询合同信息</span></span><br><span class="line">        Contract contract = contractDao.selectByPrimaryKey(contractProduct.getContractId());</span><br><span class="line"></span><br><span class="line">        ContractProduct contractProduct1 = contractProductDao.selectByPrimaryKey(contractProduct.getId());</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 设置商品的金额</span></span><br><span class="line">        <span class="keyword">double</span> amount = contractProduct.getPrice() * contractProduct.getCnumber();</span><br><span class="line"></span><br><span class="line">        contractProduct.setAmount(amount);</span><br><span class="line"></span><br><span class="line">        contractProductDao.updateByPrimaryKeySelective(contractProduct);</span><br><span class="line">        <span class="comment">// 判断原来的数据库中保存的值,因为有错误的测试插入,可能存在空值</span></span><br><span class="line">        <span class="keyword">if</span> (contractProduct1.getAmount()==<span class="keyword">null</span>)&#123;</span><br><span class="line">            contractProduct1.setAmount(<span class="number">0.0</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        contract.setTotalAmount(contract.getTotalAmount() + amount - contractProduct1.getAmount());</span><br><span class="line"></span><br><span class="line">        contractDao.updateByPrimaryKeySelective(contract);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-删除货物"><a href="#4-删除货物" class="headerlink" title="4. 删除货物"></a>4. 删除货物</h3><p><img src="http://mryhl.com.cn/bxws/713f/image-20200710001434201.png" alt> </p>
+<h4 id="4-1-ContractProductController"><a href="#4-1-ContractProductController" class="headerlink" title="4.1 ContractProductController"></a>4.1 ContractProductController</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/delete"</span>, name = <span class="string">"货物删除"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">delete</span><span class="params">(String id, String contractId)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//调用service删除</span></span><br><span class="line">    contractProductService.delete(id);<span class="comment">//货物id</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//重定向到list方法</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"redirect:/cargo/contractProduct/list.do?contractId="</span> + contractId;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-2-ContractProductServiceImpl"><a href="#4-2-ContractProductServiceImpl" class="headerlink" title="4.2 ContractProductServiceImpl"></a>4.2 ContractProductServiceImpl</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delete</span><span class="params">(String id)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 查询商品信息</span></span><br><span class="line">        ContractProduct contractProduct = contractProductDao.selectByPrimaryKey(id);</span><br><span class="line">        <span class="comment">// 查询附件</span></span><br><span class="line">        ExtCproductExample extCproductExample = <span class="keyword">new</span> ExtCproductExample();</span><br><span class="line">        extCproductExample.createCriteria().andContractProductIdEqualTo(id);</span><br><span class="line">        List&lt;ExtCproduct&gt; extCproducts = extCproductDao.selectByExample(extCproductExample);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 查询合同</span></span><br><span class="line">        Contract contract = contractDao.selectByPrimaryKey(contractProduct.getContractId());</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 执行删除附件</span></span><br><span class="line">        <span class="keyword">double</span> amount = <span class="number">0.0</span>;</span><br><span class="line">        <span class="keyword">for</span> (ExtCproduct extCproduct : extCproducts) &#123;</span><br><span class="line">            amount += extCproduct.getAmount();</span><br><span class="line">            extCproductDao.deleteByPrimaryKey(extCproduct.getId());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 删除货物</span></span><br><span class="line">        contractProductDao.deleteByPrimaryKey(id);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 修改合同 商品种类数</span></span><br><span class="line">        contract.setProNum(contract.getProNum() - <span class="number">1</span>);</span><br><span class="line">        <span class="comment">// 附件种类数</span></span><br><span class="line">        contract.setExtNum(contract.getProNum() - extCproducts.size());</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 金额</span></span><br><span class="line">        contract.setTotalAmount(contract.getTotalAmount() - contractProduct.getAmount() - amount );</span><br><span class="line"></span><br><span class="line">        contractDao.updateByPrimaryKeySelective(contract);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="第五章-七牛云存储"><a href="#第五章-七牛云存储" class="headerlink" title="第五章 七牛云存储"></a>第五章 七牛云存储</h2><p>添加货物和附件时需要上传图片，图片我们上传到一个第三方的托管服务器，本项目我们使用七牛云存储</p>
+<h3 id="1-账户申请"><a href="#1-账户申请" class="headerlink" title="1. 账户申请"></a>1. 账户申请</h3><h4 id="1-1-注册账户"><a href="#1-1-注册账户" class="headerlink" title="1.1 注册账户"></a>1.1 注册账户</h4><p><strong>申请免费注册今日注册页面,填写必要信息</strong></p>
+<h4 id="1-2-激活账号"><a href="#1-2-激活账号" class="headerlink" title="1.2 激活账号"></a>1.2 激活账号</h4><p><strong>通过邮箱验证的方式进行激活</strong></p>
+<h4 id="1-3-实名认证"><a href="#1-3-实名认证" class="headerlink" title="1.3 实名认证"></a>1.3 实名认证</h4><p><strong>实名认证需要准备好身份证正反面照片和支付宝账号</strong> </p>
+<h3 id="2-使用案例"><a href="#2-使用案例" class="headerlink" title="2. 使用案例"></a>2. 使用案例</h3><h4 id="2-1-创建空间"><a href="#2-1-创建空间" class="headerlink" title="2.1 创建空间"></a>2.1 创建空间</h4><p>操作步骤:</p>
+<ol>
+<li>点击云产品的对象存储, 进入新建空间的页面</li>
+<li>创建一个空间, 名字自定义 ,其它按照图上来</li>
+<li>域名暂时不用绑定, 七牛云会默认分派一个(有效期30天)</li>
+</ol>
+<p><img src="http://mryhl.com.cn/bxws/713f/image-20200705085409851.png" alt></p>
+<h4 id="2-2-查找秘钥"><a href="#2-2-查找秘钥" class="headerlink" title="2.2 查找秘钥"></a>2.2 查找秘钥</h4><p>操作步骤:</p>
+<ol>
+<li>点击小头像, 选择秘钥管理, 进入秘钥管理页面</li>
+<li>点击显示, 就可以查看到秘钥, 然后将其记录下来, 备用</li>
+</ol>
+<p><img src="http://mryhl.com.cn/bxws/713f/image-20200705090217462.png" alt></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="strong">**数据资料**</span></span><br><span class="line"><span class="code">    空间名称:saas-tj4</span></span><br><span class="line"><span class="code">    对外域名:http://qi8eho848.hn-bkt.clouddn.com/</span></span><br><span class="line"><span class="code">    AK:B6NvfR2Gp_8mA8LyVW1AwKsJ4ISpdsORS85ZH2Z-</span></span><br><span class="line"><span class="code">    SK:vS5YNOikZjhINGmO7ZDOG1hZR-7i-NLRbSIL71tB</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-3-开发文档"><a href="#2-3-开发文档" class="headerlink" title="2.3 开发文档"></a>2.3 开发文档</h4><p><a href="https://developer.qiniu.com/kodo/sdk/1239/java" target="_blank" rel="noopener">https://developer.qiniu.com/kodo/sdk/1239/java</a></p>
+<h3 id="3-文件上传案例"><a href="#3-文件上传案例" class="headerlink" title="3. 文件上传案例"></a>3. 文件上传案例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.google.gson.Gson;</span><br><span class="line"><span class="keyword">import</span> com.qiniu.common.QiniuException;</span><br><span class="line"><span class="keyword">import</span> com.qiniu.http.Response;</span><br><span class="line"><span class="keyword">import</span> com.qiniu.storage.Configuration;</span><br><span class="line"><span class="keyword">import</span> com.qiniu.storage.Region;</span><br><span class="line"><span class="keyword">import</span> com.qiniu.storage.UploadManager;</span><br><span class="line"><span class="keyword">import</span> com.qiniu.storage.model.DefaultPutRet;</span><br><span class="line"><span class="keyword">import</span> com.qiniu.util.Auth;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>:</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: mryhl</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span>: Created in 2020/10/15 19:50</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span>: 1.1</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QiniuDemo</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//指定region2  华南地区</span></span><br><span class="line">		Configuration cfg = <span class="keyword">new</span> Configuration(Region.region2());</span><br><span class="line">		UploadManager uploadManager = <span class="keyword">new</span> UploadManager(cfg);</span><br><span class="line"></span><br><span class="line">		<span class="comment">//填写自己的信息</span></span><br><span class="line">		String accessKey = <span class="string">"6RDghSCTOnkzq***************tWsB4VbIEtlK"</span>;</span><br><span class="line">		String secretKey = <span class="string">"nRJqQDTVIxxu7***************hm_Rya3zFnWg"</span>;</span><br><span class="line">		String bucket = <span class="string">"saas-export-yhl"</span>;</span><br><span class="line"></span><br><span class="line">		<span class="comment">//准备一张图片</span></span><br><span class="line">		String localFilePath = <span class="string">"C:/Users/mryhl/Pictures/Camera Roll/12.jpg"</span>;</span><br><span class="line"></span><br><span class="line">		String key = <span class="keyword">null</span>;</span><br><span class="line">		Auth auth = Auth.create(accessKey, secretKey);</span><br><span class="line">		String upToken = auth.uploadToken(bucket);</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			Response response = uploadManager.put(localFilePath, key, upToken);</span><br><span class="line">			<span class="comment">//解析上传成功的结果</span></span><br><span class="line">			DefaultPutRet putRet = <span class="keyword">new</span> Gson().fromJson(response.bodyString(), DefaultPutRet<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">			System.out.println(putRet.key);</span><br><span class="line">			System.out.println(putRet.hash);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (QiniuException ex) &#123;</span><br><span class="line">			Response r = ex.response;</span><br><span class="line">			System.err.println(r.toString());</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				System.err.println(r.bodyString());</span><br><span class="line">			&#125; <span class="keyword">catch</span> (QiniuException ex2) &#123;</span><br><span class="line">				ex2.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+      
+    
+        <!-- zengjian -->
+              
+      
+        <div class="declare" hidden="hidden"></div>
+      
+        <!-- zengj -->
+      
+            
+           </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">code</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">项目练习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Mybatis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/bxws/713f.html">展开全文 >></a>
         </p>
       
 
@@ -1465,137 +1770,6 @@
 
 
   
-    <article id="post-SpringMVC2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/bxws/a893.html">SpringMVC2</a>
-    </h1>
-  
-
-        <!--  -->
-        
-        
-<a href="/bxws/a893.html" class="archive-article-date">
-  	<time datetime="2020-09-27T12:55:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-27</time>
-</a>
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">4.2k字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">19分</span>
-      </span>
-    </span>
-</div>
-          
-        <!-- 添加完成 -->
-        
-        <!-- 添加代码 -->  
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="今日内容"><a href="#今日内容" class="headerlink" title="今日内容"></a>今日内容</h2><ul>
-<li>页面跳转<ul>
-<li>转发<ul>
-<li>传参</li>
-</ul>
-</li>
-<li>重定向</li>
-</ul>
-</li>
-<li>释放静态资源</li>
-<li>Ajax+json实现异步交互</li>
-<li>restful风格</li>
-<li>异常处理机制</li>
-<li>拦截器</li>
-</ul>
-        
-      
-      
-    
-        <!-- zengjian -->
-              
-      
-        <div class="declare" hidden="hidden"></div>
-      
-        <!-- zengj -->
-      
-            
-           </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">code</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SpringMVC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/bxws/a893.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/">Next</a>
@@ -1749,6 +1923,34 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">more</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">IDEA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">File</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">推荐</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">知识</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Map</a>
               </li>
              
@@ -1769,38 +1971,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">File</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">more</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">IDEA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">推荐</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">知识</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JUnit</a>
               </li>
              
@@ -1813,7 +1983,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1829,11 +1999,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">项目练习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">索引</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">流</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1845,19 +2031,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">流</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">request</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">response</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1869,7 +2043,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+                <a href="javascript:void(0)" class="js-tag color3">request</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">response</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1881,7 +2059,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">习题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">xml</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1893,10 +2079,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">xml</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
@@ -1905,11 +2087,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">dubbo</a>
+                <a href="javascript:void(0)" class="js-tag color2">gc垃圾处理</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gc垃圾处理</a>
+                <a href="javascript:void(0)" class="js-tag color1">dubbo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1921,15 +2103,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ArrayList</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">修复hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color5">ArrayList</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1937,11 +2115,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbc</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jsp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">jdbc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1953,15 +2135,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">函数</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">servlet</a>
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1970,6 +2148,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">多表查询</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">servlet</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">tomcat</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1989,7 +2175,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">tomcat</a>
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1997,23 +2183,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+                <a href="javascript:void(0)" class="js-tag color3">枚举</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">项目练习</a>
+                <a href="javascript:void(0)" class="js-tag color3">正则</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">zookeeper</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">分模块开发</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">私服</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2029,19 +2207,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">枚举</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">正则</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">api</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Scanner</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">分模块开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">私服</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2093,6 +2271,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">线程安全</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">继承</a>
               </li>
              
@@ -2114,10 +2296,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">面向对象</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">线程安全</a>
               </li>
              
               <li class="article-tag-list-item">
