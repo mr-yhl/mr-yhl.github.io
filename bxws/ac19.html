@@ -9,17 +9,18 @@
   <link rel="dns-prefetch" href="http://mryhl.com.cn">
   <title>跨域问题及解决 | mr-yhl的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="摘要.">
+  <meta name="description" content="什么是跨域域是指跨域名的访问，以下情况都属于跨域：    跨域原因说明 示例    域名不同 www.jd.com 与 www.taobao.com   域名相同，端口不同 www.jd.com:8080 与 www.jd.com:8081   二级域名不同 item.jd.com 与 miaosha.jd.com">
 <meta property="og:type" content="article">
 <meta property="og:title" content="跨域问题及解决">
 <meta property="og:url" content="http://mryhl.com.cn/bxws/ac19.html">
 <meta property="og:site_name" content="mr-yhl的博客">
-<meta property="og:description" content="摘要.">
+<meta property="og:description" content="什么是跨域域是指跨域名的访问，以下情况都属于跨域：    跨域原因说明 示例    域名不同 www.jd.com 与 www.taobao.com   域名相同，端口不同 www.jd.com:8080 与 www.jd.com:8081   二级域名不同 item.jd.com 与 miaosha.jd.com">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-15T10:39:59.000Z">
-<meta property="article:modified_time" content="2020-11-15T10:39:59.716Z">
+<meta property="article:modified_time" content="2020-11-15T10:47:06.016Z">
 <meta property="article:author" content="杨海林">
-<meta property="article:tag" content="简历 code 推荐 more">
+<meta property="article:tag" content="推荐">
+<meta property="article:tag" content="跨域">
 <meta name="twitter:card" content="summary">
   
   
@@ -219,7 +220,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">9字</span>
+        <span class="post-count">2.1k字</span>
       </span>
     </span>
 
@@ -228,7 +229,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
+        <span class="post-count">8分</span>
       </span>
     </span>
 </div>
@@ -241,15 +242,146 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <div id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <div class="hbe-input-container">
-  <input type="password" id="hbePass" placeholder="" />
-    <label for="hbePass">Welcome to my blog, enter password to read.</label>
-    <div class="bottom-line"></div>
-  </div>
-  <script id="hbeData" type="hbeData" data-hmacdigest="c8d6e4fa686d3644e03b62cce015b4ad307aaa4be72b4d375452ba7594850faf">ffc5d5ad6d6831b9248bcde1d1f414f5</script>
-</div>
-<script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
+        <h2 id="什么是跨域"><a href="#什么是跨域" class="headerlink" title="什么是跨域"></a>什么是跨域</h2><p>域是指跨域名的访问，以下情况都属于跨域：</p>
+<table>
+<thead>
+<tr>
+<th>跨域原因说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>域名不同</td>
+<td><code>www.jd.com</code> 与 <code>www.taobao.com</code></td>
+</tr>
+<tr>
+<td>域名相同，端口不同</td>
+<td><code>www.jd.com:8080</code> 与 <code>www.jd.com:8081</code></td>
+</tr>
+<tr>
+<td>二级域名不同</td>
+<td><code>item.jd.com</code> 与 <code>miaosha.jd.com</code></td>
+</tr>
+</tbody></table>
+<a id="more"></a>
+
+<p>注意：如果<strong>域名和端口都相同，但是请求路径不同</strong>，不属于跨域，如：</p>
+<p><code>www.jd.com/item</code> </p>
+<p><code>www.jd.com/goods</code></p>
+<h2 id="为什么有跨域的问题"><a href="#为什么有跨域的问题" class="headerlink" title="为什么有跨域的问题"></a>为什么有跨域的问题</h2><p>因为跨域问题是浏览器对于ajax请求的一种安全限制：<strong>一个页面发起的ajax请求，只能是于当前页同域名的路径</strong>，这能有效的阻止跨站攻击。</p>
+<p>因此：<strong>跨域问题 是针对ajax的一种限制</strong>。但是这却给我们的开发带来了不变，而且在实际生成环境中，肯定会有很多台服务器之间交互，地址和端口都可能不同</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>目前比较常用的跨域解决方案有3种：</p>
+<h4 id="1）Jsonp"><a href="#1）Jsonp" class="headerlink" title="1）Jsonp"></a>1）Jsonp</h4><p>最早的解决方案，利用script标签可以跨域的原理实现。</p>
+<p>限制：</p>
+<ul>
+<li>需要服务的支持</li>
+<li>只能发起GET请求</li>
+</ul>
+<h4 id="2）nginx反向代理"><a href="#2）nginx反向代理" class="headerlink" title="2）nginx反向代理"></a>2）nginx反向代理</h4><p>思路是：利用nginx反向代理把跨域为不跨域，支持各种请求方式</p>
+<p>缺点：需要在nginx进行额外配置，语义不清晰</p>
+<h4 id="3）CORS"><a href="#3）CORS" class="headerlink" title="3）CORS"></a>3）CORS</h4><p>规范化的跨域请求解决方案，安全可靠。</p>
+<p>优势：</p>
+<ul>
+<li>在服务端进行控制是否允许跨域，可自定义规则</li>
+<li>支持各种请求方式</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>会产生额外的请求</li>
+</ul>
+<p>我们这里会采用cors的跨域方案。</p>
+<h2 id="cors解决跨域"><a href="#cors解决跨域" class="headerlink" title="cors解决跨域"></a>cors解决跨域</h2><h3 id="什么是cors"><a href="#什么是cors" class="headerlink" title="什么是cors"></a>什么是cors</h3><p>CORS是一个W3C标准，全称是”跨域资源共享”（Cross-origin resource sharing）。</p>
+<p>它允许浏览器向跨源服务器，发出<a href="http://www.ruanyifeng.com/blog/2012/09/xmlhttprequest_level_2.html" target="_blank" rel="noopener"><code>XMLHttpRequest</code></a>请求，从而克服了AJAX只能<a href="http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html" target="_blank" rel="noopener">同源</a>使用的限制。</p>
+<p>CORS需要浏览器和服务器同时支持。目前，所有浏览器都支持该功能，IE浏览器不能低于IE10。</p>
+<ul>
+<li><p>浏览器端：</p>
+<p>目前，所有浏览器都支持该功能（IE10以下不行）。整个CORS通信过程，都是浏览器自动完成，不需要用户参与。</p>
+</li>
+<li><p>服务端：</p>
+<p>CORS通信与AJAX没有任何差别，因此你不需要改变以前的业务逻辑。只不过，浏览器会在请求中携带一些头信息，我们需要以此判断是否运行其跨域，然后在响应头中加入一些信息即可。这一般通过过滤器完成即可。</p>
+</li>
+</ul>
+<h3 id="cors原理"><a href="#cors原理" class="headerlink" title="cors原理"></a>cors原理</h3><p>浏览器会将ajax请求分为两类，其处理方案略有差异：简单请求、特殊请求。</p>
+<h4 id="简单请求"><a href="#简单请求" class="headerlink" title="简单请求"></a>简单请求</h4><p>只要同时满足以下两大条件，就属于简单请求。：</p>
+<p>（1) 请求方法是以下三种方法之一：</p>
+<ul>
+<li>HEAD</li>
+<li>GET</li>
+<li>POST</li>
+</ul>
+<p>（2）HTTP的头信息不超出以下几种字段：</p>
+<ul>
+<li>Accept</li>
+<li>Accept-Language</li>
+<li>Content-Language</li>
+<li>Last-Event-ID</li>
+<li>Content-Type：只限于三个值<code>application/x-www-form-urlencoded</code>、<code>multipart/form-data</code>、<code>text/plain</code></li>
+</ul>
+<p>当浏览器发现发现的ajax请求是简单请求时，会在请求头中携带一个字段：<code>Origin</code>.</p>
+<p>Origin中会指出当前请求属于哪个域（协议+域名+端口）。服务会根据这个值决定是否允许其跨域。</p>
+<p>如果服务器允许跨域，需要在返回的响应头中携带下面信息：</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Access-Control-Allow-Origin</span>: http://mm.mryhl.com.cn</span><br><span class="line"><span class="attribute">Access-Control-Allow-Credentials</span>: true</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Access-Control-Allow-Origin：可接受的域，是一个具体域名或者*，代表任意</li>
+<li>Access-Control-Allow-Credentials：是否允许携带cookie，默认情况下，cors不会携带cookie，除非这个值是true</li>
+</ul>
+<p>注意：</p>
+<p>如果跨域请求要想操作cookie，需要满足3个条件：</p>
+<ul>
+<li>服务的响应头中需要携带Access-Control-Allow-Credentials并且为true。</li>
+<li>浏览器发起ajax需要指定withCredentials 为true</li>
+<li>响应头中的Access-Control-Allow-Origin一定不能为*，必须是指定的域名</li>
+</ul>
+<h4 id="特殊请求"><a href="#特殊请求" class="headerlink" title="特殊请求"></a>特殊请求</h4><p>不符合简单请求的条件，会被浏览器判定为特殊请求,，例如请求方式为PUT。</p>
+<blockquote>
+<p>预检请求</p>
+</blockquote>
+<p>特殊请求会在正式通信之前，增加一次HTTP查询请求，称为”预检”请求（preflight）。</p>
+<p>浏览器先询问服务器，当前网页所在的域名是否在服务器的许可名单之中，以及可以使用哪些HTTP动做和头信息字段。只有得到肯定答复，浏览器才会发出正式的<code>XMLHttpRequest</code>请求，否则就报错。</p>
+<p>一个“预检”请求的样板：</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">OPTIONS</span> <span class="string">/cors</span> HTTP/1.1</span><br><span class="line"><span class="attribute">Origin</span>: http://mm.mryhl.com.cn</span><br><span class="line"><span class="attribute">Access-Control-Request-Method</span>: PUT</span><br><span class="line"><span class="attribute">Access-Control-Request-Headers</span>: X-Custom-Header</span><br><span class="line"><span class="attribute">Host</span>: api.leyou.com</span><br><span class="line"><span class="attribute">Accept-Language</span>: en-US</span><br><span class="line"><span class="attribute">Connection</span>: keep-alive</span><br><span class="line"><span class="attribute">User-Agent</span>: Mozilla/5.0...</span><br></pre></td></tr></table></figure>
+
+<p>与简单请求相比，除了Origin以外，多了两个头：</p>
+<ul>
+<li>Access-Control-Request-Method：接下来会用到的请求方式，比如PUT</li>
+<li>Access-Control-Request-Headers：会额外用到的头信息</li>
+</ul>
+<blockquote>
+<p>预检请求的响应</p>
+</blockquote>
+<p>服务的收到预检请求，如果许可跨域，会发出响应：</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 <span class="number">200</span> OK</span><br><span class="line"><span class="attribute">Date</span>: Mon, 01 Dec 2008 01:15:39 GMT</span><br><span class="line"><span class="attribute">Server</span>: Apache/2.0.61 (Unix)</span><br><span class="line"><span class="attribute">Access-Control-Allow-Origin</span>: http://mm.mryhl.com.cn</span><br><span class="line"><span class="attribute">Access-Control-Allow-Credentials</span>: true</span><br><span class="line"><span class="attribute">Access-Control-Allow-Methods</span>: GET, POST, PUT</span><br><span class="line"><span class="attribute">Access-Control-Allow-Headers</span>: X-Custom-Header</span><br><span class="line"><span class="attribute">Access-Control-Max-Age</span>: 1728000</span><br><span class="line"><span class="attribute">Content-Type</span>: text/html; charset=utf-8</span><br><span class="line"><span class="attribute">Content-Encoding</span>: gzip</span><br><span class="line"><span class="attribute">Content-Length</span>: 0</span><br><span class="line"><span class="attribute">Keep-Alive</span>: timeout=2, max=100</span><br><span class="line"><span class="attribute">Connection</span>: Keep-Alive</span><br><span class="line"><span class="attribute">Content-Type</span>: text/plain</span><br></pre></td></tr></table></figure>
+
+<p>除了<code>Access-Control-Allow-Origin</code>和<code>Access-Control-Allow-Credentials</code>以外，这里又额外多出3个头：</p>
+<ul>
+<li>Access-Control-Allow-Methods：允许访问的方式</li>
+<li>Access-Control-Allow-Headers：允许携带的头</li>
+<li>Access-Control-Max-Age：本次许可的有效时长，单位是秒，<strong>过期之前的ajax请求就无需再次进行预检了</strong></li>
+</ul>
+<p>如果浏览器得到上述响应，则认定为可以跨域，后续就跟简单请求的处理是一样的了。</p>
+<h3 id="SpringMVC实现cors"><a href="#SpringMVC实现cors" class="headerlink" title="SpringMVC实现cors"></a>SpringMVC实现cors</h3><p>虽然原理比较复杂，但是前面说过：</p>
+<ul>
+<li>浏览器端都有浏览器自动完成，我们无需操心</li>
+<li>服务端可以通过拦截器统一实现，不必每次都去进行跨域判定的编写。</li>
+</ul>
+<p>在实现代码我们需要 做的事情如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;        1.添加cors的配置信息</span><br><span class="line">&#x2F;&#x2F;          允许访问的域</span><br><span class="line">&#x2F;&#x2F;          是否允许发送cookie</span><br><span class="line">&#x2F;&#x2F;          允许的请求方式</span><br><span class="line">&#x2F;&#x2F;          允许的头信息</span><br><span class="line">&#x2F;&#x2F;          访问有效期</span><br><span class="line">&#x2F;&#x2F;       2.添加映射路径，我们拦截一切请求</span><br><span class="line">&#x2F;&#x2F;       3.返回新的CORSFilter</span><br></pre></td></tr></table></figure>
+
+
+
+<p>事实上，SpringMVC已经帮我们写好了CORS的跨域过滤器：CorsFilter ,内部已经实现了刚才所讲的判定逻辑，我们直接用就好了。</p>
+<p>在<code>yhl-api-gateway</code>中编写一个配置类，并且注册CorsFilter：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.com.mryhl.gateway.config;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.cors.CorsConfiguration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.cors.UrlBasedCorsConfigurationSource;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.filter.CorsFilter;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GlobalCORSConfig</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> CorsFilter <span class="title">corsFilter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//1.添加CORS配置信息</span></span><br><span class="line">        CorsConfiguration config = <span class="keyword">new</span> CorsConfiguration();</span><br><span class="line">        <span class="comment">//1) 允许的域,不要写*，否则cookie就无法使用了</span></span><br><span class="line">        config.addAllowedOrigin(<span class="string">"http://mm.mryhl.com.cn"</span>);</span><br><span class="line">        config.addAllowedOrigin(<span class="string">"http://www.mryhl.com.cn"</span>);</span><br><span class="line">        <span class="comment">//2) 是否发送Cookie信息</span></span><br><span class="line">        config.setAllowCredentials(<span class="keyword">true</span>);</span><br><span class="line">        <span class="comment">//3) 允许的请求方式</span></span><br><span class="line">        config.addAllowedMethod(<span class="string">"OPTIONS"</span>);</span><br><span class="line">        config.addAllowedMethod(<span class="string">"HEAD"</span>);</span><br><span class="line">        config.addAllowedMethod(<span class="string">"GET"</span>);</span><br><span class="line">        config.addAllowedMethod(<span class="string">"PUT"</span>);</span><br><span class="line">        config.addAllowedMethod(<span class="string">"POST"</span>);</span><br><span class="line">        config.addAllowedMethod(<span class="string">"DELETE"</span>);</span><br><span class="line">        <span class="comment">// 4）允许的头信息</span></span><br><span class="line">        config.addAllowedHeader(<span class="string">"*"</span>);</span><br><span class="line">        <span class="comment">// 5）有效期 单位秒</span></span><br><span class="line">        config.setMaxAge(<span class="number">3600L</span>);</span><br><span class="line">        <span class="comment">//2.添加映射路径，我们拦截一切请求</span></span><br><span class="line">        UrlBasedCorsConfigurationSource configSource = <span class="keyword">new</span> UrlBasedCorsConfigurationSource();</span><br><span class="line">        configSource.registerCorsConfiguration(<span class="string">"/**"</span>, config);</span><br><span class="line">        <span class="comment">//3.返回新的CORSFilter</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> CorsFilter(configSource);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><p>把一些属性抽取到配置文件application.yml：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">yhl:</span></span><br><span class="line">  <span class="attr">cors:</span></span><br><span class="line">    <span class="attr">allowedOrigins:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">http://mm.mryhl.com.cn</span></span><br><span class="line">    <span class="attr">allowedCredentials:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">allowedHeaders:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">"*"</span></span><br><span class="line">    <span class="attr">allowedMethods:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">GET</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POST</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">DELETE</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">PUT</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">OPTIONS</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">HEAD</span></span><br><span class="line">    <span class="attr">maxAge:</span> <span class="number">3600</span></span><br><span class="line">    <span class="attr">filterPath:</span> <span class="string">"/**"</span></span><br></pre></td></tr></table></figure>
+
+<p>然后定义类，加载这些属性：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@ConfigurationProperties</span>(prefix = <span class="string">"yhl.cors"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CORSProperties</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> List&lt;String&gt; allowedOrigins;</span><br><span class="line">    <span class="keyword">private</span> Boolean allowedCredentials;</span><br><span class="line">    <span class="keyword">private</span> List&lt;String&gt; allowedMethods;</span><br><span class="line">    <span class="keyword">private</span> List&lt;String&gt; allowedHeaders;</span><br><span class="line">    <span class="keyword">private</span> Long maxAge;</span><br><span class="line">    <span class="keyword">private</span> String filterPath;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>修改CORS配置类，读取属性：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.com.mryhl.gateway.config;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.cors.CorsConfiguration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.cors.UrlBasedCorsConfigurationSource;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.filter.CorsFilter;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 服务端配置跨域的 信息</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GlobalCORSConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> CorsFilter <span class="title">corsFilterConfig</span><span class="params">(CORSProperties prop)</span></span>&#123;</span><br><span class="line"><span class="comment">//        1.添加cors的配置信息</span></span><br><span class="line">        CorsConfiguration config = <span class="keyword">new</span> CorsConfiguration();</span><br><span class="line"><span class="comment">//          允许访问的域</span></span><br><span class="line"><span class="comment">//        config.addAllowedOrigin("http://mm.mryhl.com.cn");</span></span><br><span class="line">        config.setAllowedOrigins(prop.getAllowedOrigins());</span><br><span class="line"><span class="comment">//          是否允许发送cookie</span></span><br><span class="line"><span class="comment">//        config.setAllowCredentials(true);</span></span><br><span class="line">        config.setAllowCredentials(prop.getAllowedCredentials());</span><br><span class="line"><span class="comment">//          允许的请求方式</span></span><br><span class="line"><span class="comment">//        config.addAllowedMethod("GET");</span></span><br><span class="line"><span class="comment">//        config.addAllowedMethod("POST");</span></span><br><span class="line"><span class="comment">//        config.addAllowedMethod("PUT");</span></span><br><span class="line">        config.setAllowedMethods(prop.getAllowedMethods());</span><br><span class="line"><span class="comment">//          允许的头信息</span></span><br><span class="line"><span class="comment">//        config.addAllowedHeader("*");</span></span><br><span class="line">        config.setAllowedHeaders(prop.getAllowedHeaders());</span><br><span class="line"><span class="comment">//          访问有效期</span></span><br><span class="line"><span class="comment">//        config.setMaxAge(3600L);</span></span><br><span class="line">        config.setMaxAge(prop.getMaxAge());</span><br><span class="line"><span class="comment">//       2.添加映射路径，我们拦截一切请求,使用自定义配置</span></span><br><span class="line">        UrlBasedCorsConfigurationSource source = <span class="keyword">new</span> UrlBasedCorsConfigurationSource();</span><br><span class="line">        source.registerCorsConfiguration(prop.getFilterPath(),config);</span><br><span class="line"><span class="comment">//       3.返回新的CORSFilter</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> CorsFilter(source);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
       
         <div style="text-align:center;color: #00BFFF;font-size:14px;">
@@ -323,7 +455,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">简历 code 推荐 more</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">推荐</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">跨域</a>
         		</li>
       		
 		</ul>
@@ -422,7 +558,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是跨域"><span class="toc-number">1.</span> <span class="toc-text">什么是跨域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么有跨域的问题"><span class="toc-number">2.</span> <span class="toc-text">为什么有跨域的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方案"><span class="toc-number">3.</span> <span class="toc-text">解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1）Jsonp"><span class="toc-number">3.0.1.</span> <span class="toc-text">1）Jsonp</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2）nginx反向代理"><span class="toc-number">3.0.2.</span> <span class="toc-text">2）nginx反向代理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3）CORS"><span class="toc-number">3.0.3.</span> <span class="toc-text">3）CORS</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cors解决跨域"><span class="toc-number">4.</span> <span class="toc-text">cors解决跨域</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是cors"><span class="toc-number">4.1.</span> <span class="toc-text">什么是cors</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cors原理"><span class="toc-number">4.2.</span> <span class="toc-text">cors原理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#简单请求"><span class="toc-number">4.2.1.</span> <span class="toc-text">简单请求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#特殊请求"><span class="toc-number">4.2.2.</span> <span class="toc-text">特殊请求</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SpringMVC实现cors"><span class="toc-number">4.3.</span> <span class="toc-text">SpringMVC实现cors</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优化"><span class="toc-number">4.4.</span> <span class="toc-text">优化</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -600,6 +736,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">json</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Map</a>
               </li>
              
@@ -624,15 +772,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
+                <a href="javascript:void(0)" class="js-tag color5">es集群</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">json</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+                <a href="javascript:void(0)" class="js-tag color4">java操作es</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -656,19 +800,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">es集群</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">java操作es</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">推荐</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">知识</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -708,14 +848,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">项目练习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
@@ -724,7 +856,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">流</a>
+                <a href="javascript:void(0)" class="js-tag color5">项目练习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -737,6 +873,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">流</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -772,10 +912,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
@@ -788,51 +924,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gc垃圾处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">dubbo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">修复hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">filter</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">listener</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ArrayList</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数组</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">session</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">cookie</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -844,7 +940,51 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gc垃圾处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">dubbo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">filter</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">listener</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">修复hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数组</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ArrayList</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">jdbc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">jsp</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -852,11 +992,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">数据库基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">函数</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">数据库基础</a>
+                <a href="javascript:void(0)" class="js-tag color5">多表查询</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -880,11 +1024,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">多表查询</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+                <a href="javascript:void(0)" class="js-tag color2">typora</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -892,23 +1032,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">typora</a>
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">单词</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">zookeeper</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">split</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -920,6 +1048,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">zookeeper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">枚举</a>
               </li>
              
@@ -928,15 +1060,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dos</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">api</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Scanner</a>
+                <a href="javascript:void(0)" class="js-tag color3">单词</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -948,11 +1072,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">split</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">api</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Scanner</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">poi</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color4">dos</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -965,6 +1105,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">webservice</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数字炸弹</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -984,11 +1132,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数字炸弹</a>
+                <a href="javascript:void(0)" class="js-tag color4">ssm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1012,18 +1156,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">继承</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">抽象类</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">final</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">线程池</a>
               </li>
              
@@ -1040,6 +1172,34 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">继承</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">抽象类</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">final</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">跨域</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础概念</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">细粒度</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">POI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">类</a>
               </li>
              
@@ -1052,35 +1212,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">细粒度</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">POI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">简历 code 推荐 more</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础概念</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ssm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">elasticsearch</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">lucene</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jsp</a>
               </li>
              
               <li class="article-tag-list-item">
